@@ -1,0 +1,14 @@
+delete from appointment;
+delete from episode;
+delete from prescribeddrugs;
+delete from packagedruginfotmp;
+delete from packageddrugs;
+delete from package;
+delete from patientattribute;
+delete from patientidentifier;
+delete from prescription;
+delete from patient;
+delete from stocklevel;
+delete from stock;
+delete from stocktake;
+delete from stockadjustment;

@@ -1,0 +1,997 @@
+28-05-2015 13:33:01 [main] INFO  idart.database.dao.ConexaoODBC - A Estabelecer a conexao com MS ACESS.....
+28-05-2015 13:33:01 [main] INFO  idart.database.dao.ConexaoODBC - A conexao com MS ACESS estabelecida com sucesso
+28-05-2015 13:33:01 [main] INFO  dart.start.PharmacyApplication - conexaco ms access sun.jdbc.odbc.JdbcOdbcConnection@1f4bdca
+28-05-2015 13:33:01 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 13:33:01 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 13:33:01 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
+28-05-2015 13:33:01 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 13:33:01 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 13:33:01 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
+28-05-2015 13:33:01 [main] ERROR dart.start.PharmacyApplication - Unable to load idart.properties file.
+java.lang.IllegalArgumentException: Input file does not exist or is a directory: C:\JAMBAIA\eclipse\wp\idart\idart.properties
+	at org.celllife.idart.misc.PropertiesEncrypter.loadPropertiesFromFile(PropertiesEncrypter.java:136)
+	at org.celllife.idart.commonobjects.iDartProperties.setiDartProperties(iDartProperties.java:140)
+	at org.celllife.idart.start.PharmacyApplication.loadConstants(PharmacyApplication.java:288)
+	at org.celllife.idart.start.PharmacyApplication.main(PharmacyApplication.java:115)
+Caused by: java.io.FileNotFoundException: idart.properties (The system cannot find the file specified)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at org.celllife.idart.misc.PropertiesEncrypter.loadPropertiesFromFile(PropertiesEncrypter.java:134)
+	... 3 more
+28-05-2015 13:33:01 [main] DEBUG llife.idart.gui.login.LoginErr - Login Form Created
+28-05-2015 13:33:26 [main] INFO  idart.database.dao.ConexaoODBC - A Estabelecer a conexao com MS ACESS.....
+28-05-2015 13:33:26 [main] INFO  idart.database.dao.ConexaoODBC - A conexao com MS ACESS estabelecida com sucesso
+28-05-2015 13:33:26 [main] INFO  dart.start.PharmacyApplication - conexaco ms access sun.jdbc.odbc.JdbcOdbcConnection@d81cda
+28-05-2015 13:33:26 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 13:33:26 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 13:33:26 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
+28-05-2015 13:33:26 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 13:33:26 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 13:33:26 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
+28-05-2015 13:33:26 [main] INFO  .commonobjects.iDartProperties - Locale changed to Portuguese (Mozambique)
+28-05-2015 13:33:26 [main] WARN  .commonobjects.iDartProperties - Property: updateUrl is null
+28-05-2015 13:33:26 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
+28-05-2015 13:33:26 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:33:26 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:33:26 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:33:26 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:33:26 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:33:27 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:33:27 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:33:27 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
+28-05-2015 13:33:27 [main] INFO                       liquibase - Successfully released change log lock
+28-05-2015 13:33:27 [main] INFO                       liquibase - Successfully acquired change log lock
+28-05-2015 13:33:27 [main] INFO                       liquibase - Reading from databasechangelog
+28-05-2015 13:33:27 [main] INFO                       liquibase - Reading from databasechangelog
+28-05-2015 13:33:28 [main] INFO                       liquibase - Successfully released change log lock
+28-05-2015 13:33:28 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:33:29 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
+28-05-2015 13:33:29 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
+28-05-2015 13:33:29 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@10e7ac9Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Av./Rua Cidade Tel Unidade Sanitária
+28-05-2015 13:33:29 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
+28-05-2015 13:33:29 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+28-05-2015 13:33:36 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
+28-05-2015 13:33:36 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
+28-05-2015 13:33:36 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
+28-05-2015 13:33:36 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
+28-05-2015 13:33:36 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:33:37 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 13:33:37 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:33:37 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 13:33:56 [main] WARN  dart.misc.PatientBarcodeParser - Could not match patientId using regular expression.
+28-05-2015 13:34:22 [main] INFO  i.prescription.AddPrescription - Saved Prescription for Patient: 114540
+28-05-2015 13:34:23 [main] INFO  t.gui.composite.PillCountTable - Creating PillCountTable
+28-05-2015 13:34:30 [main] INFO  .packaging.NewPatientPackaging - New Patient Packaging: User chose 'Patient History Report'
+28-05-2015 13:34:30 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:34:34 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:34:34 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 13:34:34 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:34:34 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 13:34:34 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:34:34 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 13:34:34 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:34:34 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 13:34:34 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:34:34 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 13:35:03 [main] INFO  i.prescription.AddPrescription - Saved Prescription for Patient: 114540
+28-05-2015 13:39:02 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:39:02 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 13:39:02 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:39:02 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 13:39:02 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:39:02 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 13:39:02 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:39:02 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 13:39:02 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:39:02 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 13:39:23 [main] INFO  i.prescription.AddPrescription - Saved Prescription for Patient: 114540
+28-05-2015 13:41:32 [main] INFO  idart.database.dao.ConexaoODBC - A Estabelecer a conexao com MS ACESS.....
+28-05-2015 13:41:33 [main] INFO  idart.database.dao.ConexaoODBC - A conexao com MS ACESS estabelecida com sucesso
+28-05-2015 13:41:33 [main] INFO  dart.start.PharmacyApplication - conexaco ms access sun.jdbc.odbc.JdbcOdbcConnection@d81cda
+28-05-2015 13:41:33 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 13:41:33 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 13:41:33 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
+28-05-2015 13:41:33 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 13:41:33 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 13:41:33 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
+28-05-2015 13:41:33 [main] INFO  .commonobjects.iDartProperties - Locale changed to Portuguese (Mozambique)
+28-05-2015 13:41:33 [main] WARN  .commonobjects.iDartProperties - Property: updateUrl is null
+28-05-2015 13:41:33 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
+28-05-2015 13:41:33 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:41:33 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:41:33 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:41:33 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:41:33 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:41:33 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:41:33 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:41:34 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
+28-05-2015 13:41:34 [main] INFO                       liquibase - Successfully released change log lock
+28-05-2015 13:41:34 [main] INFO                       liquibase - Successfully acquired change log lock
+28-05-2015 13:41:34 [main] INFO                       liquibase - Reading from databasechangelog
+28-05-2015 13:41:34 [main] INFO                       liquibase - Reading from databasechangelog
+28-05-2015 13:41:34 [main] INFO                       liquibase - Successfully released change log lock
+28-05-2015 13:41:34 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:41:35 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
+28-05-2015 13:41:36 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
+28-05-2015 13:41:36 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@19c92e2Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Av./Rua Cidade Tel Unidade Sanitária
+28-05-2015 13:41:36 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
+28-05-2015 13:41:36 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+28-05-2015 13:41:40 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
+28-05-2015 13:41:40 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
+28-05-2015 13:41:40 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
+28-05-2015 13:41:40 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
+28-05-2015 13:41:41 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:41:41 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 13:41:41 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:41:41 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 13:41:46 [main] INFO  t.gui.composite.PillCountTable - Creating PillCountTable
+28-05-2015 13:41:52 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:41:52 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 13:42:18 [main] INFO  .packaging.NewPatientPackaging - getSelectedWeekSupply() called
+28-05-2015 13:42:18 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 123441
+28-05-2015 13:42:18 [main] INFO  .packaging.NewPatientPackaging - savePackageAndPackagedDrugs() called
+28-05-2015 13:42:18 [main] INFO  anager.TemporaryRecordsManager - Saving package drug infos.
+28-05-2015 13:42:18 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:42:18 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 13:42:18 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 13:42:19 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 13:42:19 [main] ERROR idart.database.dao.ConexaoODBC - ++++++ Houve erro na Insercao de dados na tabela T_TARV do MS ACESS.....
+28-05-2015 13:42:19 [main] ERROR idart.database.dao.ConexaoODBC - java.sql.SQLException: [Microsoft][ODBC Microsoft Access Driver] You cannot add or change a record because a related record is required in table 't_paciente'.
+28-05-2015 13:42:19 [main] INFO  .packaging.NewPatientPackaging - submitForm() called
+28-05-2015 13:42:19 [main] INFO  .packaging.NewPatientPackaging - cmdDispenseDrugsSelected() called
+28-05-2015 13:42:23 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
+28-05-2015 13:42:23 [main] DEBUG dart.start.PharmacyApplication - Logged out..
+28-05-2015 13:42:23 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+28-05-2015 13:42:24 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 13:42:24 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 13:42:24 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
+28-05-2015 13:42:24 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 13:42:24 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 13:44:10 [main] WARN  dart.misc.PatientBarcodeParser - Could not match patientId using regular expression.
+28-05-2015 13:47:13 [main] WARN  dart.misc.PatientBarcodeParser - Could not match patientId using regular expression.
+28-05-2015 13:47:24 [main] WARN  dart.misc.PatientBarcodeParser - Could not match patientId using regular expression.
+28-05-2015 13:47:34 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
+28-05-2015 13:47:34 [main] DEBUG dart.start.PharmacyApplication - Logged out..
+28-05-2015 13:47:34 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+28-05-2015 13:47:36 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 13:47:36 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 13:47:36 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
+28-05-2015 13:47:36 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 13:47:36 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 14:45:47 [main] INFO  idart.database.dao.ConexaoODBC - A Estabelecer a conexao com MS ACESS.....
+28-05-2015 14:45:47 [main] INFO  idart.database.dao.ConexaoODBC - A conexao com MS ACESS estabelecida com sucesso
+28-05-2015 14:45:47 [main] INFO  dart.start.PharmacyApplication - conexaco ms access sun.jdbc.odbc.JdbcOdbcConnection@1d66aa9
+28-05-2015 14:45:47 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 14:45:47 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 14:45:47 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
+28-05-2015 14:45:47 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 14:45:47 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 14:45:47 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
+28-05-2015 14:45:47 [main] INFO  .commonobjects.iDartProperties - Locale changed to Portuguese (Mozambique)
+28-05-2015 14:45:47 [main] WARN  .commonobjects.iDartProperties - Property: updateUrl is null
+28-05-2015 14:45:47 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
+28-05-2015 14:45:47 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 14:45:47 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 14:45:47 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 14:45:47 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 14:45:47 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 14:45:48 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 14:45:48 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 14:45:48 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
+28-05-2015 14:45:48 [main] INFO                       liquibase - Successfully released change log lock
+28-05-2015 14:45:48 [main] INFO                       liquibase - Successfully acquired change log lock
+28-05-2015 14:45:48 [main] INFO                       liquibase - Reading from databasechangelog
+28-05-2015 14:45:48 [main] INFO                       liquibase - Reading from databasechangelog
+28-05-2015 14:45:49 [main] INFO                       liquibase - Successfully released change log lock
+28-05-2015 14:45:49 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 14:45:50 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
+28-05-2015 14:45:50 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
+28-05-2015 14:45:50 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@4e3bc6Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Av./Rua Cidade Tel Unidade Sanitária
+28-05-2015 14:45:50 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
+28-05-2015 14:45:50 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+28-05-2015 14:45:56 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
+28-05-2015 14:45:56 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
+28-05-2015 14:45:56 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
+28-05-2015 14:45:56 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
+28-05-2015 14:45:56 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 14:45:56 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 14:45:56 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 14:45:57 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 14:46:02 [main] INFO  t.gui.composite.PillCountTable - Creating PillCountTable
+28-05-2015 14:46:07 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 14:46:07 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 14:46:21 [main] INFO  .packaging.NewPatientPackaging - getSelectedWeekSupply() called
+28-05-2015 14:46:21 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 138090
+28-05-2015 14:46:21 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 138090
+28-05-2015 14:46:21 [main] INFO      model.manager.StockManager - Calculating StockLevel for stock 138090
+28-05-2015 14:46:21 [main] INFO  .packaging.NewPatientPackaging - savePackageAndPackagedDrugs() called
+28-05-2015 14:46:21 [main] INFO  anager.TemporaryRecordsManager - Saving package drug infos.
+28-05-2015 14:46:21 [main] INFO  anager.TemporaryRecordsManager - Saving package drug infos.
+28-05-2015 14:46:21 [main] INFO  anager.TemporaryRecordsManager - Saving package drug infos.
+28-05-2015 14:46:21 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 14:46:21 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 14:46:21 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 14:46:21 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 14:46:21 [main] ERROR idart.database.dao.ConexaoODBC - ++++++ Houve erro na Insercao de dados na tabela T_TARV do MS ACESS.....
+28-05-2015 14:46:21 [main] ERROR idart.database.dao.ConexaoODBC - java.sql.SQLException: [Microsoft][ODBC Microsoft Access Driver] You cannot add or change a record because a related record is required in table 't_paciente'.
+28-05-2015 14:46:21 [main] INFO  .packaging.NewPatientPackaging - submitForm() called
+28-05-2015 14:46:21 [main] INFO  .packaging.NewPatientPackaging - cmdDispenseDrugsSelected() called
+28-05-2015 14:47:41 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 14:47:41 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 15:15:05 [main] INFO  idart.database.dao.ConexaoODBC - A Estabelecer a conexao com MS ACESS.....
+28-05-2015 15:15:06 [main] INFO  idart.database.dao.ConexaoODBC - A conexao com MS ACESS estabelecida com sucesso
+28-05-2015 15:15:06 [main] INFO  dart.start.PharmacyApplication - conexaco ms access sun.jdbc.odbc.JdbcOdbcConnection@d81cda
+28-05-2015 15:15:06 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 15:15:06 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 15:15:06 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
+28-05-2015 15:15:06 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 15:15:06 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 15:15:07 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
+28-05-2015 15:15:09 [main] INFO  .commonobjects.iDartProperties - Locale changed to Portuguese (Mozambique)
+28-05-2015 15:15:09 [main] WARN  .commonobjects.iDartProperties - Property: updateUrl is null
+28-05-2015 15:15:09 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
+28-05-2015 15:15:09 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 15:15:09 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 15:15:09 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 15:15:11 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 15:15:11 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 15:15:12 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 15:15:12 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 15:15:13 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
+28-05-2015 15:15:14 [main] INFO                       liquibase - Successfully released change log lock
+28-05-2015 15:15:14 [main] INFO                       liquibase - Successfully acquired change log lock
+28-05-2015 15:15:15 [main] INFO                       liquibase - Reading from databasechangelog
+28-05-2015 15:15:15 [main] INFO                       liquibase - Reading from databasechangelog
+28-05-2015 15:15:16 [main] INFO                       liquibase - Successfully released change log lock
+28-05-2015 15:15:16 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 15:15:18 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
+28-05-2015 15:15:19 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
+28-05-2015 15:15:19 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@f3973Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Av./Rua Cidade Tel Unidade Sanitária
+28-05-2015 15:15:20 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
+28-05-2015 15:15:20 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+28-05-2015 16:14:55 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 16:14:55 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 16:14:55 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
+28-05-2015 16:14:55 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 16:14:55 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 20:58:31 [main] INFO  idart.database.dao.ConexaoODBC - A Estabelecer a conexao com MS ACESS.....
+28-05-2015 20:58:32 [main] INFO  idart.database.dao.ConexaoODBC - A conexao com MS ACESS estabelecida com sucesso
+28-05-2015 20:58:32 [main] INFO  dart.start.PharmacyApplication - conexaco ms access sun.jdbc.odbc.JdbcOdbcConnection@1f4bdca
+28-05-2015 20:58:32 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 20:58:32 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 20:58:32 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
+28-05-2015 20:58:32 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 20:58:32 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 20:58:33 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
+28-05-2015 20:58:46 [main] INFO  .commonobjects.iDartProperties - Locale changed to Portuguese (Mozambique)
+28-05-2015 20:58:46 [main] WARN  .commonobjects.iDartProperties - Property: updateUrl is null
+28-05-2015 20:58:46 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
+28-05-2015 20:58:46 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 20:58:48 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 20:58:48 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 20:58:52 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 20:58:52 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 20:58:52 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 20:58:52 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 20:58:53 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
+28-05-2015 20:58:54 [main] INFO                       liquibase - Successfully released change log lock
+28-05-2015 20:58:54 [main] INFO                       liquibase - Successfully acquired change log lock
+28-05-2015 20:58:55 [main] INFO                       liquibase - Reading from databasechangelog
+28-05-2015 20:58:55 [main] INFO                       liquibase - Reading from databasechangelog
+28-05-2015 20:58:56 [main] INFO                       liquibase - Successfully released change log lock
+28-05-2015 20:58:56 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 20:58:58 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
+28-05-2015 20:58:59 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
+28-05-2015 20:58:59 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@1183b7eDemo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Av./Rua Cidade Tel Unidade Sanitária
+28-05-2015 20:59:00 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
+28-05-2015 20:59:01 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+28-05-2015 20:59:36 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
+28-05-2015 20:59:38 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
+28-05-2015 20:59:38 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
+28-05-2015 20:59:38 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
+28-05-2015 20:59:39 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 20:59:39 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 20:59:41 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 20:59:41 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 21:09:41 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
+28-05-2015 21:09:41 [main] DEBUG dart.start.PharmacyApplication - Logged out..
+28-05-2015 21:09:41 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+28-05-2015 22:10:34 [main] INFO  celllife.idart.gui.login.Login - Login successful for user Abilio Junior
+28-05-2015 22:10:34 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
+28-05-2015 22:10:34 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
+28-05-2015 22:10:34 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
+28-05-2015 22:10:34 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:10:34 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:10:34 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:10:34 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:10:43 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:10:44 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:10:44 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:10:44 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:10:44 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:10:44 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:10:44 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:10:44 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:10:44 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:10:44 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:10:44 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:10:44 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:10:45 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:12:27 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:13:02 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:13:03 [packages subreport filler] ERROR e.fill.JRThreadSubreportRunner - Fill 10064916: exception
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Object.wait(Object.java:503)
+	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.suspend(JRThreadSubreportRunner.java:185)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.suspendSubreportRunner(JRBaseFiller.java:2095)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.addPage(JRVerticalFiller.java:1836)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillPageBreak(JRVerticalFiller.java:1916)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBreak(JRVerticalFiller.java:1945)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2048)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:757)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:269)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:127)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
+	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
+	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
+	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
+	at java.lang.Thread.run(Thread.java:745)
+28-05-2015 22:13:03 [packageDetails subreport filler] ERROR e.fill.JRThreadSubreportRunner - Fill 11552929: exception
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Object.wait(Object.java:503)
+	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.suspend(JRThreadSubreportRunner.java:185)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.suspendSubreportRunner(JRBaseFiller.java:2095)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.addPage(JRVerticalFiller.java:1836)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillPageBreak(JRVerticalFiller.java:1916)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBreak(JRVerticalFiller.java:1945)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:733)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportContent(JRVerticalFiller.java:289)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:131)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
+	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
+	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
+	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
+	at java.lang.Thread.run(Thread.java:745)
+28-05-2015 22:13:03 [packages subreport filler] ERROR e.fill.JRThreadSubreportRunner - Fill 13808801: exception
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Object.wait(Object.java:503)
+	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.suspend(JRThreadSubreportRunner.java:185)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.suspendSubreportRunner(JRBaseFiller.java:2095)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.addPage(JRVerticalFiller.java:1836)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillPageBreak(JRVerticalFiller.java:1916)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBreak(JRVerticalFiller.java:1945)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2048)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:757)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:269)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:127)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
+	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
+	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
+	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
+	at java.lang.Thread.run(Thread.java:745)
+28-05-2015 22:13:03 [packageDetails subreport filler] ERROR e.fill.JRThreadSubreportRunner - Fill 28811165: exception
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Object.wait(Object.java:503)
+	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.suspend(JRThreadSubreportRunner.java:185)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.suspendSubreportRunner(JRBaseFiller.java:2095)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.addPage(JRVerticalFiller.java:1836)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillPageBreak(JRVerticalFiller.java:1916)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBreak(JRVerticalFiller.java:1945)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:733)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportContent(JRVerticalFiller.java:289)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:131)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
+	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
+	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
+	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
+	at java.lang.Thread.run(Thread.java:745)
+28-05-2015 22:14:31 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:14:31 [packages subreport filler] ERROR e.fill.JRThreadSubreportRunner - Fill 31705893: exception
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Object.wait(Object.java:503)
+	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.suspend(JRThreadSubreportRunner.java:185)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.suspendSubreportRunner(JRBaseFiller.java:2095)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.addPage(JRVerticalFiller.java:1836)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillPageBreak(JRVerticalFiller.java:1916)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBreak(JRVerticalFiller.java:1945)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2048)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:757)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:269)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:127)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
+	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
+	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
+	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
+	at java.lang.Thread.run(Thread.java:745)
+28-05-2015 22:14:31 [packageDetails subreport filler] ERROR e.fill.JRThreadSubreportRunner - Fill 7891366: exception
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Object.wait(Object.java:503)
+	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.suspend(JRThreadSubreportRunner.java:185)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.suspendSubreportRunner(JRBaseFiller.java:2095)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.addPage(JRVerticalFiller.java:1836)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillPageBreak(JRVerticalFiller.java:1916)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBreak(JRVerticalFiller.java:1945)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2048)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:757)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:269)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:127)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
+	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
+	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
+	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
+	at java.lang.Thread.run(Thread.java:745)
+28-05-2015 22:14:31 [PackageDrugs subreport filler] ERROR e.fill.JRThreadSubreportRunner - Fill 28345457: exception
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Object.wait(Object.java:503)
+	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.suspend(JRThreadSubreportRunner.java:185)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.suspendSubreportRunner(JRBaseFiller.java:2095)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.addPage(JRVerticalFiller.java:1836)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillPageBreak(JRVerticalFiller.java:1916)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBreak(JRVerticalFiller.java:1945)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillColumnBand(JRVerticalFiller.java:2048)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillDetail(JRVerticalFiller.java:757)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReportStart(JRVerticalFiller.java:269)
+	at net.sf.jasperreports.engine.fill.JRVerticalFiller.fillReport(JRVerticalFiller.java:127)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:938)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:841)
+	at net.sf.jasperreports.engine.fill.JRFillSubreport.fillSubreport(JRFillSubreport.java:608)
+	at net.sf.jasperreports.engine.fill.JRSubreportRunnable.run(JRSubreportRunnable.java:59)
+	at net.sf.jasperreports.engine.fill.JRThreadSubreportRunner.run(JRThreadSubreportRunner.java:205)
+	at java.lang.Thread.run(Thread.java:745)
+28-05-2015 22:16:19 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
+28-05-2015 22:16:19 [main] DEBUG dart.start.PharmacyApplication - Logged out..
+28-05-2015 22:16:19 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+28-05-2015 22:16:26 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
+28-05-2015 22:16:26 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
+28-05-2015 22:16:26 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
+28-05-2015 22:16:26 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
+28-05-2015 22:16:27 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:16:27 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:16:27 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:16:27 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:16:33 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:16:33 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:16:33 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:16:33 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:16:33 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:16:33 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:16:33 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:16:33 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:16:33 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:16:33 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:16:33 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:16:33 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:16:34 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:16:34 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:16:34 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:16:34 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:16:34 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:16:34 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:16:34 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:16:34 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:16:34 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:16:34 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:16:34 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:16:49 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
+28-05-2015 22:16:49 [main] DEBUG dart.start.PharmacyApplication - Logged out..
+28-05-2015 22:16:49 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+28-05-2015 22:16:51 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 22:16:51 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 22:16:51 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
+28-05-2015 22:16:51 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 22:16:51 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 22:21:32 [main] INFO  idart.database.dao.ConexaoODBC - A Estabelecer a conexao com MS ACESS.....
+28-05-2015 22:21:32 [main] INFO  idart.database.dao.ConexaoODBC - A conexao com MS ACESS estabelecida com sucesso
+28-05-2015 22:21:32 [main] INFO  dart.start.PharmacyApplication - conexaco ms access sun.jdbc.odbc.JdbcOdbcConnection@1d66aa9
+28-05-2015 22:21:32 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 22:21:32 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 22:21:32 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
+28-05-2015 22:21:32 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 22:21:32 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 22:21:32 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
+28-05-2015 22:21:32 [main] INFO  .commonobjects.iDartProperties - Locale changed to Portuguese (Mozambique)
+28-05-2015 22:21:32 [main] WARN  .commonobjects.iDartProperties - Property: updateUrl is null
+28-05-2015 22:21:32 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
+28-05-2015 22:21:32 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:21:33 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:21:33 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:21:33 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:21:33 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:21:33 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:21:33 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:21:33 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
+28-05-2015 22:21:33 [main] INFO                       liquibase - Successfully released change log lock
+28-05-2015 22:21:33 [main] INFO                       liquibase - Successfully acquired change log lock
+28-05-2015 22:21:33 [main] INFO                       liquibase - Reading from databasechangelog
+28-05-2015 22:21:33 [main] INFO                       liquibase - Reading from databasechangelog
+28-05-2015 22:21:34 [main] INFO                       liquibase - Successfully released change log lock
+28-05-2015 22:21:34 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:21:35 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
+28-05-2015 22:21:35 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
+28-05-2015 22:21:35 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@6e48b3Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Av./Rua Cidade Tel Unidade Sanitária
+28-05-2015 22:21:35 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
+28-05-2015 22:21:35 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+28-05-2015 22:24:39 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
+28-05-2015 22:24:39 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
+28-05-2015 22:24:39 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
+28-05-2015 22:24:39 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
+28-05-2015 22:24:39 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:24:39 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:24:39 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:24:39 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:25:04 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:25:04 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:25:04 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:25:05 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:25:05 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:25:05 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:25:05 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:25:05 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:25:05 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:25:05 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:25:58 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
+28-05-2015 22:25:58 [main] DEBUG dart.start.PharmacyApplication - Logged out..
+28-05-2015 22:25:58 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+28-05-2015 22:26:00 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 22:26:00 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 22:26:00 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
+28-05-2015 22:26:00 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 22:26:00 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 22:28:15 [main] INFO  idart.database.dao.ConexaoODBC - A Estabelecer a conexao com MS ACESS.....
+28-05-2015 22:28:16 [main] INFO  idart.database.dao.ConexaoODBC - A conexao com MS ACESS estabelecida com sucesso
+28-05-2015 22:28:16 [main] INFO  dart.start.PharmacyApplication - conexaco ms access sun.jdbc.odbc.JdbcOdbcConnection@1d66aa9
+28-05-2015 22:28:16 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 22:28:16 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 22:28:16 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
+28-05-2015 22:28:16 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 22:28:16 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 22:28:16 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
+28-05-2015 22:28:16 [main] INFO  .commonobjects.iDartProperties - Locale changed to Portuguese (Mozambique)
+28-05-2015 22:28:16 [main] WARN  .commonobjects.iDartProperties - Property: updateUrl is null
+28-05-2015 22:28:16 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
+28-05-2015 22:28:16 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:28:16 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:28:16 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:28:16 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:28:16 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:28:16 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:28:16 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:28:17 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
+28-05-2015 22:28:17 [main] INFO                       liquibase - Successfully released change log lock
+28-05-2015 22:28:17 [main] INFO                       liquibase - Successfully acquired change log lock
+28-05-2015 22:28:17 [main] INFO                       liquibase - Reading from databasechangelog
+28-05-2015 22:28:17 [main] INFO                       liquibase - Reading from databasechangelog
+28-05-2015 22:28:18 [main] INFO                       liquibase - Successfully released change log lock
+28-05-2015 22:28:18 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:28:19 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
+28-05-2015 22:28:19 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
+28-05-2015 22:28:19 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@10128b0Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Av./Rua Cidade Tel Unidade Sanitária
+28-05-2015 22:28:19 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
+28-05-2015 22:28:19 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+28-05-2015 22:28:25 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
+28-05-2015 22:28:25 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
+28-05-2015 22:28:25 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
+28-05-2015 22:28:25 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
+28-05-2015 22:28:25 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:28:25 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:28:25 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:28:25 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:28:40 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:28:40 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:28:40 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:28:40 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:28:40 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:28:40 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:28:40 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:28:40 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:28:41 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:28:41 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:28:41 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:28:41 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:28:41 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:31:00 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:31:00 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:31:01 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:31:01 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:31:01 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:31:01 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:31:01 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:31:01 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:31:01 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:31:01 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:31:01 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:31:01 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:31:01 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:32:45 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
+28-05-2015 22:32:45 [main] DEBUG dart.start.PharmacyApplication - Logged out..
+28-05-2015 22:32:45 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+28-05-2015 22:32:47 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 22:32:47 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 22:32:47 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
+28-05-2015 22:32:47 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 22:32:47 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 22:36:28 [main] INFO  idart.database.dao.ConexaoODBC - A Estabelecer a conexao com MS ACESS.....
+28-05-2015 22:36:28 [main] INFO  idart.database.dao.ConexaoODBC - A conexao com MS ACESS estabelecida com sucesso
+28-05-2015 22:36:28 [main] INFO  dart.start.PharmacyApplication - conexaco ms access sun.jdbc.odbc.JdbcOdbcConnection@1d66aa9
+28-05-2015 22:36:28 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 22:36:28 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 22:36:28 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
+28-05-2015 22:36:28 [main] INFO  dart.start.PharmacyApplication - *********************
+28-05-2015 22:36:28 [main] INFO  dart.start.PharmacyApplication - 
+28-05-2015 22:36:28 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
+28-05-2015 22:36:28 [main] INFO  .commonobjects.iDartProperties - Locale changed to Portuguese (Mozambique)
+28-05-2015 22:36:28 [main] WARN  .commonobjects.iDartProperties - Property: updateUrl is null
+28-05-2015 22:36:28 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
+28-05-2015 22:36:28 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:36:29 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:36:29 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:36:29 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:36:29 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:36:29 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:36:29 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:36:29 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
+28-05-2015 22:36:29 [main] INFO                       liquibase - Successfully released change log lock
+28-05-2015 22:36:29 [main] INFO                       liquibase - Successfully acquired change log lock
+28-05-2015 22:36:30 [main] INFO                       liquibase - Reading from databasechangelog
+28-05-2015 22:36:30 [main] INFO                       liquibase - Reading from databasechangelog
+28-05-2015 22:36:30 [main] INFO                       liquibase - Successfully released change log lock
+28-05-2015 22:36:30 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:36:31 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
+28-05-2015 22:36:31 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
+28-05-2015 22:36:31 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@6e48b3Demo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Av./Rua Cidade Tel Unidade Sanitária
+28-05-2015 22:36:31 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
+28-05-2015 22:36:31 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+28-05-2015 22:36:40 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
+28-05-2015 22:36:40 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
+28-05-2015 22:36:40 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
+28-05-2015 22:36:40 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
+28-05-2015 22:36:41 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:36:41 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:36:41 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:36:41 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:36:54 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:36:54 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:36:54 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:36:54 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:36:54 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:36:54 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:36:55 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:36:55 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:36:55 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:36:55 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:36:55 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:36:55 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:36:55 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:47:53 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:47:53 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:47:53 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:47:53 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:47:53 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:47:53 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:47:53 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:47:53 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:47:53 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:47:53 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:47:53 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:47:53 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:47:53 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:48:07 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:48:08 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:48:08 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:48:08 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:48:08 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:48:08 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:48:08 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:48:08 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:48:08 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:48:08 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:48:08 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+28-05-2015 22:48:08 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+28-05-2015 22:48:08 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+29-05-2015 08:25:59 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
+29-05-2015 08:26:00 [main] DEBUG dart.start.PharmacyApplication - Logged out..
+29-05-2015 08:26:00 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+29-05-2015 11:12:29 [main] INFO  dart.start.PharmacyApplication - 
+29-05-2015 11:12:29 [main] INFO  dart.start.PharmacyApplication - *********************
+29-05-2015 11:12:29 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
+29-05-2015 11:12:29 [main] INFO  dart.start.PharmacyApplication - *********************
+29-05-2015 11:12:29 [main] INFO  dart.start.PharmacyApplication - 
+29-05-2015 12:20:09 [main] INFO  idart.database.dao.ConexaoODBC - A Estabelecer a conexao com MS ACESS.....
+29-05-2015 12:20:09 [main] INFO  idart.database.dao.ConexaoODBC - A conexao com MS ACESS estabelecida com sucesso
+29-05-2015 12:20:09 [main] INFO  dart.start.PharmacyApplication - conexaco ms access sun.jdbc.odbc.JdbcOdbcConnection@1f4bdca
+29-05-2015 12:20:09 [main] INFO  dart.start.PharmacyApplication - 
+29-05-2015 12:20:09 [main] INFO  dart.start.PharmacyApplication - *********************
+29-05-2015 12:20:09 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
+29-05-2015 12:20:09 [main] INFO  dart.start.PharmacyApplication - *********************
+29-05-2015 12:20:09 [main] INFO  dart.start.PharmacyApplication - 
+29-05-2015 12:20:10 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
+29-05-2015 12:20:10 [main] INFO  .commonobjects.iDartProperties - Locale changed to Portuguese (Mozambique)
+29-05-2015 12:20:10 [main] WARN  .commonobjects.iDartProperties - Property: updateUrl is null
+29-05-2015 12:20:10 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
+29-05-2015 12:20:10 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+29-05-2015 12:20:10 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+29-05-2015 12:20:10 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+29-05-2015 12:20:10 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+29-05-2015 12:20:10 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+29-05-2015 12:20:10 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+29-05-2015 12:20:10 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+29-05-2015 12:20:11 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
+29-05-2015 12:20:11 [main] INFO                       liquibase - Successfully released change log lock
+29-05-2015 12:20:11 [main] INFO                       liquibase - Successfully acquired change log lock
+29-05-2015 12:20:11 [main] INFO                       liquibase - Reading from databasechangelog
+29-05-2015 12:20:11 [main] INFO                       liquibase - Reading from databasechangelog
+29-05-2015 12:20:12 [main] INFO                       liquibase - Successfully released change log lock
+29-05-2015 12:20:12 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+29-05-2015 12:20:13 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
+29-05-2015 12:20:13 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
+29-05-2015 12:20:13 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@17f068fDemo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Av./Rua Cidade Tel Unidade Sanitária
+29-05-2015 12:20:13 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
+29-05-2015 12:20:13 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+29-05-2015 12:20:20 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
+29-05-2015 12:20:20 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
+29-05-2015 12:20:20 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
+29-05-2015 12:20:20 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
+29-05-2015 12:20:21 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+29-05-2015 12:20:21 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+29-05-2015 12:20:22 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+29-05-2015 12:20:22 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+29-05-2015 12:20:37 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+29-05-2015 12:20:37 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+29-05-2015 12:20:37 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+29-05-2015 12:20:37 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+29-05-2015 12:20:37 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+29-05-2015 12:20:37 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+29-05-2015 12:20:37 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+29-05-2015 12:20:37 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+29-05-2015 12:20:37 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+29-05-2015 12:20:37 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+29-05-2015 12:20:37 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+29-05-2015 12:20:37 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+29-05-2015 12:20:38 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+29-05-2015 12:21:08 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:39:03 [main] INFO  idart.database.dao.ConexaoODBC - A Estabelecer a conexao com MS ACESS.....
+02-06-2015 09:39:04 [main] INFO  idart.database.dao.ConexaoODBC - A conexao com MS ACESS estabelecida com sucesso
+02-06-2015 09:39:04 [main] INFO  dart.start.PharmacyApplication - conexaco ms access sun.jdbc.odbc.JdbcOdbcConnection@1f4bdca
+02-06-2015 09:39:04 [main] INFO  dart.start.PharmacyApplication - 
+02-06-2015 09:39:04 [main] INFO  dart.start.PharmacyApplication - *********************
+02-06-2015 09:39:04 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ starting
+02-06-2015 09:39:04 [main] INFO  dart.start.PharmacyApplication - *********************
+02-06-2015 09:39:04 [main] INFO  dart.start.PharmacyApplication - 
+02-06-2015 09:39:05 [main] INFO  .commonobjects.iDartProperties - Loading Encrypted System Properties
+02-06-2015 09:39:05 [main] INFO  .commonobjects.iDartProperties - Locale changed to Portuguese (Mozambique)
+02-06-2015 09:39:05 [main] WARN  .commonobjects.iDartProperties - Property: updateUrl is null
+02-06-2015 09:39:05 [main] INFO  ommonobjects.PropertiesManager - Loading properties for interface org.celllife.idart.commonobjects.SmsProperties
+02-06-2015 09:39:05 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:39:05 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:39:05 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:39:06 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:39:06 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:39:07 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:39:07 [main] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:39:07 [main] INFO  e.idart.database.DatabaseTools - Running liquibase file: org/celllife/idart/database/changelog-master.xml
+02-06-2015 09:39:08 [main] INFO                       liquibase - Successfully released change log lock
+02-06-2015 09:39:08 [main] INFO                       liquibase - Successfully acquired change log lock
+02-06-2015 09:39:08 [main] INFO                       liquibase - Reading from databasechangelog
+02-06-2015 09:39:08 [main] INFO                       liquibase - Reading from databasechangelog
+02-06-2015 09:39:09 [main] INFO                       liquibase - Successfully released change log lock
+02-06-2015 09:39:09 [main] INFO  tabase.hibernate.util.JDBCUtil - Closing JDBC connection to jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:39:10 [main] INFO  dart.start.PharmacyApplication - Starting Initialisation Tasks
+02-06-2015 09:39:11 [main] DEBUG   model.manager.PatientManager - Found attribute type similar to ARV Start Date: ARV Start Date
+02-06-2015 09:39:11 [main] DEBUG .manager.AdministrationManager - model.nonPersistent.PharmacyDetails@1149fdaDemo Pharmacist, B.Pharm Demo Pharmacist2, B.Pharm Av./Rua Cidade Tel Unidade Sanitária
+02-06-2015 09:39:11 [main] INFO  dart.start.PharmacyApplication - Finishing Initialisation Tasks
+02-06-2015 09:39:11 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+02-06-2015 09:39:38 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
+02-06-2015 09:39:38 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
+02-06-2015 09:39:38 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
+02-06-2015 09:39:38 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
+02-06-2015 09:39:39 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:39:39 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:39:39 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:39:39 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:39:59 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:39:59 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:39:59 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:39:59 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:39:59 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:40:00 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:40:00 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:40:00 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:40:00 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:40:00 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:40:00 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:40:00 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:40:00 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:40:27 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:40:27 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:40:27 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:40:27 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:40:27 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:40:28 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:40:28 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:40:28 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:40:28 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:40:28 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:40:29 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:40:29 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:40:29 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:51:38 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
+02-06-2015 09:51:38 [main] DEBUG dart.start.PharmacyApplication - Logged out..
+02-06-2015 09:51:38 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+02-06-2015 09:51:50 [main] INFO  celllife.idart.gui.login.Login - Login successful for user admin
+02-06-2015 09:51:50 [main] INFO  celllife.idart.misc.LoginTimer - Starting new logout timer with timeout 600 seconds.
+02-06-2015 09:51:50 [main] DEBUG art.gui.welcome.GenericWelcome - Creating newWelcome
+02-06-2015 09:51:50 [main] ERROR art.gui.welcome.GenericWelcome - Unable to load help.
+02-06-2015 09:51:50 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:51:50 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:51:50 [main] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:51:51 [main] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:52:10 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:52:10 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:52:10 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:52:10 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:52:10 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:52:10 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:52:11 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:52:11 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:52:11 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:52:11 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:52:11 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:52:11 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:52:11 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:52:57 [Report task] INFO  tabase.hibernate.util.JDBCUtil - Opening JDBC connection to jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:52:57 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:52:57 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:52:57 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:52:57 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:52:57 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:52:57 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:52:57 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:52:57 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:52:57 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:52:58 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:52:58 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectando ao banco de dados
+URL = jdbc:postgresql://localhost:5432/pharm
+02-06-2015 09:52:58 [Report task] INFO  idart.database.dao.ConexaoJDBC - Conectado...Criando a declaração
+02-06-2015 09:53:33 [main] DEBUG celllife.idart.misc.LoginTimer - Terminating iDART - TIMER EXPIRED
+02-06-2015 09:53:33 [main] DEBUG dart.start.PharmacyApplication - Logged out..
+02-06-2015 09:53:33 [main] DEBUG celllife.idart.gui.login.Login - Login Form Created
+02-06-2015 09:53:35 [main] INFO  dart.start.PharmacyApplication - 
+02-06-2015 09:53:35 [main] INFO  dart.start.PharmacyApplication - *********************
+02-06-2015 09:53:35 [main] INFO  dart.start.PharmacyApplication - iDART @IDART.VERSION.SHORT@ exited
+02-06-2015 09:53:35 [main] INFO  dart.start.PharmacyApplication - *********************
+02-06-2015 09:53:35 [main] INFO  dart.start.PharmacyApplication - 
