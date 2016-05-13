@@ -342,9 +342,9 @@ public class PrintLayoutUtils {
 	}
 
 	public static void printBarcode(Graphics2D g2d, String barcodeText, int printableWidth, int ypos) {
+		
 		try {
-			net.sourceforge.barbecue.Barcode b = BarcodeFactory
-					.createCode128(barcodeText);
+			net.sourceforge.barbecue.Barcode b = BarcodeFactory.createCode128(barcodeText);
 			b.setDrawingText(false);
 			b.setBarWidth(1);
 			b.setBarHeight(20);
@@ -353,6 +353,7 @@ public class PrintLayoutUtils {
 			// print barcode in center of printableWidth
 			b.draw(g2d, (printableWidth - b.getWidth()) / 2, ypos);
 			enableDoubleBuffering(b);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

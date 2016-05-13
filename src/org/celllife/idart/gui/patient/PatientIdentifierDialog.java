@@ -27,6 +27,7 @@ import java.util.Set;
 
 import model.manager.PatientManager;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.celllife.idart.commonobjects.iDartProperties;
 import org.celllife.idart.database.hibernate.AlternatePatientIdentifier;
@@ -39,6 +40,7 @@ import org.celllife.idart.gui.utils.iDartFont;
 import org.celllife.idart.gui.utils.iDartImage;
 import org.celllife.idart.messages.Messages;
 import org.celllife.idart.misc.iDARTUtil;
+import org.celllife.idart.rest.utils.RestClient;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.CellEditor;
@@ -57,11 +59,13 @@ import org.eclipse.swt.widgets.Shell;
 import org.hibernate.Session;
 
 public class PatientIdentifierDialog extends GenericOthersGui {
+	
+	private RestClient restClient;
 
 	class PatientIdentifierEditingSupport extends EditingSupport {
 
 		private CellEditor editor;
-
+		
 		public PatientIdentifierEditingSupport(ColumnViewer viewer) {
 			super(viewer);
 			editor = new TextCellEditor(((TableViewer) viewer).getTable());
@@ -294,6 +298,22 @@ public class PatientIdentifierDialog extends GenericOthersGui {
 				showMessage(MessageDialog.ERROR, Messages.getString("PatientIdDialog.error.exists.title"),  //$NON-NLS-1$
 						MessageFormat.format(Messages.getString("PatientIdDialog.error.exists.message"), //$NON-NLS-1$
 						newId.getType().getName(), newId.getValueEdit()));
+				return false;
+			}
+			
+			//Validate NID format against OpenMRS
+			if (!(newId.getValueEdit().matches("[0-9]{8}/[0-9]{2}/[0-9]{4,5}"))) {
+				showMessage(MessageDialog.ERROR, "Formato de NID incorrecto", "O valor introduzido não obedece a estrutura de um NID");
+				return false;
+			}
+			
+			restClient = new RestClient();
+			
+			//Verificar se o NID existe no OpenMRS
+			String openMrsResource = restClient.getOpenMRSResource("patient?q="+StringUtils.replace(newId.getValueEdit(), " ", "%20"));
+			
+			if (openMrsResource.length() == 14) {
+				showMessage(MessageDialog.ERROR, "Informação não encontrada", "NID inserido não existe no OpenMRS");
 				return false;
 			}
 			

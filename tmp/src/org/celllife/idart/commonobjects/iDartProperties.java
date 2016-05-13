@@ -32,7 +32,7 @@ public class iDartProperties {
 
 	public static String roundUpForms = "";
 
-	public static String hibernateConnectionUrl = "http://localhost:5432/idart";
+	public static String hibernateConnectionUrl = "http://192.168.100.1:5432/idart";
 
 	public static String hibernatePassword = "";
 

@@ -12,6 +12,16 @@ public class RegimeTerapeutico {
 	private int regimeid;
 	private String regimeesquema;
 	private boolean active;
+	private String regimenomeespecificado;
+	
+	public String getRegimenomeespecificado() {
+		return regimenomeespecificado;
+	}
+	
+	public void setRegimenomeespecificado(String regimenomeespecificado) {
+		this.regimenomeespecificado = regimenomeespecificado;
+	}
+	
 	public int getRegimeid() {
 		return regimeid;
 	}

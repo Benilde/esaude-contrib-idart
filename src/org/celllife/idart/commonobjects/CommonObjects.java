@@ -308,7 +308,8 @@ public class CommonObjects {
 
 		if (combo.getItemCount() > 0) {
 			// Set the default to the first item in the combo box
-			combo.setText("Renewal");
+			combo.setText("Fuck u...");
+			System.out.println(combo.getItem(2));
 		}
 
 	}

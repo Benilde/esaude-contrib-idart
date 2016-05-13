@@ -19,7 +19,6 @@
 
 package org.celllife.idart.start;
 
-import java.sql.Connection;
 import java.util.Arrays;
 
 import model.manager.AdministrationManager;
@@ -37,7 +36,6 @@ import org.celllife.idart.database.DatabaseEmptyException;
 import org.celllife.idart.database.DatabaseException;
 import org.celllife.idart.database.DatabaseTools;
 import org.celllife.idart.database.DatabaseWizard;
-
 import org.celllife.idart.database.dao.ConexaoODBC;
 import org.celllife.idart.database.hibernate.util.HibernateUtil;
 import org.celllife.idart.events.EventManager;
@@ -57,9 +55,7 @@ import org.celllife.idart.sms.SmsRetrySchedulerJob;
 import org.celllife.idart.sms.SmsSchedulerJob;
 import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -76,16 +72,16 @@ public class PharmacyApplication {
 	 * Method main.
 	 * 
 	 * @param args
-	 *            String[]
+	 * String[]
 	 */
 	
-	public static void main(String[] args) {
+public static void main(String[] args) {
 		
 ConexaoODBC odbc=new ConexaoODBC();
  
  
 DOMConfigurator.configure("log4j.xml");
-		try {
+		/*try {
 			Connection c=odbc.getConnection();
 			log.info("conexaco ms access "+c.toString());
 		} catch (Exception e) {
@@ -97,7 +93,7 @@ DOMConfigurator.configure("log4j.xml");
         	conexaoACCESS.open();
 			e.printStackTrace();
 			log.error("N�o foi possivel conectar a base de dados MS ACESS.....");
-		}
+		}*/
 		
 		// used for gui testing
 		System.setProperty("org.eclipse.swtbot.search.defaultKey",
@@ -116,8 +112,6 @@ DOMConfigurator.configure("log4j.xml");
 		performStartupChecks();
 		doInitialisationTasks();
 		launch(args);
-		
-		
 		
 	}
 

@@ -25,7 +25,6 @@ import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.print.PageFormat;
-import java.awt.print.Paper;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 import java.text.ParseException;
@@ -37,7 +36,6 @@ import org.apache.log4j.Logger;
 import org.celllife.idart.commonobjects.iDartProperties;
 import org.celllife.idart.commonobjects.iDartProperties.LabelType;
 import org.celllife.idart.database.hibernate.Patient;
-
 
 /**
  */
@@ -52,8 +50,8 @@ public class PatientInfoLabel implements Printable, DefaultLabel {
 
 	private String downReferralClinic;
 
-	final int BORDER_X = 1;
-	final int BORDER_Y = 1;
+	final int BORDER_X = 5;
+	final int BORDER_Y = 3;
 	SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
 
 	private LabelType labeltype;
@@ -102,11 +100,11 @@ public class PatientInfoLabel implements Printable, DefaultLabel {
 
 		char theSex = Character.toLowerCase(patient.getSex());
 		if (theSex == 'm')
-			sex = "Masculino";
+			sex = "Male";
 		else if (theSex == 'f')
-			sex = "Feminino";
+			sex = "Female";
 		else
-			sex = "Desconhecido";
+			sex = "Unknown";
 
 		// ImgPrint();
 	}
@@ -127,22 +125,19 @@ public class PatientInfoLabel implements Printable, DefaultLabel {
 	@Override
 	public int print(Graphics g, PageFormat pf, int pageIndex)
 			throws PrinterException {
-		
 
 		// set up the graphics
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.translate(pf.getImageableX(), pf.getImageableY());
-	System.out.println(" pf.getImageableX() and  pf.getImageableY() "+pf.getImageableX()+"   "+pf.getImageableY());
 		g2d.setPaint(Color.black);
 		// create the border
 		int x = (int) pf.getImageableX() + BORDER_X;
 		int y = (int) pf.getImageableY() + BORDER_Y;
 		int w = (int) pf.getImageableWidth() - (2 * BORDER_X);
-		int h = (int) pf.getImageableHeight() - (2* BORDER_Y);
-		
-		System.out.println(" pf.getImageableX() "+pf.getImageableX()+" pf.getImageableY() "+pf.getImageableY());
-	g2d.drawRect(x, y, w, h);
-	
+		int h = (int) pf.getImageableHeight() - (2 * BORDER_Y);
+
+		g2d.drawRect(x, y, w, h);
+
 		// Header Title
 		int hHeight = 16;
 		g2d.setFont(new Font("Arial", java.awt.Font.BOLD, 12));
@@ -158,7 +153,7 @@ public class PatientInfoLabel implements Printable, DefaultLabel {
 		 * Note 166 = total space for text on the line 20 = space between label
 		 * and info 10 = offset from right margin
 		 */
-		int xPos = x + (w - 166 - 20 - 10) / 2 - 41;
+		int xPos = x + (w - 166 - 20 - 10) / 2;
 		g2d.setFont(new Font("Arial", java.awt.Font.BOLD, 10));
 		fm = g2d.getFontMetrics();
 		g2d.drawString("Arquivo Nr: ", xPos, currentHeight);
@@ -174,16 +169,17 @@ public class PatientInfoLabel implements Printable, DefaultLabel {
 		xPos = xPos + (60 + 20);
 		g2d.setFont(new Font("Arial", java.awt.Font.PLAIN, 10));
 		fm = g2d.getFontMetrics();
-		String compressedName = PrintLayoutUtils
-				.buildWindowsCompressedLabelName(w - 35, fm, firstname, surname);
+		String compressedName = PrintLayoutUtils.buildWindowsCompressedLabelName(w - 35, fm, firstname, surname);
 		g2d.drawString(id, xPos, currentHeight);
 		g2d.drawString(compressedName, xPos, currentHeight + 12);
+		
 		try {
 			Date theDate = sdf.parse(dateOfBirth);
 			dateOfBirth = new SimpleDateFormat("dd MMM yyyy").format(theDate);
 		} catch (ParseException e) {
 			log.error("Error parsing date", e);
 		}
+		
 		g2d.drawString(dateOfBirth, xPos, currentHeight + 24);
 		g2d.drawString(sex, xPos, currentHeight + 36);
 		g2d.drawString(downReferralClinic, xPos, currentHeight + 48);
@@ -191,9 +187,8 @@ public class PatientInfoLabel implements Printable, DefaultLabel {
 		// Print the barcode at the bottom
 		/*Barcode barcode = new Barcode(id);
 		barcode.doPaint(g2d, 20, 125, 20, w);*/
-		System.out.println(" wwwwwwwwwwwwwwwww "+w);
-	PrintLayoutUtils.printBarcode(g2d, id, w, 97);
-		//PrintLayoutUtils.printBarcode(g2d, id, 240, 97);
+		
+		PrintLayoutUtils.printBarcode(g2d, id, w, 97);
 		return Printable.PAGE_EXISTS;
 
 	}
@@ -215,25 +210,22 @@ public class PatientInfoLabel implements Printable, DefaultLabel {
 			String compressedPatientName = PrintLayoutUtils
 					.buildEPL2CompressedName(280, firstname, surname);
 
-			//commands.add(PrintLayoutUtils.EPL2_SetFormLength(400, 25));// commands.add("Q400,25\n");
-			//commands.add(PrintLayoutUtils.EPL2_SetLabelWidth(600));// commands.add("q600\n");
-			
-			commands.add(PrintLayoutUtils.EPL2_SetFormLength(800, 25));// commands.add("Q400,25\n");
-			commands.add(PrintLayoutUtils.EPL2_SetLabelWidth(10000));// commands.add("q600\n");
+			commands.add(PrintLayoutUtils.EPL2_SetFormLength(400, 25));// commands.add("Q400,25\n");
+			commands.add(PrintLayoutUtils.EPL2_SetLabelWidth(600));// commands.add("q600\n");
 			commands.add(PrintLayoutUtils.EPL2_ClearImageBuffer()); // commands.add("N\n");
 			commands.add(PrintLayoutUtils.EPL2_BoxDraw(5, 1, 2, 595, 390)); // commands.add("X5,1,2,595,390\n");
 			commands.add(PrintLayoutUtils.EPL2_BoxDraw(5, 55, 2, 595, 265)); // commands.add("X5,55,2,595,265\n");
 			commands.add(PrintLayoutUtils.EPL2_Ascii(100, 11, 0, 2, 2, 2, 'N',
 					"DETALHES DO PACIENTE")); // commands.add("A100,11,0,2,2,2,N,\"PATIENT
 			// DETAILS\"\n");
-			commands.add(PrintLayoutUtils.EPL2_Ascii(5, 62, 0, 2, 1, 2, 'N',
+			commands.add(PrintLayoutUtils.EPL2_Ascii(30, 62, 0, 2, 1, 2, 'N',
 					"Arquivo Nr:")); // commands.add("A30,62,0,2,1,2,N,\"Folder
 			// No:\"\n");
-			commands.add(PrintLayoutUtils.EPL2_Ascii(200, 62, 0, 2, 1, 2, 'N',
+			commands.add(PrintLayoutUtils.EPL2_Ascii(250, 62, 0, 2, 1, 2, 'N',
 					id));
-			commands.add(PrintLayoutUtils.EPL2_Ascii(5, 102, 0, 2, 1, 2, 'N',
+			commands.add(PrintLayoutUtils.EPL2_Ascii(30, 102, 0, 2, 1, 2, 'N',
 					"Nome:"));
-			commands.add(PrintLayoutUtils.EPL2_Ascii(205, 102, 0, 2, 1, 2, 'N',
+			commands.add(PrintLayoutUtils.EPL2_Ascii(250, 102, 0, 2, 1, 2, 'N',
 					compressedPatientName));
 			try {
 				Date theDate = sdf.parse(dateOfBirth);
@@ -241,24 +233,20 @@ public class PatientInfoLabel implements Printable, DefaultLabel {
 			} catch (ParseException e) {
 				log.error("Error parsing date", e);
 			}
-			commands.add(PrintLayoutUtils.EPL2_Ascii(5, 142, 0, 2, 1, 2, 'N',
+			commands.add(PrintLayoutUtils.EPL2_Ascii(30, 142, 0, 2, 1, 2, 'N',
 					"Data Nasc:"));
-			commands.add(PrintLayoutUtils.EPL2_Ascii(200, 142, 0, 2, 1, 2, 'N',
+			commands.add(PrintLayoutUtils.EPL2_Ascii(250, 142, 0, 2, 1, 2, 'N',
 					dateOfBirth));
-			commands.add(PrintLayoutUtils.EPL2_Ascii(5, 182, 0, 2, 1, 2, 'N',
+			commands.add(PrintLayoutUtils.EPL2_Ascii(30, 182, 0, 2, 1, 2, 'N',
 					"Sexo:"));
-			commands.add(PrintLayoutUtils.EPL2_Ascii(200, 182, 0, 2, 1, 2, 'N',
+			commands.add(PrintLayoutUtils.EPL2_Ascii(250, 182, 0, 2, 1, 2, 'N',
 					sex));
-			commands.add(PrintLayoutUtils.EPL2_Ascii(5, 222, 0, 2, 1, 2, 'N',
+			commands.add(PrintLayoutUtils.EPL2_Ascii(30, 222, 0, 2, 1, 2, 'N',
 					"US:"));
-			commands.add(PrintLayoutUtils.EPL2_Ascii(200, 222, 0, 2, 1, 2, 'N',
+			commands.add(PrintLayoutUtils.EPL2_Ascii(250, 222, 0, 2, 1, 2, 'N',
 					downReferralClinic));
-		//	commands.add("B" + 0 + ",0,0,0,1,2,50,N," + "\"" + id + "\"\n");
-			
-			//commands.add("B" + PrintLayoutUtils.centerCode128Barcode(1, id)
-				//	+ ",0,0,0,1,2,50,N," + "\"" + id + "\"\n");
-			
-			
+			commands.add("B" + PrintLayoutUtils.centerCode128Barcode(2, id)
+					+ ",270,0,1,2,4,100,N," + "\"" + id + "\"\n");
 			commands.add(PrintLayoutUtils.EPL2_PrintLabel());
 
 			return commands;
