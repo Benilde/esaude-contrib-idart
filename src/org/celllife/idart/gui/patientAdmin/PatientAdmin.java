@@ -22,6 +22,7 @@ package org.celllife.idart.gui.patientAdmin;
 import org.apache.log4j.Logger;
 import org.celllife.idart.commonobjects.iDartProperties;
 import org.celllife.idart.gui.patient.AddPatient;
+import org.celllife.idart.gui.patient.AddPatientOpenMrs;
 import org.celllife.idart.gui.patient.MergePatients;
 import org.celllife.idart.gui.patient.ShowPAVAS;
 import org.celllife.idart.gui.platform.GenericAdminGui;
@@ -50,6 +51,8 @@ import org.eclipse.swt.widgets.Shell;
 public class PatientAdmin extends GenericAdminGui {
 
 	private Button btnPatientAdd;
+	
+	private Button btnPatientAddOpenMRS;
 
 	private Button btnPatientUpdate;
 
@@ -60,6 +63,8 @@ public class PatientAdmin extends GenericAdminGui {
 	private Button btnMergePatients;
 
 	private Label lblPicPatientAdd;
+	
+	private Label lblPicPatientAddOpenMRS;
 
 	private Label lblPicPatientUpdate;
 
@@ -117,17 +122,46 @@ public class PatientAdmin extends GenericAdminGui {
 		compOptions.setLayout(rowLayout);
 
 		GridLayout gl = new GridLayout(2, false);
-		gl.verticalSpacing = 30;
+		gl.verticalSpacing = 24;
 		Composite compOptionsInner = new Composite(compOptions, SWT.NONE);
 		compOptionsInner.setLayout(gl);
 
 		GridData gdPic = new GridData();
-		gdPic.heightHint = 43;
-		gdPic.widthHint = 50;
+		gdPic.heightHint = 46;
+		gdPic.widthHint = 53;
 
 		GridData gdBtn = new GridData();
-		gdBtn.heightHint = 40;
-		gdBtn.widthHint = 360;
+		gdBtn.heightHint = 43;
+		gdBtn.widthHint = 363;
+		
+		// lblPicPatientAddOpenMRS
+		lblPicPatientAddOpenMRS = new Label(compOptionsInner, SWT.NONE);
+		lblPicPatientAddOpenMRS.setLayoutData(gdPic);
+		lblPicPatientAddOpenMRS
+		.setImage(ResourceUtils.getImage(iDartImage.PATIENTNEW));
+		lblPicPatientAddOpenMRS.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseUp(MouseEvent mu) {
+				cmdAddPatientOpenMRSWidgetSelected();
+			}
+		});
+		
+		// btnPatientAddOpenMRS
+		btnPatientAddOpenMRS = new Button(compOptionsInner, SWT.NONE);
+		btnPatientAddOpenMRS.setData(iDartProperties.SWTBOT_KEY, Screens.ADD_PATIENT.getAccessButtonId());
+		btnPatientAddOpenMRS.setText(Messages.getString("PatientAdmin.button.addNewPatient.openMRS")); //$NON-NLS-1$
+		btnPatientAddOpenMRS.setFont(ResourceUtils.getFont(iDartFont.VERASANS_10));
+		btnPatientAddOpenMRS
+		.setToolTipText(Messages.getString("PatientAdmin.button.addNewPatient.tooltip")); //$NON-NLS-1$
+		btnPatientAddOpenMRS.setLayoutData(gdBtn);
+		btnPatientAddOpenMRS
+		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+			@Override
+			public void widgetSelected(
+					org.eclipse.swt.events.SelectionEvent e) {
+				cmdAddPatientOpenMRSWidgetSelected();
+			}
+		});
 
 		// lblPicPatientAdd
 		lblPicPatientAdd = new Label(compOptionsInner, SWT.NONE);
@@ -310,6 +344,14 @@ public class PatientAdmin extends GenericAdminGui {
 		compOptions.layout();
 		compOptionsInner.layout();
 
+	}
+	
+	private void cmdAddPatientOpenMRSWidgetSelected() {
+		System.out.println("cmdAddPatientOpenMRSWidgetSelected selected ...");
+		
+		// AddPatient(true) to ADD new patient to OpenMRS
+		AddPatientOpenMrs.addInitialisationOption(GenericFormGui.OPTION_isAddNotUpdate, true);
+		new AddPatientOpenMrs(getShell(), true);
 	}
 
 	private void cmdAddPatientWidgetSelected() {

@@ -33,6 +33,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
@@ -49,6 +50,7 @@ import model.nonPersistent.PatientIdAndName;
 
 import org.celllife.idart.database.dao.ConexaoJDBC;
 import org.celllife.idart.database.dao.ConexaoODBC;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.celllife.function.DateRuleFactory;
 import org.celllife.idart.commonobjects.CommonObjects;
@@ -98,6 +100,8 @@ import org.celllife.idart.misc.PatientBarcodeParser;
 import org.celllife.idart.misc.iDARTUtil;
 import org.celllife.idart.print.label.PackageCoverLabel;
 import org.celllife.idart.print.label.ScriptSummaryLabel;
+import org.celllife.idart.rest.utils.RestClient;
+import org.celllife.idart.rest.utils.RestUtils;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -169,8 +173,8 @@ public class NewPatientPackaging extends GenericFormGui implements
 	private Button rdBtnDispenseLater;
 	private Button rdBtnNoAppointmentDate;
 	private Button rdBtnYesAppointmentDate;
-	private Button rdBtnPrintSummaryLabelNo;
-	private Button rdBtnPrintSummaryLabelYes;
+	/*private Button rdBtnPrintSummaryLabelNo;
+	private Button rdBtnPrintSummaryLabelYes;*/
 	private ProgressBar pbLoading;
 	private Text searchBar;
 	private Table tblPrescriptionInfo;
@@ -191,10 +195,10 @@ public class NewPatientPackaging extends GenericFormGui implements
 	private StockCenter localPharmacy; // local persistent objects
 	private Packages newPack; // the new package
 	private Packages previousPack; // the last package picked up
-	private SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy"); // local
+	private SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy", Locale.ENGLISH); // local
 	private boolean dateAlreadyDispensed;
 	private Patient localPatient;
-private int dias=0;
+	private int dias=0;
 	/**
 	 * Constructor
 	 * 
@@ -1124,7 +1128,7 @@ private int dias=0;
 		createLastPackageTable(compLastPackage);
 		createPrescriptionInfoTable(compLastPackage);
 
-		Label lblSummaryLabel = new Label(compLastPackage, SWT.NONE);
+		/*Label lblSummaryLabel = new Label(compLastPackage, SWT.NONE);
 		lblSummaryLabel.setBounds(new Rectangle(550, 177, 180, 18));
 		lblSummaryLabel.setText("Imprimir uma etiqueta de instruções?");
 		lblSummaryLabel.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
@@ -1132,7 +1136,7 @@ private int dias=0;
 		Label lblAppointmentDate = new Label(compLastPackage, SWT.NONE);
 		lblAppointmentDate.setBounds(new Rectangle(150, 177, 250, 15));
 		lblAppointmentDate.setText("Imprimir etiqueta da data do Próximo Levantamento?");
-		lblAppointmentDate.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		lblAppointmentDate.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));*/
 
 		createCompShowAppointmentOnLabels(compLastPackage);
 		createCompSummaryLabel(compLastPackage);
@@ -1212,7 +1216,7 @@ private int dias=0;
 		compSummaryLabel.setLayout(null);
 		compSummaryLabel.setBounds(new Rectangle(730, 173, 98, 21));
 
-		rdBtnPrintSummaryLabelYes = new Button(compSummaryLabel, SWT.RADIO);
+		/*rdBtnPrintSummaryLabelYes = new Button(compSummaryLabel, SWT.RADIO);
 		rdBtnPrintSummaryLabelYes.setBounds(new Rectangle(5, 1, 49, 20));
 		rdBtnPrintSummaryLabelYes.setText("Sim");
 		rdBtnPrintSummaryLabelYes.setFont(ResourceUtils
@@ -1231,7 +1235,7 @@ private int dias=0;
 
 			rdBtnPrintSummaryLabelYes.setSelection(false);
 			rdBtnPrintSummaryLabelNo.setSelection(true);
-		}
+		}*/
 
 	}
 
@@ -2000,7 +2004,7 @@ private int dias=0;
 	}
 
 	private void init() {
-		sdf = new SimpleDateFormat("dd MMM yyyy");
+		sdf = new SimpleDateFormat("dd MMM yyyy", Locale.ENGLISH);
 		fieldsEnabled = false;
 	}
 
@@ -2096,7 +2100,7 @@ private int dias=0;
 		txtPatientName.setText(localPatient.getFirstNames() + " "
 				+ localPatient.getLastname());
 		txtPatientAge.setText("" + localPatient.getAge());
-		txtPatientDOB.setText(new SimpleDateFormat("dd MMM yyyy")
+		txtPatientDOB.setText(new SimpleDateFormat("dd MMM yyyy", Locale.ENGLISH)
 				.format(localPatient.getDateOfBirth()));
 		if (localPatient.getAge() < 15) {
 			lblPicChild.setVisible(true);
@@ -2106,13 +2110,13 @@ private int dias=0;
 
 		}
 
-		if (!iDartProperties.summaryLabelDefault) {
+		/*if (!iDartProperties.summaryLabelDefault) {
 			rdBtnPrintSummaryLabelYes.setSelection(false);
 			rdBtnPrintSummaryLabelNo.setSelection(true);
 		} else {
 			rdBtnPrintSummaryLabelYes.setSelection(false);
 			rdBtnPrintSummaryLabelNo.setSelection(true);
-		}
+		}*/
 
 		Prescription pre = localPatient.getCurrentPrescription();
 		if (pre == null) {
@@ -2335,7 +2339,7 @@ private int dias=0;
 
 			lblDateOfLastPickupContents.setText(numOfDays
 					+ " dias ("
-					+ new SimpleDateFormat("dd MMM yyyy")
+					+ new SimpleDateFormat("dd MMM yyyy", Locale.ENGLISH)
 							.format(lastPickupDate) + ")");
 
 			if (numOfDays > ((previousPack.getWeekssupply() * 7) + 3)) {
@@ -2720,9 +2724,11 @@ private int dias=0;
 	 *            boolean
 	 * @param allPackageDrugsList
 	 *            java.util.List<PackageDrugInfo>
+	 * @throws Exception
 	 */
+	@SuppressWarnings("unused")
 	private void savePackageAndPackagedDrugs(boolean dispenseNow,
-			java.util.List<PackageDrugInfo> allPackageDrugsList) {
+			java.util.List<PackageDrugInfo> allPackageDrugsList) throws Exception {
 
 		// if pack date is today, store the time too, else store 12am
 		Date today = new Date();
@@ -2802,6 +2808,98 @@ private int dias=0;
 		
 		PackageManager.savePackage(getHSession(), newPack);
 
+		//Add interoperability with OpenMRS through Rest Web Services
+		RestClient restClient = new RestClient();
+		
+		Date dtPickUp = newPack.getPickupDate();
+		
+		//EncounterDatetime
+		String strPickUp = RestUtils.castDateToString(dtPickUp);
+		
+		//Patient NID 
+		String nid = newPack.getPrescription().getPatient().getPatientId().trim();
+		
+		String nidRest = restClient.getOpenMRSResource("patient?q="+StringUtils.replace(nid, " ", "%20"));
+		
+		//Patient NID uuid 
+		String nidUuid = nidRest.substring(21, 57);
+		
+		//Encounter type
+		String encounterType = "e279133c-1d5f-11e0-b929-000c29ad1d07";
+		
+		String strProvider = newPack.getPrescription().getDoctor().getFirstname().trim() + " " + newPack.getPrescription().getDoctor().getLastname().trim();
+		
+		String providerWithNoAccents = org.apache.commons.lang3.StringUtils.stripAccents(strProvider);
+		
+		String response = restClient.getOpenMRSResource("person?q="+StringUtils.replace(providerWithNoAccents, " ", "%20"));
+		
+		//Provider
+		String providerUuid = response.substring(21, 57);
+		
+		String facility = newPack.getClinic().getClinicName().trim();
+		
+		//Location
+		String strFacility = restClient.getOpenMRSResource("location?q="+StringUtils.replace(facility, " ", "%20"));
+		
+		//Health Facility
+		String strFacilityUuid = strFacility.substring(21, 57);
+		
+		//Form(FILA) Uuid
+		String filaUuid = "49857ace-1a92-4980-8313-1067714df151";
+					
+		//Regime Uuid
+		String regimeUuid = "e1d83e4e-1d5f-11e0-b929-000c29ad1d07";
+		
+		//Regimen
+		String regimenAnswer = newPack.getPrescription().getRegimeTerapeutico().getRegimenomeespecificado().trim();
+		
+		String strRegimenAnswer = restClient.getOpenMRSResource("concept?q="+StringUtils.replace(regimenAnswer, " ", "%20"));
+		
+		//Regimen answer Uuid
+		String strRegimenAnswerUuid = strRegimenAnswer.substring(21, 57);
+		
+		//Dispensed amount Uuid
+		String dispensedAmountUuid = "e1de2ca0-1d5f-11e0-b929-000c29ad1d07"; 
+				
+		//Dispensed amount
+		String packSize = String.valueOf(newPack.getPrescription().getPrescribedDrugs().get(0).getDrug().getPackSize());
+		
+		//Dosage
+		String dosage = String.valueOf(newPack.getPrescription().getPrescribedDrugs().get(0).getTimesPerDay());
+		
+		String customizedDosage = "Tomar "+ String.valueOf((int)(newPack.getPrescription().getPrescribedDrugs().
+				get(0).getAmtPerTime()))+" Comp "+dosage+" vezes por dia";
+		
+		//Dosage Uuid
+		String dosageUuid = "e1de28ae-1d5f-11e0-b929-000c29ad1d07";
+		
+		//Return visit date Uuid
+		String returnVisitUuid = "e1e2efd8-1d5f-11e0-b929-000c29ad1d07";
+		
+		//Next pick up date
+		Date dtNextPickUp = btnNextAppDate.getDate();
+		
+		String strNextPickUp = RestUtils.castDateToString(dtNextPickUp);
+	
+       /*if (restClient.postOpenMRSEncounter(strPickUp, nidUuid, encounterType, 
+				strFacilityUuid, filaUuid, providerUuid, regimeUuid, strRegimenAnswerUuid, 
+				dispensedAmountUuid, packSize, dosageUuid, customizedDosage, returnVisitUuid, strNextPickUp)) {
+			
+				PackageManager.savePackage(getHSession(), newPack);
+		} else {
+				
+				showMessage(MessageDialog.ERROR,
+						"O Paciente não pode ser dispensado.",
+						"Entre em contacto com o Administrador do sistema.");
+		}*/
+		
+		try {
+			restClient.postOpenMRSEncounter(strPickUp, nidUuid, encounterType, 
+					strFacilityUuid, filaUuid, providerUuid, regimeUuid, strRegimenAnswerUuid, 
+					dispensedAmountUuid, packSize, dosageUuid, customizedDosage, returnVisitUuid, strNextPickUp);
+		} catch (Exception e) {
+			getLog().info(e.getMessage());
+		}
 	}
 
 	/**
@@ -3115,7 +3213,7 @@ private int dias=0;
 						
 			
 						
-						if (iDartProperties.printDrugLabels) {
+						/*if (iDartProperties.printDrugLabels) {
 							// Add the qty for the summary label
 							labelQuantities.put(ScriptSummaryLabel.KEY,
 									rdBtnPrintSummaryLabelYes.getSelection() ? 1 : 0);
@@ -3127,7 +3225,7 @@ private int dias=0;
 							// print labels
 							PackageManager.printLabels(getHSession(),
 									allPackagedDrugsList, labelQuantities);
-						}
+						}*/
 					}
 					
 					
@@ -3231,9 +3329,9 @@ private int dias=0;
 				 
 				 //convertendo a data para adequar com a coluna datatarv do ms access - t_tarv 
 				 SimpleDateFormat parseFormat = 
-						    new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy");
+						    new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.ENGLISH);
 						Date datatarv = parseFormat.parse(dispenseDate.toString());
-						SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+						SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
 						String resultdatatarv = format.format(datatarv);
 						
 						
@@ -3242,9 +3340,9 @@ private int dias=0;
 				 System.out.println(" Date proxima: "+dateproximavisita);
 				 
 				 SimpleDateFormat parseFormat2 = 
-						    new SimpleDateFormat("yyyy-MM-dd");
+						    new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 						Date dateproxima = parseFormat2.parse( dateproximavisita.toString());
-						SimpleDateFormat format2 = new SimpleDateFormat("MM/dd/yyyy");
+						SimpleDateFormat format2 = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
 						String resultdataproximaconsulta = format2.format(dateproxima);
 						
 				       String dataNoutroServico="";
@@ -3359,7 +3457,7 @@ private int dias=0;
 				
 	
 				
-				if (iDartProperties.printDrugLabels) {
+				/*if (iDartProperties.printDrugLabels) {
 					// Add the qty for the summary label
 					labelQuantities.put(ScriptSummaryLabel.KEY,
 							rdBtnPrintSummaryLabelYes.getSelection() ? 1 : 0);
@@ -3371,7 +3469,7 @@ private int dias=0;
 					// print labels
 					PackageManager.printLabels(getHSession(),
 							allPackagedDrugsList, labelQuantities);
-				}
+				}*/
 			}
 			
 			
@@ -3475,9 +3573,9 @@ private int dias=0;
 		 
 		 //convertendo a data para adequar com a coluna datatarv do ms access - t_tarv 
 		 SimpleDateFormat parseFormat = 
-				    new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy");
+				    new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.ENGLISH);
 				Date datatarv = parseFormat.parse(dispenseDate.toString());
-				SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+				SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
 				String resultdatatarv = format.format(datatarv);
 				
 				
@@ -3486,9 +3584,9 @@ private int dias=0;
 		 System.out.println(" Date proxima: "+dateproximavisita);
 		 
 		 SimpleDateFormat parseFormat2 = 
-				    new SimpleDateFormat("yyyy-MM-dd");
+				    new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 				Date dateproxima = parseFormat2.parse( dateproximavisita.toString());
-				SimpleDateFormat format2 = new SimpleDateFormat("MM/dd/yyyy");
+				SimpleDateFormat format2 = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
 				String resultdataproximaconsulta = format2.format(dateproxima);
 				
 		       String dataNoutroServico="";

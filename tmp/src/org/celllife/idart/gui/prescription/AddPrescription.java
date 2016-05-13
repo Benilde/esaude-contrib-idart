@@ -487,6 +487,7 @@ iDARTChangeListener {
 			
 			@Override
 			public void widgetDefaultSelected(SelectionEvent arg0) {
+				
 				// TODO Auto-generated method stub
 				if(cmbUpdateReason.getText().equals("Transfer de")) {
 					
@@ -555,8 +556,7 @@ iDARTChangeListener {
 	
 	
 	
-		CommonObjects.populatePrescriptionUpdateReasons(getHSession(),
-				cmbUpdateReason);
+		CommonObjects.populatePrescriptionUpdateReasons(getHSession(), cmbUpdateReason);
 		cmbUpdateReason.setVisibleItemCount(cmbUpdateReason.getItemCount());
 		
 		
@@ -734,7 +734,7 @@ iDARTChangeListener {
 		Label lblDoctor = new Label(grpParticulars, SWT.NONE);
 		lblDoctor.setBounds(new Rectangle(350, 20, 90, 20));
 		lblDoctor.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblDoctor.setText("* Cl�nico:");
+		lblDoctor.setText("* Farmac�utico:");
 
 		cmbDoctor = new CCombo(grpParticulars, SWT.BORDER | SWT.READ_ONLY
 				| SWT.V_SCROLL);
@@ -1266,7 +1266,7 @@ iDARTChangeListener {
 	private void setFormToInitialPrescription() {
 		getShell().redraw();
 
-		cmbUpdateReason.setText("Inicia");
+		cmbUpdateReason.setText("Manter");
 	    cmbUpdateReason.setEnabled(true);
 		lblHeader.setText("Registar Prescri��o Inicial");
 

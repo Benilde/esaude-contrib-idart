@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -137,7 +138,7 @@ public class iDARTUtil {
 			String strYear) {
 
 		try {
-			SimpleDateFormat sdf1 = new SimpleDateFormat("d-MMMM-yyyy");
+			SimpleDateFormat sdf1 = new SimpleDateFormat("d-MMMM-yyyy", Locale.ENGLISH);
 			Date theDate = sdf1.parse(strDay + "-" + strMonth + "-" + strYear);
 
 			return isInPast(theDate);

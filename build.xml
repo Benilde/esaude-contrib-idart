@@ -154,7 +154,7 @@
 			</fileset>
 		</copy>
 
-		<javac destdir="${build.dir}" classpathref="Large.ClassPath" debug="on" deprecation="on" source="1.5" target="1.5">
+		<javac destdir="${build.dir}" classpathref="Large.ClassPath" debug="on" deprecation="on" source="1.5" target="1.5" encoding="utf-8">
 			<src path="${tmp.dir}/src" />
 		</javac>
 	</target>
@@ -471,7 +471,7 @@
 		<delete quiet="true">
 			<fileset dir="${stats.dir}" includes="**/cpd.*" />
 		</delete>
-		<cpd minimumTokenCount="100" format="xml" language="java" ignoreIdentifiers="true" ignoreLiterals="true" outputFile="${stats.dir}/cpd-report.xml" encoding="UTF-8">
+		<cpd minimumTokenCount="100" format="xml" language="java" ignoreIdentifiers="true" ignoreLiterals="true" outputFile="${stats.dir}/cpd-report.xml" encoding="ISO-8859-1">
 			<fileset dir="src">
 				<include name="**/*.java" />
 				<exclude name="**/*Test*.java" />
@@ -495,7 +495,7 @@
 			<fileset dir="${stats.dir}" includes="**/pmd.*" />
 		</delete>
 
-		<pmd shortFilenames="true" encoding="UTF-8">
+		<pmd shortFilenames="true" encoding="ISO-8859-1">
 			<ruleset>rulesets/favorites.xml</ruleset>
 			<ruleset>basic</ruleset>
 			<ruleset>unusedcode</ruleset>
