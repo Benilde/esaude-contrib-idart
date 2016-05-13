@@ -74,7 +74,7 @@ public class ConfirmWithPasswordDialog extends Dialog {
 		this(
 				parent,
 				"Por favor insira a sua senha ",
-				"ATEN��O: Voc� s� deve executar esta aC��o se tiver certeza de que deseja remover as informa��es da base de dados PERMANENTEMENTE. O usu�rio que realizou esta ac��o, bem como a hora atual, ser� gravado no log de transa��es.",
+				"ATEN��O: Voc� s� deve executar esta ac��o se tiver certeza de que deseja remover as informa��es da base de dados PERMANENTEMENTE. O usu�rio que realizou esta ac��o, bem como a hora atual, ser� gravado no log de transa��es.",
 				sess);
 	}
 

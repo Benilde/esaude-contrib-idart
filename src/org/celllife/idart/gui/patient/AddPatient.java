@@ -20,6 +20,7 @@
 package org.celllife.idart.gui.patient;
 
 import java.sql.SQLException;
+import java.text.DateFormatSymbols;
 import java.text.MessageFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -29,6 +30,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -38,6 +40,7 @@ import model.manager.PatientManager;
 import model.manager.StudyManager;
 import model.manager.reports.PatientHistoryReport;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.celllife.function.DateRuleFactory;
 import org.celllife.idart.commonobjects.CommonObjects;
@@ -81,6 +84,7 @@ import org.celllife.idart.misc.iDARTUtil;
 import org.celllife.idart.print.barcode.Barcode;
 import org.celllife.idart.print.label.PatientInfoLabel;
 import org.celllife.idart.print.label.PrintLabel;
+import org.celllife.idart.rest.utils.RestClient;
 import org.celllife.mobilisr.api.validation.MsisdnValidator;
 import org.celllife.mobilisr.api.validation.MsisdnValidator.ValidationError;
 import org.celllife.mobilisr.client.exception.RestCommandException;
@@ -112,6 +116,7 @@ import org.eclipse.swt.widgets.Text;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.json.JSONObject;
 
 public class AddPatient extends GenericFormGui implements iDARTChangeListener {
 
@@ -146,7 +151,9 @@ public class AddPatient extends GenericFormGui implements iDARTChangeListener {
 	private Combo cmbDOBYear;
 
 	private Combo cmbSex;
+	
 	private  Button transito;
+	
 	private Text txtAge;
 
 	private Label lblPicChild;
@@ -231,6 +238,16 @@ public class AddPatient extends GenericFormGui implements iDARTChangeListener {
 
 	private boolean identifierChangesMade = false;
 
+	private RestClient restClient;
+	
+	private String year;
+	
+	private String month;
+	
+	private Integer day;
+	
+	private Date theDate;
+	
 	/**
 	 * Constructor
 	 * 
@@ -1000,6 +1017,20 @@ public class AddPatient extends GenericFormGui implements iDARTChangeListener {
 		if (!isAddnotUpdate) {
 			currentPrescription = localPatient.getCurrentPrescription();
 		}
+		
+		restClient = new RestClient();
+		String patientId = txtPatientId.getText().toUpperCase().trim();
+		
+		//Verificar se o NID existe no OpenMRS
+		String openMrsResource = restClient.getOpenMRSResource("patient?q="+StringUtils.replace(patientId, " ", "%20"));
+				
+		if (openMrsResource.length() == 14) {
+			title = Messages.getString("Informação não encontrada");
+			message = Messages.getString("NID inserido não existe no OpenMRS");
+			txtPatientId.setFocus();
+			result = false;
+		}
+		
 		if (txtPatientId.getText().trim().isEmpty()) {
 			title = Messages.getString("patient.error.missingfield.title"); //$NON-NLS-1$
 			message = Messages.getString("patient.error.patientid.blank"); //$NON-NLS-1$
@@ -1205,7 +1236,56 @@ public class AddPatient extends GenericFormGui implements iDARTChangeListener {
 		if (localPatient.getPatientId() == null || localPatient.getPatientId().isEmpty()){
 			cmdClearWidgetSelected();
 		} else {
+						
 			txtPatientId.setText(localPatient.getPatientId());
+			
+			//Preparar Prim.Nomes, Apelido e Data de Nascimento apartir do NID usando REST WEB SERVICES
+			String nid = txtPatientId.getText().toUpperCase().trim();
+
+			String resource = new RestClient().getOpenMRSResource("patient?q="+StringUtils.replace(nid, " ", "%20"));
+
+			String personUuid = resource.substring(21, 57);
+
+			String personDemografics = new RestClient().getOpenMRSResource("person/"+personUuid);
+
+			JSONObject jsonObject = new org.json.JSONObject(personDemografics);
+
+			String fullName = jsonObject.getJSONObject("preferredName").getString("display");
+
+			String[] names = fullName.trim().split(" ");
+
+			System.out.println(names[0]);
+			System.out.println(names[names.length-1]);
+
+			txtFirstNames.setText(names[0]);//Primeiros nomes
+			localPatient.setFirstNames(txtFirstNames.getText());//Primeiros nomes
+
+			txtSurname.setText(names[names.length-1]);//Apelido
+			localPatient.setLastname(txtSurname.getText());//Apelido
+
+			String gender = jsonObject.getString("gender").trim();
+					
+			cmbSex.setText(gender);
+			localPatient.setSex(cmbSex.getText().charAt(0));
+
+			String birthDate = jsonObject.getString("birthdate").trim();
+
+			String year = birthDate.substring(0, 4);
+			String month = new DateFormatSymbols(Locale.ENGLISH).getMonths()[Integer.valueOf(birthDate.substring(5, 7))-1];
+			Integer day = Integer.valueOf(birthDate.substring(8, 10));
+
+			SimpleDateFormat sdf = new SimpleDateFormat("d-MMMM-yyyy", Locale.ENGLISH); 
+			theDate = null;//Data de Nascimento
+			try {
+				theDate = sdf.parse(day.toString() + "-" + month + "-" + year); 
+			} catch (ParseException e1) {
+				getLog().error("Error parsing date: ",e1); 
+			}
+			
+			cmbDOBDay.setText(day.toString());
+			cmbDOBMonth.setText(month);
+			cmbDOBYear.setText(year);
+			localPatient.setDateOfBirth(theDate);
 		}
 	}
 
@@ -1213,6 +1293,15 @@ public class AddPatient extends GenericFormGui implements iDARTChangeListener {
 		localPatient = new Patient();
 		enableFields(true);
 		txtPatientId.setEnabled(false);
+		
+		//set other fields 
+		txtFirstNames.setEnabled(false);
+		txtSurname.setEnabled(false);
+		cmbSex.setEnabled(false);
+		cmbDOBDay.setEnabled(false);
+		cmbDOBMonth.setEnabled(false);
+		cmbDOBYear.setEnabled(false);
+		
 		txtPatientId.setFocus();
 		btnEditEpisodes.setEnabled(false);
 		btnPatientHistoryReport.setEnabled(false);
@@ -1352,7 +1441,7 @@ System.out.println(" local patient "+localPatient.getPatientId()+"  "+localPatie
 			m.setText(Messages.getString("patient.save.confirmation.title")); //$NON-NLS-1$
 			m.setMessage(MessageFormat.format(Messages.getString("patient.save.confirmation"),localPatient.getPatientId())); //$NON-NLS-1$
 			m.open();
-
+		
 			if (isAddnotUpdate || offerToPrintLabel) {
 				m = new MessageBox(getShell(), SWT.ICON_QUESTION | SWT.YES | SWT.NO);
 				m.setText(Messages.getString("patient.dialog.printInfoLable.title")); //$NON-NLS-1$
@@ -1381,32 +1470,29 @@ System.out.println(" local patient "+localPatient.getPatientId()+"  "+localPatie
 	}
 
 	private void setLocalPatient() {
-		localPatient.setFirstNames(txtFirstNames.getText());
-		localPatient.setLastname(txtSurname.getText());
+		
 		localPatient.setModified('T');
-		localPatient.setPatientId(txtPatientId.getText().toUpperCase());
+		localPatient.setPatientId(txtPatientId.getText().toUpperCase());//NID
 		localPatient.setCellphone(txtCellphone.getText().trim());
-
-		if (cmbSex.getText().equals(Messages.getString("patient.sex.female"))) { //$NON-NLS-1$
+		
+		/*if (cmbSex.getText().equals(Messages.getString("patient.sex.female"))) { //$NON-NLS-1$
 			localPatient.setSex('F');
 		} else if (cmbSex.getText().equals(Messages.getString("patient.sex.male"))) { //$NON-NLS-1$
 			localPatient.setSex('M');
 		} else {
 			localPatient.setSex('U');
-		}
-
+		}*/
+		
 		// Set the date of birth
-		SimpleDateFormat sdf = new SimpleDateFormat("d-MMMM-yyyy"); //$NON-NLS-1$
-		Date theDate = null;
+		/*SimpleDateFormat sdf = new SimpleDateFormat("d-MMMM-yyyy", Locale.ENGLISH); //$NON-NLS-1$
+		Date theDate = null;//Data de Nascimento
 		try {
 			theDate = sdf.parse(cmbDOBDay.getText() + "-" //$NON-NLS-1$
 					+ cmbDOBMonth.getText() + "-" + cmbDOBYear.getText()); //$NON-NLS-1$
 		} catch (ParseException e1) {
 			getLog().error("Error parsing date: ",e1); //$NON-NLS-1$
-		}
-
-		localPatient.setDateOfBirth(theDate);
-
+		}*/
+		
 		Date episodeStartDate = btnEpisodeStartDate.getDate();
 		Date episodeStopDate = btnEpisodeStopDate.getDate();
 
@@ -1545,7 +1631,7 @@ System.out.println(" local patient "+localPatient.getPatientId()+"  "+localPatie
 			Calendar theDOB = Calendar.getInstance();
 			theDOB.setTime(localPatient.getDateOfBirth());
 			cmbDOBDay.setText(String.valueOf(theDOB.get(Calendar.DAY_OF_MONTH)));
-			SimpleDateFormat monthFormat = new SimpleDateFormat("MMMM"); //$NON-NLS-1$
+			SimpleDateFormat monthFormat = new SimpleDateFormat("MMMM", Locale.ENGLISH); //$NON-NLS-1$
 			cmbDOBMonth.setText(monthFormat.format(theDOB.getTime()));
 			cmbDOBYear.setText(String.valueOf(theDOB.get(Calendar.YEAR)));
 			if (localPatient.getAge() <= 12) {
@@ -2068,7 +2154,7 @@ System.out.println(" local patient "+localPatient.getPatientId()+"  "+localPatie
 
 	public void cmdUpdateAge() {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("d-MMMM-yyyy"); //$NON-NLS-1$
+		SimpleDateFormat sdf = new SimpleDateFormat("d-MMMM-yyyy", Locale.ENGLISH); //$NON-NLS-1$
 		try {
 			// Set the date of birth
 			if ((!cmbDOBDay.getText().isEmpty())
@@ -2244,14 +2330,26 @@ System.out.println(" local patient "+localPatient.getPatientId()+"  "+localPatie
 	 *         is required.
 	 */
 	private boolean doSave() {
-
+	
 		if (!isSaveRequired())
 			return true;
+	
+		//Verificar se o NID existe no OpenMRS
+		String openMrsResource = new RestClient().getOpenMRSResource("patient?q="+StringUtils.replace(txtPatientId.getText().trim(), " ", "%20"));
+				
+		if (openMrsResource.length() == 14) {
+			MessageBox mb = new MessageBox(getShell());
+			mb.setText("Informação não encontrada"); //$NON-NLS-1$
+			mb.setMessage("NID inserido não existe no OpenMRS"); //$NON-NLS-1$
+			mb.open();
+			txtPatientId.setFocus();
+			return false;
+		}
 
 		//Check if the patient is on a study
 		//yes - update patient details
 		setLocalPatient();
-
+		
 		if (fieldsOk() && confirmSave()){
 			if(iDartProperties.isCidaStudy){
 				Session sess = HibernateUtil.getNewSession();

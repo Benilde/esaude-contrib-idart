@@ -26,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Currency;
 import java.util.Date;
+import java.util.Locale;
 
 import model.manager.AdministrationManager;
 import model.manager.DrugManager;
@@ -805,7 +806,7 @@ public class DeliveryDetails extends GenericFormGui {
 			Calendar expiryDate = Calendar.getInstance();
 
 			try {
-				expiryDate.setTime(new SimpleDateFormat("dd MMMM yyyy")
+				expiryDate.setTime(new SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH)
 				.parse("01 " + cmbExpiryMonth.getText() + " "
 						+ cmbExpiryYear.getText()));
 
@@ -925,10 +926,10 @@ public class DeliveryDetails extends GenericFormGui {
 		.setDateReceived(arrivalDate == null ? new Date() : arrivalDate);
 
 		try {
-			newStock.setExpiryDate(new SimpleDateFormat("dd MMMM yyyy")
+			newStock.setExpiryDate(new SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH)
 			.parse("01 " + cmbExpiryMonth.getText() + " "
 					+ cmbExpiryYear.getText()));
-			tableItem.setText(8, new SimpleDateFormat("MMMM yyyy")
+			tableItem.setText(8, new SimpleDateFormat("MMMM yyyy", Locale.ENGLISH)
 			.format(newStock.getExpiryDate()));
 		} catch (ParseException p) {
 			getLog().warn("Parse Exception setting stock expiry date.", p);

@@ -118,26 +118,13 @@ public class PrintLabel {
 		Paper paper = new Paper();
 
 		if (iDartProperties.labelType.equals(iDartProperties.LabelType.EKAPA)) {
-			paper.setSize(150, 300); // eKapa labels
+			paper.setSize(285, 135); // eKapa labels
 		} else {
-			paper.setSize(150, 300); // normal iDART labels
-		
+			paper.setSize(216, 135); // normal iDART labels
 		}
-		
-		
-		
-//		if (iDartProperties.labelType.equals(iDartProperties.LabelType.EKAPA)) {
-//			paper.setSize(285, 135); // eKapa labels
-//		} else {
-//			paper.setSize(216, 135); // normal iDART labels
-//		}
-		
-		
-		
 		paper.setImageableArea(0.0, 0.0, paper.getWidth(), paper.getHeight());
 		pf.setPaper(paper);
-		//pf.setOrientation(PageFormat.PORTRAIT);
-		pf.setOrientation(PageFormat.LANDSCAPE);
+		pf.setOrientation(PageFormat.PORTRAIT);
 
 		Book book = new Book();
 

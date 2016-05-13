@@ -487,6 +487,7 @@ iDARTChangeListener {
 			
 			@Override
 			public void widgetDefaultSelected(SelectionEvent arg0) {
+				
 				// TODO Auto-generated method stub
 				if(cmbUpdateReason.getText().equals("Transfer de")) {
 					
@@ -555,8 +556,7 @@ iDARTChangeListener {
 	
 	
 	
-		CommonObjects.populatePrescriptionUpdateReasons(getHSession(),
-				cmbUpdateReason);
+		CommonObjects.populatePrescriptionUpdateReasons(getHSession(), cmbUpdateReason);
 		cmbUpdateReason.setVisibleItemCount(cmbUpdateReason.getItemCount());
 		
 		
@@ -734,7 +734,7 @@ iDARTChangeListener {
 		Label lblDoctor = new Label(grpParticulars, SWT.NONE);
 		lblDoctor.setBounds(new Rectangle(350, 20, 90, 20));
 		lblDoctor.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblDoctor.setText("* Clínico:");
+		lblDoctor.setText("* Farmacêutico:");
 
 		cmbDoctor = new CCombo(grpParticulars, SWT.BORDER | SWT.READ_ONLY
 				| SWT.V_SCROLL);
@@ -985,7 +985,7 @@ iDARTChangeListener {
 
 		createDrugsTable();
 		
-		tpi_tpc=new Label(grpDrugs, SWT.NONE);
+		/*tpi_tpc=new Label(grpDrugs, SWT.NONE);
 		tpi_tpc.setBounds(new Rectangle(200, 135, 150, 20));
 		tpi_tpc.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		tpi_tpc.setText("O Paciente também levantou:");
@@ -1005,7 +1005,7 @@ iDARTChangeListener {
 		chkBtnTPI.setBounds(new Rectangle(450, 135, 100, 20));
 		chkBtnTPI.setText("Isoniazida");
 		chkBtnTPI.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		chkBtnTPI.setSelection(false);
+		chkBtnTPI.setSelection(false);*/
 		
 		
 	}
@@ -1266,7 +1266,7 @@ iDARTChangeListener {
 	private void setFormToInitialPrescription() {
 		getShell().redraw();
 
-		cmbUpdateReason.setText("Inicia");
+		cmbUpdateReason.setText("Manter");
 	    cmbUpdateReason.setEnabled(true);
 		lblHeader.setText("Registar Prescrição Inicial");
 
@@ -2511,8 +2511,8 @@ try {
 			chkBtnPPE.setSelection(false);
 			chkBtnTB.setSelection(false);
 			chkBtnPTV.setSelection(false);
-			chkBtnTPC.setSelection(false);
-			chkBtnTPI.setSelection(false);
+			//chkBtnTPC.setSelection(false);
+			//chkBtnTPI.setSelection(false);
 			btnSearch.setEnabled(true);
 			btnEkapaSearch.setEnabled(true);
 			txtPatientId.setEnabled(true);
@@ -2568,8 +2568,8 @@ try {
 		chkBtnPPE.setEnabled(enable);
 		chkBtnTB.setEnabled(enable);
 		chkBtnPTV.setEnabled(enable);
-		chkBtnTPI.setEnabled(enable);
-		chkBtnTPC.setEnabled(enable);
+		//chkBtnTPI.setEnabled(enable);
+		//chkBtnTPC.setEnabled(enable);
 		Color theColour;
 
 		if (enable) {
