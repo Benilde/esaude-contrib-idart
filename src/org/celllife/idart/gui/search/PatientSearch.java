@@ -119,13 +119,9 @@ public class PatientSearch extends GenericOthersGui {
 				@Override
 				public void run() {
 					if (showPatientsWithPackagesAwaiting){
-						identifiers = SearchManager
-							.getPatientIdentifiersWithAwiatingPackages(getHSession(), 
-								searchString);	
+						identifiers = SearchManager.getPatientIdentifiersWithAwiatingPackages(getHSession(), searchString);	
 					} else {
-						identifiers = SearchManager
-							.getPatientIdentifiers(getHSession(), searchString,
-								showInactive);	
+						identifiers = SearchManager.getPatientIdentifiers(getHSession(), searchString, showInactive);	
 					}
 					
 					if (identifiers.size() <= maxNumberOfIdentifiersPerPatient){

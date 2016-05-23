@@ -45,10 +45,8 @@ import org.apache.log4j.Logger;
 import org.celllife.function.DateRuleFactory;
 import org.celllife.idart.commonobjects.CommonObjects;
 import org.celllife.idart.commonobjects.LocalObjects;
-import org.celllife.idart.commonobjects.PropertiesManager;
 import org.celllife.idart.commonobjects.iDartProperties;
 import org.celllife.idart.database.dao.ConexaoJDBC;
-import org.celllife.idart.database.dao.ConexaoODBC;
 import org.celllife.idart.database.hibernate.Clinic;
 import org.celllife.idart.database.hibernate.Episode;
 import org.celllife.idart.database.hibernate.PackagedDrugs;
@@ -85,8 +83,6 @@ import org.celllife.idart.print.barcode.Barcode;
 import org.celllife.idart.print.label.PatientInfoLabel;
 import org.celllife.idart.print.label.PrintLabel;
 import org.celllife.idart.rest.utils.RestClient;
-import org.celllife.mobilisr.api.validation.MsisdnValidator;
-import org.celllife.mobilisr.api.validation.MsisdnValidator.ValidationError;
 import org.celllife.mobilisr.client.exception.RestCommandException;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
@@ -119,6 +115,8 @@ import org.hibernate.Transaction;
 import org.json.JSONObject;
 
 public class AddPatient extends GenericFormGui implements iDARTChangeListener {
+	
+	private Logger logger = Logger.getLogger(AddPatient.class);
 
 	private static final String KEY_MESSAGE = "message"; //$NON-NLS-1$
 
@@ -129,6 +127,8 @@ public class AddPatient extends GenericFormGui implements iDARTChangeListener {
 	private TextAdapter txtPatientId;
 
 	private Button btnSearch;
+	
+	private Button btnSearchByName;
 
 	private Button btnEkapaSearch;
 
@@ -389,17 +389,26 @@ public class AddPatient extends GenericFormGui implements iDARTChangeListener {
 		}
 
 		btnSearch = new Button(grpParticulars, SWT.NONE);
-		btnSearch.setBounds(new Rectangle(270, 20, 110, 28));
+		btnSearch.setBounds(new Rectangle(270, 20, 119, 28));
 		/*if(iDartProperties.country.equalsIgnoreCase("Nigeria")){
 			btnSearch.setBounds(new Rectangle(270, 47, 110, 28));
 		} else {
 			btnSearch.setBounds(new Rectangle(270, 20, 110, 28));
 		}*/
+		
+		btnSearchByName = new Button(grpParticulars, SWT.NONE);
+		btnSearchByName.setBounds(new Rectangle(270, 50, 119, 28));
+		
+		if (!isAddnotUpdate) { 
+			btnSearchByName.setVisible(false); 
+		}
 
 		if (isAddnotUpdate) {
 			btnSearch.setText(Messages.getString("patient.button.editid")); //$NON-NLS-1$
-			btnSearch
-			.setToolTipText(Messages.getString("patient.button.editid.tooltip")); //$NON-NLS-1$
+			btnSearch.setToolTipText(Messages.getString("patient.button.editid.tooltip")); //$NON-NLS-1$
+			
+			btnSearchByName.setText(Messages.getString("patient.button.editid.nome")); //$NON-NLS-1$
+			btnSearchByName.setToolTipText(Messages.getString("patient.button.editid.tooltip.nome")); //$NON-NLS-1$
 		} else {
 			btnSearch.setText(Messages.getString("patient.button.search")); //$NON-NLS-1$
 			btnSearch
@@ -411,6 +420,14 @@ public class AddPatient extends GenericFormGui implements iDARTChangeListener {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				cmdSearchWidgetSelected();
+			}
+		});
+		
+		btnSearchByName.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		btnSearchByName.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				cmdSearchWidgetSelectedSearchByName();
 			}
 		});
 
@@ -1340,6 +1357,16 @@ public class AddPatient extends GenericFormGui implements iDARTChangeListener {
 		} else {
 			editPatientIdentifiers();
 		}
+	}
+	
+	private void cmdSearchWidgetSelectedSearchByName() {
+		logger.info("cmdSearchWidgetSelectedSearchByName called...");
+		
+		String patientId = PatientBarcodeParser.getPatientId(txtPatientId.getText());
+		
+		PatientSearch search = new PatientSearch(getShell(), getHSession());
+		search.setShowInactive(true);
+		PatientIdentifier identifier = search.search(patientId);
 	}
 
 	private void updateGUIforNewLocalPatient() {
