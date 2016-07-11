@@ -19,12 +19,39 @@
 
 package model.manager;
 
+import java.text.DateFormatSymbols;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+
 import model.nonPersistent.PatientIdAndName;
+
+import org.apache.commons.lang.StringUtils;
 import org.celllife.idart.commonobjects.CommonObjects;
-import org.celllife.idart.database.hibernate.*;
+import org.celllife.idart.commonobjects.iDartProperties;
+import org.celllife.idart.database.hibernate.AtcCode;
+import org.celllife.idart.database.hibernate.Clinic;
+import org.celllife.idart.database.hibernate.Doctor;
+import org.celllife.idart.database.hibernate.Drug;
+import org.celllife.idart.database.hibernate.IdentifierType;
+import org.celllife.idart.database.hibernate.NationalClinics;
+import org.celllife.idart.database.hibernate.Patient;
+import org.celllife.idart.database.hibernate.PatientAttribute;
+import org.celllife.idart.database.hibernate.PatientIdentifier;
+import org.celllife.idart.database.hibernate.Stock;
+import org.celllife.idart.database.hibernate.StockCenter;
+import org.celllife.idart.database.hibernate.StockTake;
 import org.celllife.idart.gui.search.Search;
 import org.celllife.idart.gui.search.SearchEntry;
 import org.celllife.idart.gui.search.TableComparator;
+import org.celllife.idart.rest.utils.JsonHelper;
+import org.celllife.idart.rest.utils.RestClient;
+import org.celllife.idart.rest.utils.RestUtils;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -34,12 +61,8 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  */
@@ -47,6 +70,8 @@ public class SearchManager {
 	private static TableComparator comparator;
 
 	private static java.util.List<SearchEntry> listTableEntries;
+	
+	private static Patient patient;
 
 	/**
 	 * 
@@ -125,7 +150,7 @@ public class SearchManager {
 				cmdColOneSelected();
 			}
 		});
-		search.getTableColumn2().setText("Província");
+		search.getTableColumn2().setText("Provï¿½ncia");
 		search.getTableColumn2().addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
@@ -171,14 +196,14 @@ public class SearchManager {
 		List<StockCenter> stockCenters = null;
 
 		String itemText[];
-		search.getTableColumn1().setText("Farmácia");
+		search.getTableColumn1().setText("Farmï¿½cia");
 		search.getTableColumn1().addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
 				cmdColOneSelected();
 			}
 		});
-		search.getTableColumn2().setText("Farmácia Padrão");
+		search.getTableColumn2().setText("Farmï¿½cia Padrï¿½o");
 		search.getTableColumn2().addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
@@ -186,7 +211,7 @@ public class SearchManager {
 			}
 		});
 
-		search.getShell().setText("Seleccione a Farmácia...");
+		search.getShell().setText("Seleccione a Farmï¿½cia...");
 
 		stockCenters = AdministrationManager.getStockCenters(sess);
 
@@ -239,7 +264,7 @@ public class SearchManager {
 			}
 		});
 
-		search.getShell().setText("Seleccione o Clínico...");
+		search.getShell().setText("Seleccione o Clï¿½nico...");
 
 		doctors = AdministrationManager.getAllDoctors(sess);
 
@@ -341,7 +366,7 @@ public class SearchManager {
 
 		List<StockTake> stockTake = null;
 		String itemText[];
-		search.getTableColumn1().setText("Nome do Inventário");
+		search.getTableColumn1().setText("Nome do Inventï¿½rio");
 		search.getTableColumn1().addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
@@ -349,7 +374,7 @@ public class SearchManager {
 			}
 		});
 
-		search.getTableColumn2().setText("Data de Término");
+		search.getTableColumn2().setText("Data de Tï¿½rmino");
 		search.getTableColumn2().addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
@@ -357,7 +382,7 @@ public class SearchManager {
 			}
 		});
 
-		search.getShell().setText("Seleccione um Inventário...");
+		search.getShell().setText("Seleccione um Inventï¿½rio...");
 		stockTake = getStockTakes(sess);
 
 		TableItem[] t = new TableItem[stockTake.size()];
@@ -534,7 +559,7 @@ public class SearchManager {
 				cmdColOneSelected();
 			}
 		});
-		search.getTableColumn2().setText("Código FNM");
+		search.getTableColumn2().setText("Cï¿½digo FNM");
 		search.getTableColumn2().addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
@@ -542,7 +567,7 @@ public class SearchManager {
 			}
 		});
 
-		search.getShell().setText("Seleccione um Código FNM...");
+		search.getShell().setText("Seleccione um Cï¿½digo FNM...");
 
 		atccodes = AdministrationManager.getAtccodes(sess);
 
@@ -589,14 +614,14 @@ public class SearchManager {
 
 		List<Stock> stock = null;
 		String itemText[];
-		search.getTableColumn1().setText("Nº de Lote");
+		search.getTableColumn1().setText("Nï¿½ de Lote");
 		search.getTableColumn1().addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
 				cmdColOneSelected();
 			}
 		});
-		search.getTableColumn2().setText("Data de Recepção");
+		search.getTableColumn2().setText("Data de Recepï¿½ï¿½o");
 		search.getTableColumn2().addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
@@ -906,6 +931,104 @@ public class SearchManager {
 		List<PatientIdentifier> list = query.list();
 				
 		return list;
+	}
+	
+	public static List<PatientIdentifier> getPatientIdentifiersByName(Session session, String patientId,
+			boolean includeInactivePatients, List<IdentifierType> types)
+			throws HibernateException {
+		
+		String jsonString;
+		
+		String[] resourceArray;
+		
+		String nid;
+		
+		Date theDate;
+		
+		Date _theDate;
+		
+		List<PatientIdentifier> patientIdentifiers = new ArrayList<PatientIdentifier>(); 
+		
+		RestClient restClient = new RestClient();
+		
+		String resource = restClient.getOpenMRSResource("patient?q="+StringUtils.replace(patientId, " ", "%20"));
+		
+		String _resource = (String) resource.subSequence(11, resource.length());
+		
+		_resource = _resource.substring(0, _resource.length()-1);
+		
+		JSONArray jsonArray = new JSONArray(_resource);
+		
+		for (int i = 0; i < JsonHelper.toList(jsonArray).size(); i++) {
+			
+			PatientIdentifier identifier = new PatientIdentifier();
+			patient = new Patient();
+			
+			jsonString = JsonHelper.toList(jsonArray).get(i).toString().replaceAll("display=", "").replaceAll("uuid=", "");
+			jsonString = jsonString.substring(1, jsonString.length()-1);
+			resourceArray = jsonString.split(iDartProperties.ARRAY_SPLIT);
+			String nameNid = (resourceArray[0].replaceAll(resourceArray[0].substring(0, 18), " ")).trim();
+			
+			List<String> fullName = RestUtils.splitName(nameNid);
+			
+			patient.setFirstNames((fullName.get(0)+iDartProperties.SPACE+fullName.get(1)).replaceAll(iDartProperties.HIFEN, iDartProperties.SPACE).trim()); 
+			patient.setLastname(fullName.get(2).replaceAll("-", " ").trim()); 
+			
+			nid = restClient.getOpenMRSResource(iDartProperties.REST_GET_PATIENT_GENERIC+resourceArray[3].trim());
+			JSONObject jsonObject = new JSONObject(nid);
+	        nid = String.valueOf(jsonObject.get("display"));
+	        nid = nid.substring(0, nid.indexOf("-")).trim();
+	        
+	        String strBirthdate = jsonObject.getJSONObject("person").getString("birthdate");
+	        char gender = jsonObject.getJSONObject("person").getString("gender").charAt(0);  
+	        
+	        String year = strBirthdate.substring(0, 4);	
+			String month = new DateFormatSymbols(Locale.ENGLISH).getMonths()[Integer.valueOf(strBirthdate.substring(5, 7))-1];
+			Integer day = Integer.valueOf(strBirthdate.substring(8, 10));
+			
+			SimpleDateFormat _sdf = new SimpleDateFormat("d-MMMM-yyyy", Locale.ENGLISH);
+			
+			String dataInicioTarv = restClient.getOpenMRSResource(iDartProperties.REST_OBS_PATIENT+resourceArray[3].trim()+iDartProperties.CONCEPT_DATA_INICIO_TARV);
+			
+			if (dataInicioTarv.length()>14) {
+						
+				dataInicioTarv = dataInicioTarv.substring(94);
+				dataInicioTarv = dataInicioTarv.substring(0, 10);
+				
+				String _year = dataInicioTarv.substring(6, 10);
+				String _month = new DateFormatSymbols(Locale.ENGLISH).getMonths()[Integer.valueOf(dataInicioTarv.substring(3, 5))-1];
+				Integer _day = Integer.valueOf(dataInicioTarv.substring(0, 2));
+				
+				_theDate = null;//Data de Inicio Tarv
+				try {
+					_theDate = _sdf.parse(_day.toString() + "-" + _month + "-" + _year); 
+				} catch (ParseException e1) { 
+					System.out.println(e1.getMessage());
+				}
+				
+				patient.setAttributeValue(PatientAttribute.ARV_START_DATE, _theDate);
+			}
+ 
+			SimpleDateFormat sdf = new SimpleDateFormat("d-MMMM-yyyy", Locale.ENGLISH);
+			theDate = null;//Data de Nascimento
+			try {
+				theDate = sdf.parse(day.toString() + "-" + month + "-" + year); 
+			} catch (ParseException e1) { 
+				System.out.println(e1.getMessage());
+			}
+			
+			patient.setDateOfBirth(theDate); 
+			patient.setPatientId(nid);
+			patient.setSex(gender); 
+			
+			identifier.setType(types.get(0));   
+			identifier.setValueEdit(null);
+			identifier.setValue(nid);
+			identifier.setPatient(patient); 
+			patientIdentifiers.add(identifier);
+		}
+								
+		return patientIdentifiers;
 	}
 	
 	public static List<PatientIdentifier> getPatientIdentifiersWithAwiatingPackages(Session session, String patientId)

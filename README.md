@@ -3,7 +3,7 @@ iDART
 iDART is a software solution designed to support the dispensing of ARV drugs in the public health care sector. It supports pharmacists in their important role of dispensing accurately to an increasing number of patients whilst still being able to engage and assist the patient.
 
 iDART is a product of [Cell-Life](http://www.cell-life.org/).
-This branch is a fork of the code to be able to manage general purpose pharmacies instead of only ARV clinics. This branch is a work-in-progress to be implemented at ICAP MOZAMBIQUE AND MSFB.
+This branch is a fork of the code to be able to manage general purpose pharmacies instead of only ARV clinics.
 
 The main project source is hosted at [iDART-Sourceforge](http://sourceforge.net/projects/idart/) and the Wiki for the same is located at [iDART - Cell-Life](http://wiki.cell-life.org/display/IDART)
 
@@ -18,3 +18,15 @@ Why does it exist?
 * to facilitate dispensing in remote public health clinics
 * to support the so-called "down - referral process"
 * to support clinic information management by providing information on the status quo of patients.
+
+Interoperability with OpenMRS
+--
+In this version of Idart FGH has developed it's interoperability with OpenMRS. All dispenses of ARV drugs made through iDART will be reflected in OpenMRS with the creation of the FILA form.
+
+FGH has used REST Web Service module to develop iDART - OpenMRS interoperability.
+
+Prerequisites to run iDART - OpenMRS interoperability
+--
+1. OpenMRS instance running
+2. Load [Rest Web Services](https://modules.openmrs.org/#/show/153/webservices-rest) into OpenMRS instance. For this scenario version 2.9.39bd19 was used.
+3. Run this script against iDART database: ALTER TABLE regimeterapeutico ADD COLUMN regimenomeespecificado character varying(60);  

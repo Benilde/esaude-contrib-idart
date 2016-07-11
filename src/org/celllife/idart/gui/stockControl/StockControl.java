@@ -277,9 +277,6 @@ public class StockControl extends GenericAdminGui {
 				}
 			});
 			
-			
-		
-			
 		}
 		
 		// Return Uncollected Packages
@@ -339,7 +336,7 @@ public class StockControl extends GenericAdminGui {
 		});
 		
 		
-		btnSync.setEnabled(true);
+		btnSync.setEnabled(Boolean.FALSE);
 
 		// lblStockArrives
 		lblStockArrives = new Label(compOptions, SWT.NONE);

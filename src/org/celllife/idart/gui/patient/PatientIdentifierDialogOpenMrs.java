@@ -310,7 +310,8 @@ public class PatientIdentifierDialogOpenMrs extends GenericOthersGui {
 			restClient = new RestClient();
 			
 			//Verificar se o NID existe no OpenMRS
-			String openMrsResource = restClient.getOpenMRSResource("patient?q="+StringUtils.replace(newId.getValueEdit(), " ", "%20"));
+			String openMrsResource = restClient.getOpenMRSResource(iDartProperties.REST_GET_PATIENT
+					+StringUtils.replace(newId.getValueEdit(), " ", "%20"));
 			
 			if (openMrsResource.length() > 14) {
 				showMessage(MessageDialog.ERROR, "Informação não encontrada", "NID inserido já existe no OpenMRS");

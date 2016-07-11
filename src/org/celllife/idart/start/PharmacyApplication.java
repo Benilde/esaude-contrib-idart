@@ -36,7 +36,6 @@ import org.celllife.idart.database.DatabaseEmptyException;
 import org.celllife.idart.database.DatabaseException;
 import org.celllife.idart.database.DatabaseTools;
 import org.celllife.idart.database.DatabaseWizard;
-import org.celllife.idart.database.dao.ConexaoODBC;
 import org.celllife.idart.database.hibernate.util.HibernateUtil;
 import org.celllife.idart.events.EventManager;
 import org.celllife.idart.gui.login.Login;
@@ -77,28 +76,11 @@ public class PharmacyApplication {
 	
 public static void main(String[] args) {
 		
-ConexaoODBC odbc=new ConexaoODBC();
- 
- 
 DOMConfigurator.configure("log4j.xml");
-		/*try {
-			Connection c=odbc.getConnection();
-			log.info("conexaco ms access "+c.toString());
-		} catch (Exception e) {
-			MessageBox conexaoACCESS = new MessageBox(new Shell(), SWT.ICON_ERROR
-					| SWT.OK);
-        	conexaoACCESS.setText("Conexão com Base de Dados SESP");
-        	conexaoACCESS
-			.setMessage("O iDART não está a se conectar com o SESP.\n Por favor verifique se os cabos da rede estão ligados no seu \ncomputador ou se o computador com SESP está ligado!\n Saia do iDART e verifique estes apectos depois volte a entrar,\n se o problema persistir, todos registos de FILAS e registo dos novos pacientes não serão actualizados no SESP!  ");
-        	conexaoACCESS.open();
-			e.printStackTrace();
-			log.error("Não foi possivel conectar a base de dados MS ACESS.....");
-		}*/
 		
 		// used for gui testing
 		System.setProperty("org.eclipse.swtbot.search.defaultKey",
 				iDartProperties.SWTBOT_KEY);
-
 
 		log.info("");
 		log.info("*********************");

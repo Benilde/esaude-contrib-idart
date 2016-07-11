@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre6"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_79-i586"/>
 	<classpathentry kind="lib" path="lib/ant-antlr-1.6.5.jar"/>
 	<classpathentry kind="lib" path="lib/antlr-2.7.6.jar"/>
 	<classpathentry kind="lib" path="lib/asm-attrs.jar"/>
@@ -65,7 +65,6 @@
 	<classpathentry kind="lib" path="lib/slf4j-log4j12-1.6.0.jar"/>
 	<classpathentry kind="lib" path="lib/stableupdate-2.0.jar"/>
 	<classpathentry kind="lib" path="lib/stableupdate.application-1.0.jar"/>
-	<classpathentry kind="lib" path="lib/swt.jar"/>
 	<classpathentry kind="lib" path="lib/swtjasperviewer-1.1.0.jar"/>
 	<classpathentry kind="lib" path="lib/syndiag2.jar"/>
 	<classpathentry kind="lib" path="lib/testng.jar"/>
@@ -81,7 +80,9 @@
 	<classpathentry kind="lib" path="lib/json_simple-1.0.2.jar"/>
 	<classpathentry kind="lib" path="lib/fluent-hc-4.2.1.jar"/>
 	<classpathentry kind="lib" path="lib/commons-codec-1.6.jar"/>
-	<classpathentry kind="lib" path="C:/kleperWorkspace/iDART-Pharm/lib/json-20140107.jar"/>
-	<classpathentry kind="lib" path="C:/kleperWorkspace/iDART-Pharm/lib/commons-lang3-3.4.jar"/>
+	<classpathentry kind="lib" path="lib/json-20140107.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.4.jar"/>
+	<classpathentry kind="lib" path="lib/swt_gtk/swt-debug.jar"/>
+	<classpathentry kind="lib" path="lib/swt_gtk/swt.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import model.manager.excel.conversion.exceptions.ReportException;
@@ -32,7 +33,7 @@ public class DispensingBreakdownReport extends AbstractJasperReport {
 
 	@Override
 	protected Map<String, Object> getParameterMap() throws ReportException {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-MMMM-yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MMMM-yyyy", Locale.ENGLISH);
 		java.sql.Timestamp theSQLDate;
 		Date theJavaDate;
 		String date = "01-" + month + "-" + year;
