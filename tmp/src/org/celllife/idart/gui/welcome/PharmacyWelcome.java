@@ -79,8 +79,7 @@ public class PharmacyWelcome extends GenericWelcome {
 		btnPatientAdmin.setData(iDartProperties.SWTBOT_KEY, Screens.PATIENT_ADMIN.getAccessButtonId());
 		btnPatientAdmin.setBounds(new Rectangle(160, 50, 130, 40));
 		btnPatientAdmin.setText(Messages.getString("pharmacywelcome.button.patientadmin.text")); //$NON-NLS-1$
-		btnPatientAdmin
-		.setToolTipText(Messages.getString("pharmacywelcome.button.patientadmin.tooltip")); //$NON-NLS-1$
+		btnPatientAdmin.setToolTipText(Messages.getString("pharmacywelcome.button.patientadmin.tooltip")); //$NON-NLS-1$
 		btnPatientAdmin.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		btnPatientAdmin
 		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {

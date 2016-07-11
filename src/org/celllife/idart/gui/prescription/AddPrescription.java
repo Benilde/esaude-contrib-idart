@@ -94,8 +94,6 @@ import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Menu;
-import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
@@ -161,25 +159,25 @@ iDARTChangeListener {
 	//lbl motivo de mudanca
 	private Label lblMotivoMudanca;
 	
-	//Data de inicio noutro serviço
+	//Data de inicio noutro serviï¿½o
 	private DateButton btnDataInicioNoutroServico;
 	
 	
 	//pacientes PTV , PPE & TB
-		private Button chkBtnPPE;
+	private Button chkBtnPPE;
 
-		private Button chkBtnPTV;
-		
-		private Button chkBtnTB;
+	private Button chkBtnPTV;
+	
+	private Button chkBtnTB;
 		
 	// cotrimoxazol & isoniazida
 		
 		
-        private Button chkBtnTPI;
-		
-		private Button chkBtnTPC;
-		
-		private Label tpi_tpc;
+    /*private Button chkBtnTPI;
+	
+	private Button chkBtnTPC;
+	
+	private Label tpi_tpc;*/
 
 	
 	private Patient thePatient;
@@ -267,7 +265,7 @@ iDARTChangeListener {
 				MessageBox noPatient = new MessageBox(getShell(),
 						SWT.ICON_ERROR | SWT.OK);
 
-				noPatient.setText("Paciente Não tem episódio actual");
+				noPatient.setText(Messages.getString("patient.prescription.dialog.noactualepisode"));
 				noPatient
 				.setMessage("O Paciente "
 						+ (txtPatientId.getText()).toUpperCase()
@@ -365,7 +363,7 @@ iDARTChangeListener {
 
 		Label lblInstructions = new Label(compInstructions, SWT.CENTER);
 		lblInstructions.setBounds(new Rectangle(0, 2, 400, 18));
-		lblInstructions.setText("Todos os campos marcados com * são obrigatórios");
+		lblInstructions.setText(Messages.getString("adddruggroup.label.instructions.title"));
 		lblInstructions.setFont(ResourceUtils
 				.getFont(iDartFont.VERASANS_10_ITALIC));
 	}
@@ -516,7 +514,7 @@ iDARTChangeListener {
 	lblDataInicioNoutroServico=new Label(grpPatientID, SWT.NONE);
 	lblDataInicioNoutroServico.setBounds(new Rectangle(10, 65, 150, 20));
 	lblDataInicioNoutroServico.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-	lblDataInicioNoutroServico.setText("Data de Início Noutro Serviço:");
+	lblDataInicioNoutroServico.setText(Messages.getString("patient.prescription.dialog.startdate.anotherservice"));
 	
 
 	btnDataInicioNoutroServico = new DateButton(grpPatientID, DateButton.NONE, null);
@@ -529,7 +527,7 @@ iDARTChangeListener {
 	lblMotivoMudanca=new Label(grpPatientID, SWT.NONE);
 	lblMotivoMudanca.setBounds(new Rectangle(10, 90, 150, 20));
 	lblMotivoMudanca.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-	lblMotivoMudanca.setText("Motivo de Mudança:");
+	lblMotivoMudanca.setText(Messages.getString("patient.prescription.dialog.startdate.reason.change"));
 		
 
 	cmbMotivoMudanca= new CCombo(grpPatientID, SWT.BORDER | SWT.READ_ONLY);
@@ -637,7 +635,7 @@ iDARTChangeListener {
 		// grpParticulars
 		grpParticulars = new Group(getShell(), SWT.NONE);
 		grpParticulars.setBounds(new Rectangle(40, 200, 810, 155));
-		grpParticulars.setText("Paciente e nova informação da Prescrição");
+		grpParticulars.setText(Messages.getString("patient.prescription.dialog.info"));
 		grpParticulars.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		// Name
@@ -734,7 +732,7 @@ iDARTChangeListener {
 		Label lblDoctor = new Label(grpParticulars, SWT.NONE);
 		lblDoctor.setBounds(new Rectangle(350, 20, 90, 20));
 		lblDoctor.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblDoctor.setText("* Farmacêutico:");
+		lblDoctor.setText(Messages.getString("patient.prescription.dialog.pharmacist"));
 
 		cmbDoctor = new CCombo(grpParticulars, SWT.BORDER | SWT.READ_ONLY
 				| SWT.V_SCROLL);
@@ -771,7 +769,7 @@ iDARTChangeListener {
 		Label lblDuration = new Label(grpParticulars, SWT.NONE);
 		lblDuration.setBounds(new Rectangle(350, 45, 90, 20));
 		lblDuration.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblDuration.setText("* Duração:");
+		lblDuration.setText(Messages.getString("patient.prescription.dialog.duration"));
 
 		cmbDuration = new CCombo(grpParticulars, SWT.BORDER | SWT.READ_ONLY);
 		cmbDuration.setBounds(new Rectangle(450, 45, 100, 20));
@@ -862,7 +860,7 @@ iDARTChangeListener {
 		// Prescription Notes
 		Label lblNotes = new Label(grpParticulars, SWT.CENTER | SWT.BORDER);
 		lblNotes.setBounds(new Rectangle(620, 22, 170, 20));
-		lblNotes.setText("Notas da Prescrição:");
+		lblNotes.setText(Messages.getString("patient.prescription.dialog.prescription.notes"));
 		lblNotes.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		txtAreaNotes = new Text(grpParticulars, SWT.MULTI | SWT.WRAP
@@ -899,7 +897,7 @@ iDARTChangeListener {
 		btnAddDrug = new Button(compButtonsMiddle, SWT.NONE);
 		btnAddDrug.setBounds(new Rectangle(60, 30, 185, 27));
 		btnAddDrug.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		btnAddDrug.setText("Adicionar Medicamento à Prescrição");
+		btnAddDrug.setText(Messages.getString("patient.prescription.dialog.add"));
 		btnAddDrug.setEnabled(false);
 		btnAddDrug
 		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
@@ -913,7 +911,7 @@ iDARTChangeListener {
 
 		btnRemoveDrug = new Button(compButtonsMiddle, SWT.NONE);
 		btnRemoveDrug.setBounds(new Rectangle(268,30, 181, 28));
-		btnRemoveDrug.setText("Remover medicamento Seleccionado");
+		btnRemoveDrug.setText(Messages.getString("patient.prescription.dialog.remove"));
 		lblPicAddDrug.setEnabled(false);
 		btnRemoveDrug.setEnabled(false);
 		btnRemoveDrug
@@ -937,7 +935,7 @@ iDARTChangeListener {
 
 		grpDrugs = new Group(getShell(), SWT.NONE);
 
-		grpDrugs.setText("Drugs In Prescription:");
+		grpDrugs.setText("Medicamentos em Prescri;ao:");
 		grpDrugs.setBounds(new Rectangle(100, 400, 700, 160));
 		grpDrugs.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
@@ -988,7 +986,7 @@ iDARTChangeListener {
 		/*tpi_tpc=new Label(grpDrugs, SWT.NONE);
 		tpi_tpc.setBounds(new Rectangle(200, 135, 150, 20));
 		tpi_tpc.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		tpi_tpc.setText("O Paciente também levantou:");
+		tpi_tpc.setText("O Paciente tambï¿½m levantou:");
 		
 		
 		
@@ -1195,7 +1193,7 @@ iDARTChangeListener {
 				|| (cmbDuration.getText().trim().equals(""))) {
 			MessageBox missing = new MessageBox(getShell(), SWT.ICON_ERROR
 					| SWT.OK);
-			missing.setText("Missing fields");
+			missing.setText("Campos em falta");
 			missing
 			.setMessage("Alguns Campos estão vazios. Inserir informação nos campos *.");
 			missing.open();
@@ -1208,9 +1206,9 @@ iDARTChangeListener {
 			
 			MessageBox dataNoutroServico = new MessageBox(getShell(), SWT.ICON_ERROR
 					| SWT.OK);
-			dataNoutroServico.setText("Data Inicio Noutro Serviço Inválido");
+			dataNoutroServico.setText("Data Início Noutro Serviço Inválido");
 			dataNoutroServico
-			.setMessage("A data do inicio noutro serviço não pode ser depois da data de hoje.");
+			.setMessage("A data do início noutro serviço não pode ser depois da data de hoje.");
 			dataNoutroServico.open();
 			btnDataInicioNoutroServico.setFocus();
 			return false;
@@ -1248,7 +1246,7 @@ iDARTChangeListener {
 						SWT.ICON_ERROR | SWT.OK);
 				incorrectData.setText("Valor do peso incorrecto");
 				incorrectData
-				.setMessage("O peso inserido é incorrecto.Inserir um número");
+				.setMessage("O peso inserido está incorrecto.Inserir um número");
 				incorrectData.open();
 				txtWeight.setFocus();
 				return false;
@@ -1937,7 +1935,7 @@ try {
 
 							box.setText("Remover Prescrições anteriores, não usadas");
 							box
-							.setMessage("Este paciente não recebeu nemhum medicamento desde "
+							.setMessage("Este paciente não recebeu nenhum medicamento desde "
 									+ "a sua prescrição anterior com o id "
 									+ oldPrescription.getPrescriptionId()
 									+ " (detalhes abaixo). \n\n"
@@ -1959,7 +1957,7 @@ try {
 									+ "\nMedicamentos na prescrição:\t"
 									+ drugs
 									+ "\n\nGostaria de apagar esta prescrição anterior não utilizada, "
-									+ "e substituí-lo com o que você acabou de criar?");
+									+ "e substituí lo com o que você acabou de criar?");
 							switch (box.open()) {
 							case SWT.YES:
 								// before we try anything, lets ask the user for
@@ -2011,7 +2009,7 @@ try {
 										localPrescription
 										.getPrescriptionId())
 										.concat(
-										"' tem a data de registo antes da data de de registo da prescrição anterior. A Prescrição não pôde ser salvo "));
+										"' tem a data de registo antes da data de de registo da prescrição anterior. A Prescrição não pode ser salva "));
 						errorBox.open();
 						if (tx != null) {
 							tx.rollback();
@@ -2083,7 +2081,7 @@ try {
 
 							box.setText("Remover Prescrições anteriores, não usadas");
 							box
-							.setMessage("Este paciente não recebeu nemhum medicamento desde "
+							.setMessage("Este paciente não recebeu nenhum medicamento desde "
 									+ "a sua prescrição anterior com o id "
 									+ oldPrescription.getPrescriptionId()
 									+ " (detalhes abaixo). \n\n '"
@@ -2096,7 +2094,7 @@ try {
 									+ "\nDuração: "
 									+ oldPrescription.getDuration()
 									+ " semanas "
-									+ "\nEstagio Clínico: "
+									+ "\nEstágio Clínico: "
 									+ oldPrescription.getClinicalStage()
 									+ "\nPeso: "
 									+ oldPrescription.getWeight()
@@ -2105,7 +2103,7 @@ try {
 									+ "\nMedicamentos na prescrição:\t"
 									+ drugs
 									+ "\n\nGostaria de apagar esta prescrição anterior não utilizada, "
-									+ "e substituí-lo com o que você acabou de criar?");
+									+ "e substituí lo com o que você acabou de criar?");
 							switch (box.open()) {
 							case SWT.YES:
 								// before we try anything, lets ask the user for
@@ -2157,7 +2155,7 @@ try {
 										localPrescription
 										.getPrescriptionId())
 										.concat(
-										"' tem a data de registo antes da data de de registo da prescrição anterior. A Prescrição não pôde ser salvo "));
+										"' tem a data de registo antes da data de de registo da prescrição anterior. A Prescrição não pode ser salva "));
 						errorBox.open();
 						if (tx != null) {
 							tx.rollback();
@@ -2259,28 +2257,10 @@ try {
 			localPrescription.setTb('F');
 		}
 		
-		
-		//TPC AND TPI
-		
-		if (chkBtnTPC.getSelection()) {
-			localPrescription.setTpc('T');
-			
-		}
+		localPrescription.setTpc('F');
 
-		else {
-			localPrescription.setTpc('F');
-		}
+		localPrescription.setTpi('F');
 		
-		if (chkBtnTPI.getSelection()) {
-			localPrescription.setTpi('T');
-			
-		}
-
-		else {
-			localPrescription.setTpi('F');
-		}
-		
-
 		// weight
 		if (!txtWeight.getText().equals("")) {
 			localPrescription
@@ -2395,6 +2375,7 @@ try {
 	 * @param DrugGroupName
 	 *            String
 	 */
+	@SuppressWarnings("unused")
 	private void populateDrugsFromDrugGroup(String DrugGroupName) {
 
 		String tempAmtPerTime = "";
@@ -2500,9 +2481,9 @@ try {
 			cmbMotivoMudanca.setEnabled(false);
 			txtAreaNotes.setText("");
             btnDataInicioNoutroServico.setEnabled(false);
-			lblHeader.setText("Prescrição do Paciente");
+			lblHeader.setText(Messages.getString("patient.prescription.dialog.title"));
 
-			btnSave.setText("Actualizar esta prescrição");
+			btnSave.setText(Messages.getString("patient.prescription.dialog.update"));
 			tblDrugs.clearAll();
 			tblDrugs.setItemCount(0);
 			intDrugTableSize = 1;
@@ -2605,7 +2586,7 @@ try {
 		btnDispenseDrugs = new Button(compDispense, SWT.NONE);
 		btnDispenseDrugs.setBounds(new Rectangle(60, 12, 180, 30));
 		btnDispenseDrugs.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		btnDispenseDrugs.setText("Dispensar esta Prescrição");
+		btnDispenseDrugs.setText(Messages.getString("patient.prescription.dialog.dispense"));
 		btnDispenseDrugs
 		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
 			@Override
@@ -2683,7 +2664,7 @@ try {
 		getHSession().flush();
 
 		MessageBox mb = new MessageBox(getShell());
-		mb.setText("Prescrição Apagada com sucesso");
+		mb.setText("Prescrição apagada com sucesso");
 		mb
 		.setMessage("Essa prescrição foi removida com sucesso da base de dados.");
 		mb.open();

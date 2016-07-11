@@ -94,8 +94,6 @@ import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Menu;
-import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
@@ -166,20 +164,20 @@ iDARTChangeListener {
 	
 	
 	//pacientes PTV , PPE & TB
-		private Button chkBtnPPE;
+	private Button chkBtnPPE;
 
-		private Button chkBtnPTV;
-		
-		private Button chkBtnTB;
+	private Button chkBtnPTV;
+	
+	private Button chkBtnTB;
 		
 	// cotrimoxazol & isoniazida
 		
 		
-        private Button chkBtnTPI;
-		
-		private Button chkBtnTPC;
-		
-		private Label tpi_tpc;
+    /*private Button chkBtnTPI;
+	
+	private Button chkBtnTPC;
+	
+	private Label tpi_tpc;*/
 
 	
 	private Patient thePatient;
@@ -267,7 +265,7 @@ iDARTChangeListener {
 				MessageBox noPatient = new MessageBox(getShell(),
 						SWT.ICON_ERROR | SWT.OK);
 
-				noPatient.setText("Paciente N�o tem epis�dio actual");
+				noPatient.setText(Messages.getString("patient.prescription.dialog.noactualepisode"));
 				noPatient
 				.setMessage("O Paciente "
 						+ (txtPatientId.getText()).toUpperCase()
@@ -365,7 +363,7 @@ iDARTChangeListener {
 
 		Label lblInstructions = new Label(compInstructions, SWT.CENTER);
 		lblInstructions.setBounds(new Rectangle(0, 2, 400, 18));
-		lblInstructions.setText("Todos os campos marcados com * s�o obrigat�rios");
+		lblInstructions.setText(Messages.getString("adddruggroup.label.instructions.title"));
 		lblInstructions.setFont(ResourceUtils
 				.getFont(iDartFont.VERASANS_10_ITALIC));
 	}
@@ -516,7 +514,7 @@ iDARTChangeListener {
 	lblDataInicioNoutroServico=new Label(grpPatientID, SWT.NONE);
 	lblDataInicioNoutroServico.setBounds(new Rectangle(10, 65, 150, 20));
 	lblDataInicioNoutroServico.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-	lblDataInicioNoutroServico.setText("Data de In�cio Noutro Servi�o:");
+	lblDataInicioNoutroServico.setText(Messages.getString("patient.prescription.dialog.startdate.anotherservice"));
 	
 
 	btnDataInicioNoutroServico = new DateButton(grpPatientID, DateButton.NONE, null);
@@ -529,7 +527,7 @@ iDARTChangeListener {
 	lblMotivoMudanca=new Label(grpPatientID, SWT.NONE);
 	lblMotivoMudanca.setBounds(new Rectangle(10, 90, 150, 20));
 	lblMotivoMudanca.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-	lblMotivoMudanca.setText("Motivo de Mudan�a:");
+	lblMotivoMudanca.setText(Messages.getString("patient.prescription.dialog.startdate.reason.change"));
 		
 
 	cmbMotivoMudanca= new CCombo(grpPatientID, SWT.BORDER | SWT.READ_ONLY);
@@ -637,7 +635,7 @@ iDARTChangeListener {
 		// grpParticulars
 		grpParticulars = new Group(getShell(), SWT.NONE);
 		grpParticulars.setBounds(new Rectangle(40, 200, 810, 155));
-		grpParticulars.setText("Paciente e nova informa��o da Prescri��o");
+		grpParticulars.setText(Messages.getString("patient.prescription.dialog.info"));
 		grpParticulars.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		// Name
@@ -734,7 +732,7 @@ iDARTChangeListener {
 		Label lblDoctor = new Label(grpParticulars, SWT.NONE);
 		lblDoctor.setBounds(new Rectangle(350, 20, 90, 20));
 		lblDoctor.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblDoctor.setText("* Farmac�utico:");
+		lblDoctor.setText(Messages.getString("patient.prescription.dialog.pharmacist"));
 
 		cmbDoctor = new CCombo(grpParticulars, SWT.BORDER | SWT.READ_ONLY
 				| SWT.V_SCROLL);
@@ -771,7 +769,7 @@ iDARTChangeListener {
 		Label lblDuration = new Label(grpParticulars, SWT.NONE);
 		lblDuration.setBounds(new Rectangle(350, 45, 90, 20));
 		lblDuration.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblDuration.setText("* Dura��o:");
+		lblDuration.setText(Messages.getString("patient.prescription.dialog.duration"));
 
 		cmbDuration = new CCombo(grpParticulars, SWT.BORDER | SWT.READ_ONLY);
 		cmbDuration.setBounds(new Rectangle(450, 45, 100, 20));
@@ -862,7 +860,7 @@ iDARTChangeListener {
 		// Prescription Notes
 		Label lblNotes = new Label(grpParticulars, SWT.CENTER | SWT.BORDER);
 		lblNotes.setBounds(new Rectangle(620, 22, 170, 20));
-		lblNotes.setText("Notas da Prescri��o:");
+		lblNotes.setText(Messages.getString("patient.prescription.dialog.prescription.notes"));
 		lblNotes.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		txtAreaNotes = new Text(grpParticulars, SWT.MULTI | SWT.WRAP
@@ -899,7 +897,7 @@ iDARTChangeListener {
 		btnAddDrug = new Button(compButtonsMiddle, SWT.NONE);
 		btnAddDrug.setBounds(new Rectangle(60, 30, 185, 27));
 		btnAddDrug.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		btnAddDrug.setText("Adicionar Medicamento � Prescri��o");
+		btnAddDrug.setText(Messages.getString("patient.prescription.dialog.add"));
 		btnAddDrug.setEnabled(false);
 		btnAddDrug
 		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
@@ -913,7 +911,7 @@ iDARTChangeListener {
 
 		btnRemoveDrug = new Button(compButtonsMiddle, SWT.NONE);
 		btnRemoveDrug.setBounds(new Rectangle(268,30, 181, 28));
-		btnRemoveDrug.setText("Remover medicamento Seleccionado");
+		btnRemoveDrug.setText(Messages.getString("patient.prescription.dialog.remove"));
 		lblPicAddDrug.setEnabled(false);
 		btnRemoveDrug.setEnabled(false);
 		btnRemoveDrug
@@ -937,7 +935,7 @@ iDARTChangeListener {
 
 		grpDrugs = new Group(getShell(), SWT.NONE);
 
-		grpDrugs.setText("Drugs In Prescription:");
+		grpDrugs.setText("Medicamentos em Prescri;ao:");
 		grpDrugs.setBounds(new Rectangle(100, 400, 700, 160));
 		grpDrugs.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
@@ -985,7 +983,7 @@ iDARTChangeListener {
 
 		createDrugsTable();
 		
-		tpi_tpc=new Label(grpDrugs, SWT.NONE);
+		/*tpi_tpc=new Label(grpDrugs, SWT.NONE);
 		tpi_tpc.setBounds(new Rectangle(200, 135, 150, 20));
 		tpi_tpc.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		tpi_tpc.setText("O Paciente tamb�m levantou:");
@@ -1005,7 +1003,7 @@ iDARTChangeListener {
 		chkBtnTPI.setBounds(new Rectangle(450, 135, 100, 20));
 		chkBtnTPI.setText("Isoniazida");
 		chkBtnTPI.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		chkBtnTPI.setSelection(false);
+		chkBtnTPI.setSelection(false);*/
 		
 		
 	}
@@ -1195,7 +1193,7 @@ iDARTChangeListener {
 				|| (cmbDuration.getText().trim().equals(""))) {
 			MessageBox missing = new MessageBox(getShell(), SWT.ICON_ERROR
 					| SWT.OK);
-			missing.setText("Missing fields");
+			missing.setText("Campos em falta");
 			missing
 			.setMessage("Alguns Campos est�o vazios. Inserir informa��o nos campos *.");
 			missing.open();
@@ -1208,9 +1206,9 @@ iDARTChangeListener {
 			
 			MessageBox dataNoutroServico = new MessageBox(getShell(), SWT.ICON_ERROR
 					| SWT.OK);
-			dataNoutroServico.setText("Data Inicio Noutro Servi�o Inv�lido");
+			dataNoutroServico.setText("Data In�cio Noutro Servi�o Inv�lido");
 			dataNoutroServico
-			.setMessage("A data do inicio noutro servi�o n�o pode ser depois da data de hoje.");
+			.setMessage("A data do in�cio noutro servi�o n�o pode ser depois da data de hoje.");
 			dataNoutroServico.open();
 			btnDataInicioNoutroServico.setFocus();
 			return false;
@@ -1248,7 +1246,7 @@ iDARTChangeListener {
 						SWT.ICON_ERROR | SWT.OK);
 				incorrectData.setText("Valor do peso incorrecto");
 				incorrectData
-				.setMessage("O peso inserido � incorrecto.Inserir um n�mero");
+				.setMessage("O peso inserido est� incorrecto.Inserir um n�mero");
 				incorrectData.open();
 				txtWeight.setFocus();
 				return false;
@@ -1937,7 +1935,7 @@ try {
 
 							box.setText("Remover Prescri��es anteriores, n�o usadas");
 							box
-							.setMessage("Este paciente n�o recebeu nemhum medicamento desde "
+							.setMessage("Este paciente n�o recebeu nenhum medicamento desde "
 									+ "a sua prescri��o anterior com o id "
 									+ oldPrescription.getPrescriptionId()
 									+ " (detalhes abaixo). \n\n"
@@ -1959,7 +1957,7 @@ try {
 									+ "\nMedicamentos na prescri��o:\t"
 									+ drugs
 									+ "\n\nGostaria de apagar esta prescri��o anterior n�o utilizada, "
-									+ "e substitu�-lo com o que voc� acabou de criar?");
+									+ "e substitu� lo com o que voc� acabou de criar?");
 							switch (box.open()) {
 							case SWT.YES:
 								// before we try anything, lets ask the user for
@@ -2011,7 +2009,7 @@ try {
 										localPrescription
 										.getPrescriptionId())
 										.concat(
-										"' tem a data de registo antes da data de de registo da prescri��o anterior. A Prescri��o n�o p�de ser salvo "));
+										"' tem a data de registo antes da data de de registo da prescri��o anterior. A Prescri��o n�o pode ser salva "));
 						errorBox.open();
 						if (tx != null) {
 							tx.rollback();
@@ -2083,7 +2081,7 @@ try {
 
 							box.setText("Remover Prescri��es anteriores, n�o usadas");
 							box
-							.setMessage("Este paciente n�o recebeu nemhum medicamento desde "
+							.setMessage("Este paciente n�o recebeu nenhum medicamento desde "
 									+ "a sua prescri��o anterior com o id "
 									+ oldPrescription.getPrescriptionId()
 									+ " (detalhes abaixo). \n\n '"
@@ -2096,7 +2094,7 @@ try {
 									+ "\nDura��o: "
 									+ oldPrescription.getDuration()
 									+ " semanas "
-									+ "\nEstagio Cl�nico: "
+									+ "\nEst�gio Cl�nico: "
 									+ oldPrescription.getClinicalStage()
 									+ "\nPeso: "
 									+ oldPrescription.getWeight()
@@ -2105,7 +2103,7 @@ try {
 									+ "\nMedicamentos na prescri��o:\t"
 									+ drugs
 									+ "\n\nGostaria de apagar esta prescri��o anterior n�o utilizada, "
-									+ "e substitu�-lo com o que voc� acabou de criar?");
+									+ "e substitu� lo com o que voc� acabou de criar?");
 							switch (box.open()) {
 							case SWT.YES:
 								// before we try anything, lets ask the user for
@@ -2157,7 +2155,7 @@ try {
 										localPrescription
 										.getPrescriptionId())
 										.concat(
-										"' tem a data de registo antes da data de de registo da prescri��o anterior. A Prescri��o n�o p�de ser salvo "));
+										"' tem a data de registo antes da data de de registo da prescri��o anterior. A Prescri��o n�o pode ser salva "));
 						errorBox.open();
 						if (tx != null) {
 							tx.rollback();
@@ -2259,28 +2257,10 @@ try {
 			localPrescription.setTb('F');
 		}
 		
-		
-		//TPC AND TPI
-		
-		if (chkBtnTPC.getSelection()) {
-			localPrescription.setTpc('T');
-			
-		}
+		localPrescription.setTpc('F');
 
-		else {
-			localPrescription.setTpc('F');
-		}
+		localPrescription.setTpi('F');
 		
-		if (chkBtnTPI.getSelection()) {
-			localPrescription.setTpi('T');
-			
-		}
-
-		else {
-			localPrescription.setTpi('F');
-		}
-		
-
 		// weight
 		if (!txtWeight.getText().equals("")) {
 			localPrescription
@@ -2395,6 +2375,7 @@ try {
 	 * @param DrugGroupName
 	 *            String
 	 */
+	@SuppressWarnings("unused")
 	private void populateDrugsFromDrugGroup(String DrugGroupName) {
 
 		String tempAmtPerTime = "";
@@ -2500,9 +2481,9 @@ try {
 			cmbMotivoMudanca.setEnabled(false);
 			txtAreaNotes.setText("");
             btnDataInicioNoutroServico.setEnabled(false);
-			lblHeader.setText("Prescri��o do Paciente");
+			lblHeader.setText(Messages.getString("patient.prescription.dialog.title"));
 
-			btnSave.setText("Actualizar esta prescri��o");
+			btnSave.setText(Messages.getString("patient.prescription.dialog.update"));
 			tblDrugs.clearAll();
 			tblDrugs.setItemCount(0);
 			intDrugTableSize = 1;
@@ -2511,8 +2492,8 @@ try {
 			chkBtnPPE.setSelection(false);
 			chkBtnTB.setSelection(false);
 			chkBtnPTV.setSelection(false);
-			chkBtnTPC.setSelection(false);
-			chkBtnTPI.setSelection(false);
+			//chkBtnTPC.setSelection(false);
+			//chkBtnTPI.setSelection(false);
 			btnSearch.setEnabled(true);
 			btnEkapaSearch.setEnabled(true);
 			txtPatientId.setEnabled(true);
@@ -2568,8 +2549,8 @@ try {
 		chkBtnPPE.setEnabled(enable);
 		chkBtnTB.setEnabled(enable);
 		chkBtnPTV.setEnabled(enable);
-		chkBtnTPI.setEnabled(enable);
-		chkBtnTPC.setEnabled(enable);
+		//chkBtnTPI.setEnabled(enable);
+		//chkBtnTPC.setEnabled(enable);
 		Color theColour;
 
 		if (enable) {
@@ -2605,7 +2586,7 @@ try {
 		btnDispenseDrugs = new Button(compDispense, SWT.NONE);
 		btnDispenseDrugs.setBounds(new Rectangle(60, 12, 180, 30));
 		btnDispenseDrugs.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		btnDispenseDrugs.setText("Dispensar esta Prescri��o");
+		btnDispenseDrugs.setText(Messages.getString("patient.prescription.dialog.dispense"));
 		btnDispenseDrugs
 		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
 			@Override
@@ -2683,7 +2664,7 @@ try {
 		getHSession().flush();
 
 		MessageBox mb = new MessageBox(getShell());
-		mb.setText("Prescri��o Apagada com sucesso");
+		mb.setText("Prescri��o apagada com sucesso");
 		mb
 		.setMessage("Essa prescri��o foi removida com sucesso da base de dados.");
 		mb.open();

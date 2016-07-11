@@ -1,6 +1,8 @@
 package org.celllife.idart.commonobjects;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.util.Locale;
 import java.util.Properties;
@@ -13,6 +15,46 @@ import org.celllife.idart.misc.iDARTRuntimeException;
 /**
  */
 public class iDartProperties {
+	
+	public static final String ENCOUNTER_TYPE_PHARMACY = "e279133c-1d5f-11e0-b929-000c29ad1d07";
+	
+	public static final String REST_GET_PATIENT = "patient?q=";
+	
+	public static final String REST_GET_PATIENT_GENERIC = "patient/";
+	
+	public static final String REST_GET_PERSON_GENERIC = "person/";
+
+	public static final String REST_OBS_PATIENT = "obs?patient=";
+	
+	public static final String REST_GET_PERSON = "person?q=";
+	
+	public static final String REST_GET_LOCATION = "location?q=";
+	
+	public static final String FORM_FILA = "49857ace-1a92-4980-8313-1067714df151";
+	
+	public static final String REGIME = "e1d83e4e-1d5f-11e0-b929-000c29ad1d07";
+	
+	public static final String DISPENSED_AMOUNT = "e1de2ca0-1d5f-11e0-b929-000c29ad1d07";
+	
+	public static final String DOSAGE = "e1de28ae-1d5f-11e0-b929-000c29ad1d07";
+	
+	public static final String VISIT_UUID = "e1e2efd8-1d5f-11e0-b929-000c29ad1d07";
+	
+	public static final String CONCEPT_DATA_INICIO_TARV = "&concept=e1d8f690-1d5f-11e0-b929-000c29ad1d07";
+	
+	public static final String TOMAR = "Tomar ";
+	
+	public static final String COMP = " Comp ";
+	
+	public static final String MASCULINO = "Masculino";
+	
+	public static final String ARRAY_SPLIT = ",";
+	
+	public static final String HIFEN = "-";
+	
+	public static final String SPACE = " ";
+	
+	public static final String VEZES_DIA = " vezes por dia";
 
 	public static final String SWTBOT_KEY = "org.eclipse.swtbot.widget.key";
 
@@ -131,20 +173,20 @@ public class iDartProperties {
 	private iDartProperties() {
 	}
 
-	public static void setiDartProperties() {
+	public static void setiDartProperties() throws UnsupportedEncodingException, FileNotFoundException, IOException {
 		log = Logger.getLogger(iDartProperties.class);
 		log.info("Loading Encrypted System Properties");
 
 		PropertiesEncrypter pe = new PropertiesEncrypter();
 		try {
-			pe.loadPropertiesFromFile(FILE);
+			pe.loadPropertiesFromFile(FILE); 
 		} catch (IOException e) {
 			throw new iDARTRuntimeException("Failed to load properties");
 		}
 		pe.decryptProperties();
 		loadedProperties = pe.getProperties();
 
-		setLocale("localeLanguage", "localeCountry");
+		setLocale("pt", "PT");
 
 		allowMultipleUncollectedPackages = setBooleanProperty("allowMultipleUncollectedPackages");
 		downReferralMode = setStringProperty("downReferralMode");
@@ -357,7 +399,7 @@ public class iDartProperties {
 	 */
 	private static void setLocale(String propertyNameLanguage,
 			String propertyNameCountry) {
-		String theLanguage = loadedProperties.getProperty(propertyNameLanguage);
+		/*String theLanguage = loadedProperties.getProperty(propertyNameLanguage);
 		if (theLanguage == null) {
 			log.warn("Property: " + propertyNameLanguage + " is null");
 			return;
@@ -367,10 +409,10 @@ public class iDartProperties {
 		if (theCountry == null) {
 			log.warn("Property: " + propertyNameCountry + " is null");
 			return;
-		}
+		}*/
 
 		try {
-			currentLocale = new Locale(theLanguage, theCountry);
+			currentLocale = new Locale(propertyNameLanguage, propertyNameCountry);
 			log.info("Locale changed to " + currentLocale.getDisplayName());
 		} catch (Exception e) {
 			log.warn("Could not set locale", e);

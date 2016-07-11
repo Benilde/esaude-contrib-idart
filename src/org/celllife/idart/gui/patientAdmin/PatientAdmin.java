@@ -22,6 +22,7 @@ package org.celllife.idart.gui.patientAdmin;
 import org.apache.log4j.Logger;
 import org.celllife.idart.commonobjects.iDartProperties;
 import org.celllife.idart.gui.patient.AddPatient;
+import org.celllife.idart.gui.patient.AddPatientIdart;
 import org.celllife.idart.gui.patient.AddPatientOpenMrs;
 import org.celllife.idart.gui.patient.MergePatients;
 import org.celllife.idart.gui.patient.ShowPAVAS;
@@ -134,6 +135,37 @@ public class PatientAdmin extends GenericAdminGui {
 		gdBtn.heightHint = 43;
 		gdBtn.widthHint = 363;
 		
+		// lblPicPrescriptionUpdate
+		lblPicPrescriptionUpdate = new Label(compOptionsInner, SWT.NONE);
+		lblPicPrescriptionUpdate.setLayoutData(gdPic);
+		lblPicPrescriptionUpdate.setImage(ResourceUtils
+				.getImage(iDartImage.PRESCRIPTIONNEW));
+		lblPicPrescriptionUpdate.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseUp(MouseEvent mu) {
+				cmdUpdatePrescriptionWidgetSelected();
+			}
+		});
+
+		// btnPrescriptionUpdate
+		btnPrescriptionUpdate = new Button(compOptionsInner, SWT.NONE);
+		btnPrescriptionUpdate.setData(iDartProperties.SWTBOT_KEY, Screens.UPDATE_PRESCRIPTION.getAccessButtonId());
+		btnPrescriptionUpdate.setLayoutData(gdBtn);
+		btnPrescriptionUpdate
+		.setText(Messages.getString("PatientAdmin.button.updatePrescription")); //$NON-NLS-1$
+		btnPrescriptionUpdate
+		.setToolTipText(Messages.getString("PatientAdmin.button.updatePrescription.tooltip")); //$NON-NLS-1$
+		btnPrescriptionUpdate.setFont(ResourceUtils
+				.getFont(iDartFont.VERASANS_10));
+		btnPrescriptionUpdate
+		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
+			@Override
+			public void widgetSelected(
+					org.eclipse.swt.events.SelectionEvent e) {
+				cmdUpdatePrescriptionWidgetSelected();
+			}
+		});
+		
 		// lblPicPatientAddOpenMRS
 		lblPicPatientAddOpenMRS = new Label(compOptionsInner, SWT.NONE);
 		lblPicPatientAddOpenMRS.setLayoutData(gdPic);
@@ -218,37 +250,6 @@ public class PatientAdmin extends GenericAdminGui {
 			public void widgetSelected(
 					org.eclipse.swt.events.SelectionEvent e) {
 				cmdUpdatePatientWidgetSelected();
-			}
-		});
-
-		// lblPicPrescriptionUpdate
-		lblPicPrescriptionUpdate = new Label(compOptionsInner, SWT.NONE);
-		lblPicPrescriptionUpdate.setLayoutData(gdPic);
-		lblPicPrescriptionUpdate.setImage(ResourceUtils
-				.getImage(iDartImage.PRESCRIPTIONNEW));
-		lblPicPrescriptionUpdate.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseUp(MouseEvent mu) {
-				cmdUpdatePrescriptionWidgetSelected();
-			}
-		});
-
-		// btnPrescriptionUpdate
-		btnPrescriptionUpdate = new Button(compOptionsInner, SWT.NONE);
-		btnPrescriptionUpdate.setData(iDartProperties.SWTBOT_KEY, Screens.UPDATE_PRESCRIPTION.getAccessButtonId());
-		btnPrescriptionUpdate.setLayoutData(gdBtn);
-		btnPrescriptionUpdate
-		.setText(Messages.getString("PatientAdmin.button.updatePrescription")); //$NON-NLS-1$
-		btnPrescriptionUpdate
-		.setToolTipText(Messages.getString("PatientAdmin.button.updatePrescription.tooltip")); //$NON-NLS-1$
-		btnPrescriptionUpdate.setFont(ResourceUtils
-				.getFont(iDartFont.VERASANS_10));
-		btnPrescriptionUpdate
-		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
-			@Override
-			public void widgetSelected(
-					org.eclipse.swt.events.SelectionEvent e) {
-				cmdUpdatePrescriptionWidgetSelected();
 			}
 		});
 
@@ -358,7 +359,7 @@ public class PatientAdmin extends GenericAdminGui {
 		// AddPatient(true) to ADD new patient
 		AddPatient.addInitialisationOption(
 				GenericFormGui.OPTION_isAddNotUpdate, true);
-		new AddPatient(getShell(), true);
+		new AddPatientIdart(getShell(), true);
 	}
 
 	private void cmdUpdatePatientWidgetSelected() {

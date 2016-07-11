@@ -1039,7 +1039,7 @@ public class AddPatient extends GenericFormGui implements iDARTChangeListener {
 		String patientId = txtPatientId.getText().toUpperCase().trim();
 		
 		//Verificar se o NID existe no OpenMRS
-		String openMrsResource = restClient.getOpenMRSResource("patient?q="+StringUtils.replace(patientId, " ", "%20"));
+		String openMrsResource = restClient.getOpenMRSResource(iDartProperties.REST_GET_PATIENT+StringUtils.replace(patientId, " ", "%20"));
 				
 		if (openMrsResource.length() == 14) {
 			title = Messages.getString("Informação não encontrada");
@@ -1259,11 +1259,11 @@ public class AddPatient extends GenericFormGui implements iDARTChangeListener {
 			//Preparar Prim.Nomes, Apelido e Data de Nascimento apartir do NID usando REST WEB SERVICES
 			String nid = txtPatientId.getText().toUpperCase().trim();
 
-			String resource = new RestClient().getOpenMRSResource("patient?q="+StringUtils.replace(nid, " ", "%20"));
+			String resource = new RestClient().getOpenMRSResource(iDartProperties.REST_GET_PATIENT+StringUtils.replace(nid, " ", "%20"));
 
 			String personUuid = resource.substring(21, 57);
 
-			String personDemografics = new RestClient().getOpenMRSResource("person/"+personUuid);
+			String personDemografics = new RestClient().getOpenMRSResource(iDartProperties.REST_GET_PERSON_GENERIC+personUuid);
 
 			JSONObject jsonObject = new org.json.JSONObject(personDemografics);
 
@@ -1360,13 +1360,41 @@ public class AddPatient extends GenericFormGui implements iDARTChangeListener {
 	}
 	
 	private void cmdSearchWidgetSelectedSearchByName() {
-		logger.info("cmdSearchWidgetSelectedSearchByName called...");
-		
 		String patientId = PatientBarcodeParser.getPatientId(txtPatientId.getText());
-		
-		PatientSearch search = new PatientSearch(getShell(), getHSession());
-		search.setShowInactive(true);
-		PatientIdentifier identifier = search.search(patientId);
+
+		isAddnotUpdate = false;
+
+		if (isAddnotUpdate) {
+			if (localPatient == null || 
+					localPatient.getPatientId() == null || 
+					localPatient.getPatientId().isEmpty()){
+				setFormForNewPatient();
+				((TreatmentHistoryTab) groupTabs[3]).enable(true, ResourceUtils
+						.getColor(iDartColor.WIDGET_BACKGROUND)); // ARV
+			}
+			
+			editPatientIdentifiers();
+		} else if (localPatient == null){
+			PatientSearch search = new PatientSearch(getShell(), getHSession());
+			search.setShowInactive(true);
+			PatientIdentifier identifier = search.search(patientId);
+			
+			if (identifier != null) {
+				localPatient = identifier.getPatient();
+				updateGUIforNewLocalPatient();
+			}
+
+			// if we've returned from the search GUI with the user having
+			// pressed "cancel", enable the search button
+			else if (!btnSearch.isDisposed() & !btnEkapaSearch.isDisposed()) {
+				btnSearch.setEnabled(true);
+				btnEkapaSearch.setEnabled(true);
+			}
+			// txtPatientId.setFocus();
+		} else {
+			editPatientIdentifiers();
+		}
+
 	}
 
 	private void updateGUIforNewLocalPatient() {
@@ -1435,18 +1463,10 @@ public class AddPatient extends GenericFormGui implements iDARTChangeListener {
 			PatientManager.savePatient(getHSession(), localPatient);
 			
 			System.out.println(" local patient "+localPatient.getPatientId()+"  "+localPatient.getFirstNames());
-System.out.println(" local patient "+localPatient.getPatientId()+"  "+localPatient.getFirstNames());
+			System.out.println(" local patient "+localPatient.getPatientId()+"  "+localPatient.getFirstNames());
 			
 			//ConexaoODBC conn=new ConexaoODBC();
 			ConexaoJDBC conn2=new ConexaoJDBC();
-
-//			if(!conn.existNid(localPatient.getPatientId()))
-//			{
-//				//insere paciente no sesp
-//				conn.inserePaciente(localPatient.getPatientId(), localPatient.getFirstNames(), localPatient.getLastname(), new Date(), localPatient.getDateOfBirth(), localPatient.getSex(), new Date(), localPatient.getCellphone());
-//				
-//				
-//			}
 			
 			//insere pacientes no idart
 			try {

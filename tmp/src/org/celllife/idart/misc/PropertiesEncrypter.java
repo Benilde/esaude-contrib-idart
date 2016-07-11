@@ -25,6 +25,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
@@ -136,7 +137,7 @@ public class PropertiesEncrypter {
 			throw new IllegalArgumentException(
 					"Input file does not exist or is a directory: "
 					+ inFile.getAbsolutePath(), e);
-		}
+		} 
 		props = loadProperties(in);
 		return inFile;
 	}
