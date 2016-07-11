@@ -1,5 +1,8 @@
 package org.celllife.idart.start;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
@@ -19,9 +22,12 @@ public class FixStockLevels {
 
 	/**
 	 * @param args
+	 * @throws IOException 
+	 * @throws FileNotFoundException 
+	 * @throws UnsupportedEncodingException 
 	 */
 	@SuppressWarnings("unchecked")
-	public static void main(String[] args) {
+	public static void main(String[] args) throws UnsupportedEncodingException, FileNotFoundException, IOException {
 		
 		Logger log = Logger.getRootLogger();
 		DOMConfigurator.configure("log4j.xml");

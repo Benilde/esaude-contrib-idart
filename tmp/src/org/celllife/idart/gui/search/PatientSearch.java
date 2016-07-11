@@ -29,7 +29,9 @@ import model.manager.SearchManager;
 import org.apache.log4j.Logger;
 import org.celllife.idart.commonobjects.iDartProperties;
 import org.celllife.idart.database.hibernate.IdentifierType;
+import org.celllife.idart.database.hibernate.Patient;
 import org.celllife.idart.database.hibernate.PatientIdentifier;
+import org.celllife.idart.gui.patient.tabs.IPatientTab;
 import org.celllife.idart.gui.platform.GenericOthersGui;
 import org.celllife.idart.gui.utils.ResourceUtils;
 import org.celllife.idart.gui.utils.iDartFont;
@@ -62,6 +64,8 @@ public class PatientSearch extends GenericOthersGui {
 	private String searchString;
 	private Text searchBar;
 	protected PatientIdentifier selectedIdentifier;
+	private IPatientTab[] groupTabs;
+	private Patient localPatient;
 	
 	/**
 	 * Flag to determine whether to show inactive patients
@@ -92,18 +96,60 @@ public class PatientSearch extends GenericOthersGui {
 	 */
 	private int maxNumberOfIdentifiersPerPatient;
 	private boolean disableSelection = false;
+	
+	private List<IdentifierType> types;
 
 	// FIXME: (simon - multi ids) show alternate patients
 	// see model.manager.PatientSearchManager.getSelectedPatient(boolean)
 	public PatientSearch(Shell parent, Session session) {
 		super(parent, session);
-		List<IdentifierType> types = PatientManager.getAllIdentifierTypes(session);
+		types = PatientManager.getAllIdentifierTypes(session);
 		maxNumberOfIdentifiersPerPatient = types.size();
 	}
 	
-	public PatientIdentifier search(String patientId){
+	public PatientIdentifier search(String patientId) {
 		this.searchString = patientId == null ? "" : patientId;
 		loadPatientIdentifiers();
+		
+		/*if (selectedIdentifier== null) {
+			RestClient restClient = new RestClient();
+			
+			String openMrsResource = restClient.getOpenMRSResource("patient?q="+StringUtils.replace(patientId, " ", "%20"));
+			
+			Transaction tx = null;
+
+			try {
+				tx = getHSession().beginTransaction();
+
+				for (IPatientTab tab : groupTabs) {
+					tab.submit(localPatient);
+				}
+
+				PatientManager.savePatient(getHSession(), localPatient);
+								
+				getHSession().flush();
+				tx.commit();
+
+			} catch (Exception he) {
+				if (tx != null) {
+					tx.rollback();
+				}
+				getLog().error("Error saving patient to the database.", he);
+			}
+		}*/
+		
+		if (patientids.size() == 1){
+			return identifiers.get(0);
+		}
+		activate();
+		updateTable();
+		waitForClose();
+		return selectedIdentifier;
+	}
+	
+	public PatientIdentifier searchByName(String patientId) {
+		this.searchString = patientId == null ? "" : patientId;
+		loadPatientIdentifiersOpenMRS();
 		if (patientids.size() == 1){
 			return identifiers.get(0);
 		}
@@ -119,14 +165,27 @@ public class PatientSearch extends GenericOthersGui {
 				@Override
 				public void run() {
 					if (showPatientsWithPackagesAwaiting){
-						identifiers = SearchManager
-							.getPatientIdentifiersWithAwiatingPackages(getHSession(), 
-								searchString);	
+						identifiers = SearchManager.getPatientIdentifiersWithAwiatingPackages(getHSession(), searchString);	
 					} else {
-						identifiers = SearchManager
-							.getPatientIdentifiers(getHSession(), searchString,
-								showInactive);	
+						identifiers = SearchManager.getPatientIdentifiers(getHSession(), searchString, showInactive);	
 					}
+					
+					if (identifiers.size() <= maxNumberOfIdentifiersPerPatient){
+						populatePatientIds();
+					} else {
+						patientids.clear();
+					}
+				}
+			});
+	}
+	
+	private void loadPatientIdentifiersOpenMRS() {
+		BusyIndicator.showWhile(getParent().getDisplay(), 
+			new Runnable() {
+				@Override
+				public void run() {
+					
+					identifiers = SearchManager.getPatientIdentifiersByName(getHSession(), searchString, showInactive, types);	
 					
 					if (identifiers.size() <= maxNumberOfIdentifiersPerPatient){
 						populatePatientIds();

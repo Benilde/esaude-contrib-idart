@@ -38,12 +38,12 @@ import model.manager.PatientManager;
 import model.manager.StudyManager;
 import model.manager.reports.PatientHistoryReport;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.celllife.function.DateRuleFactory;
 import org.celllife.idart.commonobjects.CommonObjects;
 import org.celllife.idart.commonobjects.LocalObjects;
 import org.celllife.idart.commonobjects.iDartProperties;
+import org.celllife.idart.database.dao.ConexaoJDBC;
 import org.celllife.idart.database.hibernate.Clinic;
 import org.celllife.idart.database.hibernate.Episode;
 import org.celllife.idart.database.hibernate.PackagedDrugs;
@@ -80,6 +80,7 @@ import org.celllife.idart.print.barcode.Barcode;
 import org.celllife.idart.print.label.PatientInfoLabel;
 import org.celllife.idart.print.label.PrintLabel;
 import org.celllife.idart.rest.utils.RestClient;
+import org.celllife.idart.rest.utils.RestUtils;
 import org.celllife.mobilisr.client.exception.RestCommandException;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
@@ -107,6 +108,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.Text;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public class AddPatientOpenMrs extends GenericFormGui implements iDARTChangeListener {
 
@@ -229,14 +231,6 @@ public class AddPatientOpenMrs extends GenericFormGui implements iDARTChangeList
 	private boolean identifierChangesMade = false;
 
 	private RestClient restClient;
-	
-	private String year;
-	
-	private String month;
-	
-	private Integer day;
-	
-	private Date theDate;
 	
 	/**
 	 * Constructor
@@ -995,6 +989,7 @@ public class AddPatientOpenMrs extends GenericFormGui implements iDARTChangeList
 	 * 
 	 * @return true if the required fields are filled in
 	 */
+	@SuppressWarnings("unused")
 	@Override
 	protected boolean fieldsOk() {
 
@@ -1337,42 +1332,85 @@ public class AddPatientOpenMrs extends GenericFormGui implements iDARTChangeList
 			}
 		}
 
-		//Add interoperability with OpenMRS through Rest Web Services
-		RestClient restClient = new RestClient();
+		Transaction tx = null;
 		
-		String[] names = txtFirstNames.getText().trim().split(" ");
+		localPatient.setFirstNames(txtFirstNames.getText());//Primeiros nomes
+		localPatient.setLastname(txtSurname.getText());//Apelido
+		localPatient.setSex(cmbSex.getText().charAt(0));
 		
-		String firstName = names[0];
-		String middleName = names[names.length-1];
-		
+		// Set the date of birth
+		SimpleDateFormat sdf = new SimpleDateFormat("d-MMMM-yyyy", Locale.ENGLISH); //$NON-NLS-1$
+		Date theDate = null;//Data de Nascimento
 		try {
-			Calendar cal = Calendar.getInstance();
-			cal.setTime(new SimpleDateFormat("MMM").parse(cmbDOBMonth.getText().trim()));
-			
-			restClient.postOpenMRSPatient(cmbSex.getText().trim().equals("Masculino") ? "M" : "F", firstName, middleName, txtSurname.getText().trim(), 
-					cmbDOBYear.getText().trim()+"-"+String.valueOf(cal.get(Calendar.MONTH) + 1)+"-"+cmbDOBDay.getText().trim(), txtPatientId.getText().toUpperCase().trim());
-		} catch (Exception e) {
-			getLog().info(e.getMessage());
+			theDate = sdf.parse(cmbDOBDay.getText() + "-" //$NON-NLS-1$
+					+ cmbDOBMonth.getText() + "-" + cmbDOBYear.getText()); //$NON-NLS-1$
+		} catch (ParseException e1) {
+			getLog().error("Error parsing date: ",e1); //$NON-NLS-1$
 		}
 		
+		localPatient.setDateOfBirth(theDate);
 
-		MessageBox m = new MessageBox(getShell(), SWT.OK | SWT.ICON_INFORMATION);
-		m.setText(Messages.getString("patient.save.confirmation.title")); //$NON-NLS-1$
-		m.setMessage(MessageFormat.format(Messages.getString("patient.save.confirmation"),localPatient.getPatientId())); //$NON-NLS-1$
-		m.open();
+		try {
 
-		if (isAddnotUpdate || offerToPrintLabel) {
-			m = new MessageBox(getShell(), SWT.ICON_QUESTION | SWT.YES | SWT.NO);
-			m.setText(Messages.getString("patient.dialog.printInfoLable.title")); //$NON-NLS-1$
-			m.setMessage(Messages.getString("patient.dialog.printInfoLable")); //$NON-NLS-1$
-			switch (m.open()) {
-			case SWT.YES:
-				printPatientInfoLabel();
-				break;
+			tx = getHSession().beginTransaction();
+
+			for (IPatientTab tab : groupTabs) {
+				tab.submit(localPatient);
 			}
-		}
+
+			PatientManager.savePatient(getHSession(), localPatient);
+			
+			System.out.println(" local patient "+localPatient.getPatientId()+"  "+localPatient.getFirstNames());
+			System.out.println(" local patient "+localPatient.getPatientId()+"  "+localPatient.getFirstNames());
+			
+			//ConexaoODBC conn=new ConexaoODBC();
+			ConexaoJDBC conn2=new ConexaoJDBC();
+			
+			String fullName = txtFirstNames.getText() +" "+txtSurname.getText();
+			List<String> lstFullName = RestUtils.splitName(fullName);
+			
+			//insere pacientes no idart e OpenMRS
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(new SimpleDateFormat("MMM", Locale.ENGLISH).parse(cmbDOBMonth.getText().trim()));
+			
+			restClient.postOpenMRSPatient(cmbSex.getText().trim().equals(iDartProperties.MASCULINO) ? "M" : "F", lstFullName.get(0), lstFullName.get(1), lstFullName.get(2),  
+					cmbDOBYear.getText().trim()+"-"+String.valueOf(cal.get(Calendar.MONTH) + 1)+"-"+cmbDOBDay.getText().trim(), txtPatientId.getText().toUpperCase().trim());
+			
+			conn2.inserPacienteIdart(localPatient.getPatientId(), localPatient.getFirstNames(), localPatient.getLastname(), new Date());
+			
+			getHSession().flush();
+			tx.commit();
+
+			MessageBox m = new MessageBox(getShell(), SWT.OK | SWT.ICON_INFORMATION);
+			m.setText(Messages.getString("patient.save.confirmation.title")); //$NON-NLS-1$
+			m.setMessage(MessageFormat.format(Messages.getString("patient.save.confirmation"),localPatient.getPatientId())); //$NON-NLS-1$
+			m.open();
+		
+			if (isAddnotUpdate || offerToPrintLabel) {
+				m = new MessageBox(getShell(), SWT.ICON_QUESTION | SWT.YES | SWT.NO);
+				m.setText(Messages.getString("patient.dialog.printInfoLable.title")); //$NON-NLS-1$
+				m.setMessage(Messages.getString("patient.dialog.printInfoLable")); //$NON-NLS-1$
+				switch (m.open()) {
+				case SWT.YES:
+					printPatientInfoLabel();
+					break;
+				}
+			}
 
 			return true;
+			
+		} catch (Exception he) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			getLog().error("Error saving patient to the database.", he); //$NON-NLS-1$
+			MessageBox m = new MessageBox(getShell(), SWT.OK | SWT.ICON_INFORMATION);
+			m.setText(Messages.getString("patient.error.save.failed.title")); //$NON-NLS-1$
+			m.setMessage(Messages.getString("patient.error.save.failed")); //$NON-NLS-1$
+			m.open();
+
+			return false;
+		}
 	}
 
 	private void setLocalPatient() {

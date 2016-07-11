@@ -873,20 +873,18 @@ public class NewPatientPackaging extends GenericFormGui implements
 		compShowAppointmentOnLabels.setLayout(null);
 		compShowAppointmentOnLabels.setBounds(new Rectangle(400, 173, 95, 22));
 
-		rdBtnYesAppointmentDate = new Button(compShowAppointmentOnLabels,
-				SWT.RADIO);
+		rdBtnYesAppointmentDate = new Button(compShowAppointmentOnLabels,SWT.RADIO);
 		rdBtnYesAppointmentDate.setBounds(new Rectangle(5, 1, 45, 20));
-		rdBtnYesAppointmentDate.setText("Sim");
-		rdBtnYesAppointmentDate.setFont(ResourceUtils
-				.getFont(iDartFont.VERASANS_8));
+		rdBtnYesAppointmentDate.setText("Não");
+		rdBtnYesAppointmentDate.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
+		rdBtnYesAppointmentDate.setVisible(Boolean.FALSE); 
 
-		rdBtnNoAppointmentDate = new Button(compShowAppointmentOnLabels,
-				SWT.RADIO);
+		rdBtnNoAppointmentDate = new Button(compShowAppointmentOnLabels,SWT.RADIO);
 		rdBtnNoAppointmentDate.setBounds(new Rectangle(55, 1, 38, 19));
 		rdBtnNoAppointmentDate.setText("Não");
+		rdBtnNoAppointmentDate.setVisible(Boolean.FALSE);
 
-		rdBtnNoAppointmentDate.setFont(ResourceUtils
-				.getFont(iDartFont.VERASANS_8));
+		rdBtnNoAppointmentDate.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		if (iDartProperties.nextAppointmentDateOnLabels) {
 			rdBtnYesAppointmentDate.setSelection(true);
@@ -2726,7 +2724,6 @@ public class NewPatientPackaging extends GenericFormGui implements
 	 *            java.util.List<PackageDrugInfo>
 	 * @throws Exception
 	 */
-	@SuppressWarnings("unused")
 	private void savePackageAndPackagedDrugs(boolean dispenseNow,
 			java.util.List<PackageDrugInfo> allPackageDrugsList) throws Exception {
 
@@ -2819,19 +2816,16 @@ public class NewPatientPackaging extends GenericFormGui implements
 		//Patient NID 
 		String nid = newPack.getPrescription().getPatient().getPatientId().trim();
 		
-		String nidRest = restClient.getOpenMRSResource("patient?q="+StringUtils.replace(nid, " ", "%20"));
+		String nidRest = restClient.getOpenMRSResource(iDartProperties.REST_GET_PATIENT+StringUtils.replace(nid, " ", "%20"));
 		
 		//Patient NID uuid 
 		String nidUuid = nidRest.substring(21, 57);
-		
-		//Encounter type
-		String encounterType = "e279133c-1d5f-11e0-b929-000c29ad1d07";
 		
 		String strProvider = newPack.getPrescription().getDoctor().getFirstname().trim() + " " + newPack.getPrescription().getDoctor().getLastname().trim();
 		
 		String providerWithNoAccents = org.apache.commons.lang3.StringUtils.stripAccents(strProvider);
 		
-		String response = restClient.getOpenMRSResource("person?q="+StringUtils.replace(providerWithNoAccents, " ", "%20"));
+		String response = restClient.getOpenMRSResource(iDartProperties.REST_GET_PERSON+StringUtils.replace(providerWithNoAccents, " ", "%20"));
 		
 		//Provider
 		String providerUuid = response.substring(21, 57);
@@ -2839,16 +2833,10 @@ public class NewPatientPackaging extends GenericFormGui implements
 		String facility = newPack.getClinic().getClinicName().trim();
 		
 		//Location
-		String strFacility = restClient.getOpenMRSResource("location?q="+StringUtils.replace(facility, " ", "%20"));
+		String strFacility = restClient.getOpenMRSResource(iDartProperties.REST_GET_LOCATION+StringUtils.replace(facility, " ", "%20"));
 		
 		//Health Facility
 		String strFacilityUuid = strFacility.substring(21, 57);
-		
-		//Form(FILA) Uuid
-		String filaUuid = "49857ace-1a92-4980-8313-1067714df151";
-					
-		//Regime Uuid
-		String regimeUuid = "e1d83e4e-1d5f-11e0-b929-000c29ad1d07";
 		
 		//Regimen
 		String regimenAnswer = newPack.getPrescription().getRegimeTerapeutico().getRegimenomeespecificado().trim();
@@ -2857,9 +2845,6 @@ public class NewPatientPackaging extends GenericFormGui implements
 		
 		//Regimen answer Uuid
 		String strRegimenAnswerUuid = strRegimenAnswer.substring(21, 57);
-		
-		//Dispensed amount Uuid
-		String dispensedAmountUuid = "e1de2ca0-1d5f-11e0-b929-000c29ad1d07"; 
 				
 		//Dispensed amount
 		String packSize = String.valueOf(newPack.getPrescription().getPrescribedDrugs().get(0).getDrug().getPackSize());
@@ -2867,20 +2852,14 @@ public class NewPatientPackaging extends GenericFormGui implements
 		//Dosage
 		String dosage = String.valueOf(newPack.getPrescription().getPrescribedDrugs().get(0).getTimesPerDay());
 		
-		String customizedDosage = "Tomar "+ String.valueOf((int)(newPack.getPrescription().getPrescribedDrugs().
-				get(0).getAmtPerTime()))+" Comp "+dosage+" vezes por dia";
-		
-		//Dosage Uuid
-		String dosageUuid = "e1de28ae-1d5f-11e0-b929-000c29ad1d07";
-		
-		//Return visit date Uuid
-		String returnVisitUuid = "e1e2efd8-1d5f-11e0-b929-000c29ad1d07";
+		String customizedDosage = iDartProperties.TOMAR + String.valueOf((int)(newPack.getPrescription().getPrescribedDrugs().
+				get(0).getAmtPerTime())) + iDartProperties.COMP + dosage + iDartProperties.VEZES_DIA;
 		
 		//Next pick up date
 		Date dtNextPickUp = btnNextAppDate.getDate();
 		
 		String strNextPickUp = RestUtils.castDateToString(dtNextPickUp);
-	
+	 
        /*if (restClient.postOpenMRSEncounter(strPickUp, nidUuid, encounterType, 
 				strFacilityUuid, filaUuid, providerUuid, regimeUuid, strRegimenAnswerUuid, 
 				dispensedAmountUuid, packSize, dosageUuid, customizedDosage, returnVisitUuid, strNextPickUp)) {
@@ -2894,9 +2873,9 @@ public class NewPatientPackaging extends GenericFormGui implements
 		}*/
 		
 		try {
-			restClient.postOpenMRSEncounter(strPickUp, nidUuid, encounterType, 
-					strFacilityUuid, filaUuid, providerUuid, regimeUuid, strRegimenAnswerUuid, 
-					dispensedAmountUuid, packSize, dosageUuid, customizedDosage, returnVisitUuid, strNextPickUp);
+			restClient.postOpenMRSEncounter(strPickUp, nidUuid, iDartProperties.ENCOUNTER_TYPE_PHARMACY, 
+					strFacilityUuid, iDartProperties.FORM_FILA, providerUuid, iDartProperties.REGIME, strRegimenAnswerUuid, 
+					iDartProperties.DISPENSED_AMOUNT, packSize, iDartProperties.DOSAGE, customizedDosage, iDartProperties.VISIT_UUID, strNextPickUp);
 		} catch (Exception e) {
 			getLog().info(e.getMessage());
 		}
@@ -3101,7 +3080,6 @@ public class NewPatientPackaging extends GenericFormGui implements
 	 * @throws IOException 
 	 * @throws FileNotFoundException 
 	 */
-	@SuppressWarnings({ "static-access", "null" })
 	private void submitForm(boolean dispenseNow, java.util.List<PackageDrugInfo> allPackagedDrugsList) throws Exception {
 
 		Transaction tx = null;
@@ -3566,10 +3544,6 @@ public class NewPatientPackaging extends GenericFormGui implements
 		System.out.println(" DAta inicio noutro servico: "+dataInicioNoutroServico);
 		System.out.println(" Motivo da mudanca: "+ motivomudanca);
 		System.out.println(" Linha Terapeutica: "+ linha);
-		 
-		 
-		 
-		
 		 
 		 //convertendo a data para adequar com a coluna datatarv do ms access - t_tarv 
 		 SimpleDateFormat parseFormat = 

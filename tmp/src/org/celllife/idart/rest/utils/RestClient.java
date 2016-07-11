@@ -1,7 +1,10 @@
 package org.celllife.idart.rest.utils;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 import org.apache.http.entity.StringEntity;
-import org.apache.log4j.Logger;
 import org.celllife.idart.rest.ApiAuthRest;
 
 
@@ -12,13 +15,24 @@ import org.celllife.idart.rest.ApiAuthRest;
  */
 public class RestClient {
 	
-	private static Logger log = Logger.getLogger(RestClient.class);
-
+	Properties prop = new Properties();
+	InputStream input = null;
+	
 	//SET VALUE FOR CONNECT TO OPENMRS
 	public RestClient() {
-		ApiAuthRest.setURLBase("http://192.168.100.1:8080/openmrs/ws/rest/v1/");
-		ApiAuthRest.setUsername("Admin");
-		ApiAuthRest.setPassword("openmrsadmin04");
+		input = getClass().getClassLoader().getResourceAsStream("jdbc.properties");
+		
+		try {
+			prop.load(input);
+			
+			System.out.println(prop.getProperty("password")); 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		ApiAuthRest.setURLBase(prop.getProperty("urlBase"));
+		ApiAuthRest.setUsername(prop.getProperty("userName"));
+		ApiAuthRest.setPassword(prop.getProperty("password"));
 	}
 	
 	public boolean postOpenMRSEncounter(String encounterDatetime, String nidUuid, String encounterType, String strFacilityUuid, 
@@ -39,6 +53,29 @@ public class RestClient {
 	 		 	inputAddPerson.setContentType("application/json");
 	 		 	//log.info("AddPerson = " + ApiAuthRest.getRequestPost("encounter",inputAddPerson));
 				return ApiAuthRest.getRequestPost("encounter",inputAddPerson); 
+	}
+	
+	public boolean postOpenMRSPatient(String gender, String firstName, String middleName, String lastName, String birthDate, String nid) throws Exception {
+		StringEntity inputAddPatient = new StringEntity(
+				"{\"person\":"
+					+"{"
+						+"\"gender\": \""+gender+"\","
+						+"\"names\":"
+						+"[{\"givenName\": \""+firstName+"\", \"middleName\": \""+middleName+"\", \"familyName\": \""+lastName+"\"}], \"birthdate\": \""+birthDate+"\""
+					+"},"
+					+"\"identifiers\":"
+					+"["
+						+"{"
+							+"\"identifier\": \""+nid+"\", \"identifierType\": \"e2b966d0-1d5f-11e0-b929-000c29ad1d07\","
+							+"\"location\": \"e2b32fc2-1d5f-11e0-b929-000c29ad1d07\", \"preferred\": \"true\""
+						+"}"
+					+"]"
+				+"}"
+				);
+	 	
+		inputAddPatient.setContentType("application/json");
+ 		//log.info("AddPerson = " + ApiAuthRest.getRequestPost("encounter",inputAddPerson));
+		return ApiAuthRest.getRequestPost("patient",inputAddPatient); 
 	}
 	
 	public String getOpenMRSResource(String resourceParameter) {
