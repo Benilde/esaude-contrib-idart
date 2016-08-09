@@ -269,7 +269,7 @@ iDARTChangeListener {
 				noPatient
 				.setMessage("O Paciente "
 						+ (txtPatientId.getText()).toUpperCase()
-						+ " n�o tem epis�dio actual. \n\nVoc� precisa come�ar um novo epis�dio para este paciente (Usando a tela 'Actualizar Paciente Existente') antes de registar a sua prescri��o.");
+						+ " n�o tem epis�dio actual. \n\nVoc� precisa come�ar um novo epis�dio para este paciente (Usando a tela 'Actualizar Paciente Existente') antes de registar a sua Prescrição.");
 				noPatient.open();
 				txtPatientId.setFocus();
 				txtPatientId.setText("");
@@ -338,7 +338,7 @@ iDARTChangeListener {
 	 */
 	@Override
 	protected void createCompHeader() {
-		String headerTxt = "Prescri��o do Paciente";
+		String headerTxt = "Prescrição do Paciente";
 		iDartImage icoImage = iDartImage.PRESCRIPTIONNEW;
 		buildCompHeader(headerTxt, icoImage);
 	}
@@ -347,7 +347,7 @@ iDARTChangeListener {
 	protected void createCompButtons() {
 		// Parent Class generic call
 		buildCompButtons();
-		btnSave.setText("Salar esta Prescri��o");
+		btnSave.setText("Salar esta Prescrição");
 		// btnSavePrescription
 
 	}
@@ -617,7 +617,7 @@ iDARTChangeListener {
 					dteEpisodeStart, false);
 			afterEpisodeStart.setDescription("Este paciente paciente foi marcado com "
 					+ latestEpi.getStartReason()
-					+ " em <date>. A data da prescri��o deve estar em,"
+					+ " em <date>. A data da Prescrição deve estar em,"
 					+ " ou depois da data deste epis�dio.");
 			rule = new AndRule<Date>(rule, afterEpisodeStart);
 		}
@@ -1266,17 +1266,17 @@ iDARTChangeListener {
 
 		cmbUpdateReason.setText("Manter");
 	    cmbUpdateReason.setEnabled(true);
-		lblHeader.setText("Registar Prescri��o Inicial");
+		lblHeader.setText("Registar Prescrição Inicial");
 
 		// btnDispenseDrugs.setEnabled(true);
 		// lblPicDispenseDrugs.setEnabled(true);
 		btnCaptureDate.setDate(new Date());
-		btnSave.setText("Salvar Prescri��o Inicial");
+		btnSave.setText("Salvar Prescrição Inicial");
 		btnSave.redraw();
 
 		// Generate a new prescription id
 		cmdUpdatePrescriptionId();
-		cmbDuration.setText("1 m�s");
+		cmbDuration.setText("1 mês");
 
 	}
 
@@ -1288,12 +1288,12 @@ iDARTChangeListener {
 	 */
 	private void setFormToReactivationPrescription() {
 
-		btnSave.setText("Salvar Prescri��o");
+		btnSave.setText("Salvar Prescrição");
 		btnSave.redraw();
 
 		// Generate a new prescription id
 		cmdUpdatePrescriptionId();
-		cmbDuration.setText("1 m�s");
+		cmbDuration.setText("1 mês");
 
 		btnSearch.setEnabled(false);
 		btnEkapaSearch.setEnabled(false);
@@ -1487,7 +1487,7 @@ try {
 						| SWT.YES | SWT.NO);
 				mb.setText("Remover o medicamento'" + drug + "'");
 				mb.setMessage("Quer remover '" + drug
-						+ "' desta prescri��o?");
+						+ "' desta Prescrição?");
 				switch (mb.open()) {
 				case SWT.YES:
 					// Delete from Prescription
@@ -1659,7 +1659,7 @@ try {
 
 				loadPrescriptionDetails();
 
-				lblHeader.setText("Actualizar a Prescri��o");
+				lblHeader.setText("Actualizar a Prescrição");
 
 				btnDispenseDrugs.setEnabled(true);
 				lblPicDispenseDrugs.setEnabled(true);
@@ -1707,7 +1707,7 @@ try {
 
 				loadPrescriptionDetails();
 
-				lblHeader.setText("Actualizar a Prescri��o");
+				lblHeader.setText("Actualizar a Prescrição");
 
 				btnDispenseDrugs.setEnabled(true);
 				lblPicDispenseDrugs.setEnabled(true);
@@ -1755,7 +1755,7 @@ try {
 				noPatient
 				.setMessage("O Paciente "
 						+ (txtPatientId.getText()).toUpperCase()
-						+ " n�o possui um Epis�dio actual. \n\nPrecisa Iniciar um novo epis�dio para este Paciente (usando a tela 'Actualizar Paciente Existente') antes de registra a sua prescri��o.");
+						+ " n�o possui um Epis�dio actual. \n\nPrecisa Iniciar um novo epis�dio para este Paciente (usando a tela 'Actualizar Paciente Existente') antes de registra a sua Prescrição.");
 				noPatient.open();
 				txtPatientId.setFocus();
 				txtPatientId.setText("");
@@ -1840,9 +1840,9 @@ try {
 		if (tblDrugs.getItemCount() < 1) {
 			MessageBox noDrugsAdded = new MessageBox(getShell(), SWT.ICON_ERROR
 					| SWT.OK);
-			noDrugsAdded.setText("Sem medicamentos na prescri��o");
+			noDrugsAdded.setText("Sem medicamentos na Prescrição");
 			noDrugsAdded
-			.setMessage("Nenhum medicamento foi adicionado nesta prescri��o.");
+			.setMessage("Nenhum medicamento foi adicionado nesta Prescrição.");
 			noDrugsAdded.open();
 			drugsAdded = false;
 		}
@@ -1871,12 +1871,12 @@ try {
 					| SWT.YES | SWT.NO);
 			
 			mSave
-			.setText(isInitialPrescription ? "Registar a prescri��o inicial do paciente "
+			.setText(isInitialPrescription ? "Registar a Prescrição inicial do paciente "
 					.concat(txtPatientId.getText())
-					: "Registar Nova prescri��o do paciente "
+					: "Registar Nova Prescrição do paciente "
 						.concat(txtPatientId.getText()));
 			mSave
-			.setMessage(isInitialPrescription ? "Quer registar esta prescri��o para o paciente "
+			.setMessage(isInitialPrescription ? "Quer registar esta Prescrição para o paciente "
 					.concat(txtPatientId.getText()).concat("?")
 					: "Quer actualizar as mudan�as para o paciente "
 						.concat(txtPatientId.getText()).concat("?"));
@@ -1886,9 +1886,9 @@ try {
 			
 			
 			mSaveInicia
-			.setText(isInitialPrescription ? "Registar a prescri��o inicial do paciente "
+			.setText(isInitialPrescription ? "Registar a Prescrição inicial do paciente "
 					.concat(txtPatientId.getText())
-					: "Registar Nova prescri��o do paciente "
+					: "Registar Nova Prescrição do paciente "
 						.concat(txtPatientId.getText()));
 			mSaveInicia
 			.setMessage(isInitialPrescription ? "ATEN��O: SELECCIONOU O TIPO TARV INICIAL\nTEM A CERTEZA DE QUE ESTE PACIENTE EST� A INICIAR O TARV? \n NID:  "
@@ -1922,7 +1922,7 @@ try {
 							.getPrescribedDrugs();
 							String drugs = "";
 							if (prescribedDrugs.size() == 0) {
-								drugs = "\nN�o h� medicamentos nesta prescri��o!";
+								drugs = "\nN�o h� medicamentos nesta Prescrição!";
 							}
 							for (int i = 0; i < prescribedDrugs.size(); i++) {
 								drugs = drugs
@@ -1936,7 +1936,7 @@ try {
 							box.setText("Remover Prescri��es anteriores, n�o usadas");
 							box
 							.setMessage("Este paciente n�o recebeu nenhum medicamento desde "
-									+ "a sua prescri��o anterior com o id "
+									+ "a sua Prescrição anterior com o id "
 									+ oldPrescription.getPrescriptionId()
 									+ " (detalhes abaixo). \n\n"
 									+ "Cl�nico: "
@@ -1954,9 +1954,9 @@ try {
 									+ oldPrescription.getWeight()
 									+ "\nRegistado em: "
 									+ sdf.format(oldPrescription.getDate())
-									+ "\nMedicamentos na prescri��o:\t"
+									+ "\nMedicamentos na Prescrição:\t"
 									+ drugs
-									+ "\n\nGostaria de apagar esta prescri��o anterior n�o utilizada, "
+									+ "\n\nGostaria de apagar esta Prescrição anterior n�o utilizada, "
 									+ "e substitu� lo com o que voc� acabou de criar?");
 							switch (box.open()) {
 							case SWT.YES:
@@ -1991,7 +1991,7 @@ try {
 						MessageBox done = new MessageBox(getShell(), SWT.OK
 								| SWT.ICON_INFORMATION);
 						done.setText("Base de dados actualizada");
-						done.setMessage("Prescri��o '".concat(
+						done.setMessage("Prescrição '".concat(
 								localPrescription.getPrescriptionId()).concat(
 								"' foi adicionado ao paciente '").concat(
 										localPrescription.getPatient().getPatientId())
@@ -2002,14 +2002,14 @@ try {
 						MessageBox errorBox = new MessageBox(getShell(), SWT.OK
 								| SWT.ICON_ERROR);
 						errorBox
-						.setText("N�o foi poss�vel salvar: A data do registo da Prescri��o � inv�lida");
+						.setText("N�o foi poss�vel salvar: A data do registo da Prescrição � inv�lida");
 						errorBox
-						.setMessage("A prescri��o '"
+						.setMessage("A Prescrição '"
 								.concat(
 										localPrescription
 										.getPrescriptionId())
 										.concat(
-										"' tem a data de registo antes da data de de registo da prescri��o anterior. A Prescri��o n�o pode ser salva "));
+										"' tem a data de registo antes da data de de registo da Prescrição anterior. A Prescrição n�o pode ser salva "));
 						errorBox.open();
 						if (tx != null) {
 							tx.rollback();
@@ -2068,7 +2068,7 @@ try {
 							.getPrescribedDrugs();
 							String drugs = "";
 							if (prescribedDrugs.size() == 0) {
-								drugs = "\nN�o h� medicamentos nesta prescri��o!";
+								drugs = "\nN�o h� medicamentos nesta Prescrição!";
 							}
 							for (int i = 0; i < prescribedDrugs.size(); i++) {
 								drugs = drugs
@@ -2082,7 +2082,7 @@ try {
 							box.setText("Remover Prescri��es anteriores, n�o usadas");
 							box
 							.setMessage("Este paciente n�o recebeu nenhum medicamento desde "
-									+ "a sua prescri��o anterior com o id "
+									+ "a sua Prescrição anterior com o id "
 									+ oldPrescription.getPrescriptionId()
 									+ " (detalhes abaixo). \n\n '"
 									+ "Cl�nico: "
@@ -2100,9 +2100,9 @@ try {
 									+ oldPrescription.getWeight()
 									+ "\nRegistado em: "
 									+ sdf.format(oldPrescription.getDate())
-									+ "\nMedicamentos na prescri��o:\t"
+									+ "\nMedicamentos na Prescrição:\t"
 									+ drugs
-									+ "\n\nGostaria de apagar esta prescri��o anterior n�o utilizada, "
+									+ "\n\nGostaria de apagar esta Prescrição anterior n�o utilizada, "
 									+ "e substitu� lo com o que voc� acabou de criar?");
 							switch (box.open()) {
 							case SWT.YES:
@@ -2137,7 +2137,7 @@ try {
 						MessageBox done = new MessageBox(getShell(), SWT.OK
 								| SWT.ICON_INFORMATION);
 						done.setText("Base de dados actualizada");
-						done.setMessage("Prescri��o '".concat(
+						done.setMessage("Prescrição '".concat(
 								localPrescription.getPrescriptionId()).concat(
 								"' foi adicionado ao paciente '").concat(
 										localPrescription.getPatient().getPatientId())
@@ -2148,14 +2148,14 @@ try {
 						MessageBox errorBox = new MessageBox(getShell(), SWT.OK
 								| SWT.ICON_ERROR);
 						errorBox
-						.setText("N�o foi poss�vel salvar: A data do registo da Prescri��o � inv�lida");
+						.setText("N�o foi poss�vel salvar: A data do registo da Prescrição � inv�lida");
 						errorBox
-						.setMessage("A prescri��o '"
+						.setMessage("A Prescrição '"
 								.concat(
 										localPrescription
 										.getPrescriptionId())
 										.concat(
-										"' tem a data de registo antes da data de de registo da prescri��o anterior. A Prescri��o n�o pode ser salva "));
+										"' tem a data de registo antes da data de de registo da Prescrição anterior. A Prescrição n�o pode ser salva "));
 						errorBox.open();
 						if (tx != null) {
 							tx.rollback();
@@ -2664,9 +2664,9 @@ try {
 		getHSession().flush();
 
 		MessageBox mb = new MessageBox(getShell());
-		mb.setText("Prescri��o apagada com sucesso");
+		mb.setText("Prescrição apagada com sucesso");
 		mb
-		.setMessage("Essa prescri��o foi removida com sucesso da base de dados.");
+		.setMessage("Essa Prescrição foi removida com sucesso da base de dados.");
 		mb.open();
 
 	}

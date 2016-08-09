@@ -185,7 +185,7 @@ public class PrescriptionObject extends GenericOthersGui {
 
 		grpDrugInformation = new Group(getShell(), SWT.NONE);
 		grpDrugInformation
-		.setText("Infora��es do Medicamento e Instru��es de Toma");
+		.setText("Informações do Medicamento e Instruções de Toma");
 		grpDrugInformation.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		grpDrugInformation.setBounds(new Rectangle(85, 180, 350, 127));
 
@@ -496,7 +496,7 @@ public class PrescriptionObject extends GenericOthersGui {
 			btnAddDrug
 			.setToolTipText("Press this button to add this drug to the regimen.");
 		} else {
-			btnAddDrug.setText("Adicionar a Prescri��o");
+			btnAddDrug.setText("Adicionar a Prescrição");
 			btnAddDrug
 			.setToolTipText("Clique este bot�o para adicionar este medicamento a prescri��o.");
 		}

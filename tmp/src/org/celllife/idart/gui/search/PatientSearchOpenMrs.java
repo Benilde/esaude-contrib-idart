@@ -332,7 +332,7 @@ public class PatientSearchOpenMrs extends GenericOthersGui {
 
 		TableViewerColumn value = new TableViewerColumn(viewer, SWT.NONE);
 		value.getColumn().setWidth(100);
-		value.getColumn().setText("N�mero");
+		value.getColumn().setText("Número");
 		value.getColumn().setMoveable(true);
 		value.setLabelProvider(new ColumnLabelProvider() {
 

@@ -14,6 +14,7 @@ import org.celllife.idart.gui.misc.GenericTab;
 import org.celllife.idart.gui.utils.ResourceUtils;
 import org.celllife.idart.gui.utils.iDartFont;
 import org.celllife.idart.gui.widget.DateButton;
+import org.celllife.idart.messages.Messages;
 import org.celllife.idart.misc.iDARTUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
@@ -79,7 +80,7 @@ public class TreatmentManagementTab extends GenericTab implements IPatientTab {
 	 */
 	@Override
 	public void clear() {
-		btnNextAppointment.setText("Data da pr�xima consulata");
+		btnNextAppointment.setText(Messages.getString("patient.next.encounter"));
 		txtTreatmentSupporterName.setText("");
 		txtTreatmentSupporterPhone.setText("");
 		btnNextAppointment.setDate(null);
@@ -93,7 +94,7 @@ public class TreatmentManagementTab extends GenericTab implements IPatientTab {
 	@Override
 	public void create() {
 		tabItem = new TabItem(parent, style);
-		tabItem.setText("  Gest�o de Tratamento  ");
+		tabItem.setText("  "+Messages.getString("patient.treatment.management")+"  ");
 		createGrpTreatmentManagement();
 	}
 
@@ -110,7 +111,7 @@ public class TreatmentManagementTab extends GenericTab implements IPatientTab {
 
 		Label lblNextAppointment = new Label(grpTreatmentSupporter, SWT.NONE);
 		lblNextAppointment.setBounds(new Rectangle(6, 94, 114, 18));
-		lblNextAppointment.setText("  Pr�xima consulta:");
+		lblNextAppointment.setText("  "+Messages.getString("next.encounter")+":");
 		lblNextAppointment.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		btnNextAppointment = new DateButton(grpTreatmentSupporter,
@@ -118,7 +119,7 @@ public class TreatmentManagementTab extends GenericTab implements IPatientTab {
 				null);
 		btnNextAppointment.setBounds(new Rectangle(195, 90, 200, 25));
 		btnNextAppointment.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		btnNextAppointment.setText("Data Pr�xima consulta");
+		btnNextAppointment.setText(Messages.getString("patient.next.encounter"));
 
 
 		// Treatment Supporter Name
@@ -270,9 +271,9 @@ public class TreatmentManagementTab extends GenericTab implements IPatientTab {
 					.after(today.getTime()));
 			map.put("result", String.valueOf(validNextAppointmentDate));
 			if (!validNextAppointmentDate) {
-				map.put("title", "Erro com a data da pr�xima consulta");
+				map.put("title", Messages.getString("error.next.encounter.date"));
 				map.put("message",
-				" N�o pode inserir a data da pr�xima consulta no passado. Seleccione uma data depois de hoje.");
+				" "+Messages.getString("error.insert.future.next.encounter.date"));
 			}
 			return map;
 		} else {

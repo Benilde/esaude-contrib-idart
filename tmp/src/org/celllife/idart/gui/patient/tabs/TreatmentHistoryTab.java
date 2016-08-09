@@ -23,6 +23,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.hibernate.Session;
+import org.celllife.idart.messages.Messages;
 
 /**
  * Treatment history tab. Shows a table of all the packages a patient has
@@ -73,7 +74,7 @@ public class TreatmentHistoryTab extends GenericTab implements IPatientTab {
 	@Override
 	public void create() {
 		setTabItem(new TabItem(parent, style));
-		getTabItem().setText("  Hist�rico do tratamento   ");
+		getTabItem().setText(" "+Messages.getString("patient.historical.treatment")+" ");
 		createGrpTreatmentHistory();
 	}
 

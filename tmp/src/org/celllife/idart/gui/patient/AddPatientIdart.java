@@ -1151,13 +1151,13 @@ public class AddPatientIdart extends GenericFormGui implements iDARTChangeListen
 		 * patientID is the package cover label, so the length of a possible
 		 * package cover label for this patient must be checked.
 		 */
-		else if (!patIdLengthOk()) {
+		/*else if (!patIdLengthOk()) {
 			title = Messages.getString("patient.error.patientIdTooLong.title"); //$NON-NLS-1$
 			message = MessageFormat.format(Messages.getString("patient.error.patientIdTooLong"), //$NON-NLS-1$
 					Barcode.getLengthForCurrentOS() - 10);
 			txtPatientId.setFocus();
 			result = false;
-		}
+		}*/
 		
 		if (localPatient.getPatientIdentifiers().isEmpty()){
 			title = Messages.getString("patient.error.patientIdsEmpty.title"); //$NON-NLS-1$

@@ -75,7 +75,7 @@ public class StockArrives extends GenericFormGui implements iDARTChangeListener{
 	 */
 	@Override
 	protected void createShell() {
-		String shellTxt = "Entradas de Stock na Farmácia";
+		String shellTxt = "Entradas de Stock na FarmÃ¡cia";
 		Rectangle bounds = new Rectangle(0, 100, 900, 700);
 		buildShell(shellTxt, bounds);
 	}
@@ -85,7 +85,7 @@ public class StockArrives extends GenericFormGui implements iDARTChangeListener{
 	 */
 	@Override
 	protected void createCompHeader() {
-		String headerTxt = "Entradas de Stock na Farmácia";
+		String headerTxt = "Entradas de Stock na FarmÃ¡cia";
 		iDartImage icoImage = iDartImage.PACKAGESARRIVE;
 		buildCompHeader(headerTxt, icoImage);
 	}
@@ -165,7 +165,7 @@ public class StockArrives extends GenericFormGui implements iDARTChangeListener{
 
 		TableColumn tblClmPharmacy = new TableColumn(tblDrugs, SWT.NONE);
 		tblClmPharmacy.setWidth(105);
-		tblClmPharmacy.setText("Farmácia");
+		tblClmPharmacy.setText("FarmÃ¡cia");
 
 		TableColumn tblClmManufacturer = new TableColumn(tblDrugs, SWT.NONE);
 		tblClmManufacturer.setWidth(110);
@@ -177,7 +177,7 @@ public class StockArrives extends GenericFormGui implements iDARTChangeListener{
 
 		TableColumn tblClmExpiryMonth = new TableColumn(tblDrugs, SWT.NONE);
 		tblClmExpiryMonth.setWidth(66);
-		tblClmExpiryMonth.setText("Expiração");
+		tblClmExpiryMonth.setText("ExpiraÃ§Ã£o");
 
 		TableColumn tblClmShelfNo = new TableColumn(tblDrugs, SWT.NONE);
 		tblClmShelfNo.setWidth(40);
@@ -185,7 +185,7 @@ public class StockArrives extends GenericFormGui implements iDARTChangeListener{
 
 		TableColumn tblClmUnitPrice = new TableColumn(tblDrugs, SWT.NONE);
 		tblClmUnitPrice.setWidth(60);
-		tblClmUnitPrice.setText("Preço/Unidade");
+		tblClmUnitPrice.setText("PreÃ§o/Unidade");
 
 		TableColumn tblClmCaptureDate = new TableColumn(tblDrugs, SWT.NONE);
 		tblClmCaptureDate.setWidth(0);
@@ -247,7 +247,7 @@ public class StockArrives extends GenericFormGui implements iDARTChangeListener{
 				missing
 				.setMessage(""
 						+ ""
-						+ "Por favor seleccione a linha na tabela que contém o lote que não quer salvar.");
+						+ "Por favor seleccione a linha na tabela que contï¿½m o lote que nï¿½o quer salvar.");
 				missing.open();
 			} else {
 				int index = tblDrugs.getSelectionIndex();
@@ -286,8 +286,8 @@ public class StockArrives extends GenericFormGui implements iDARTChangeListener{
 			MessageBox m = new MessageBox(getShell(), SWT.ICON_QUESTION
 					| SWT.YES | SWT.NO);
 			m
-			.setMessage("O Stock foi actualizado. Gostaria de visualizar o relatório de esntradas de stock?");
-			m.setText("Actualização da base de dados com a entrada de stock");
+			.setMessage("O Stock foi actualizado. Gostaria de visualizar o relatï¿½rio de esntradas de stock?");
+			m.setText("Actualizaï¿½ï¿½o da base de dados com a entrada de stock");
 
 			if (m.open() == SWT.YES) {
 				Date today = new Date();
@@ -310,7 +310,7 @@ public class StockArrives extends GenericFormGui implements iDARTChangeListener{
 			MessageBox m = new MessageBox(getShell(), SWT.ICON_ERROR | SWT.OK);
 			m
 			.setMessage("Houve algum problema ao salvar o stock na base de dados.");
-			m.setText("Falha na actualização da base de dados");
+			m.setText("Falha na actualizaï¿½ï¿½o da base de dados");
 			if (tx != null) {
 				tx.rollback();
 			}
@@ -323,9 +323,9 @@ public class StockArrives extends GenericFormGui implements iDARTChangeListener{
 		if (tblDrugs.getItemCount() > 0) {
 			MessageBox m = new MessageBox(getShell(), SWT.ICON_WARNING
 					| SWT.YES | SWT.NO);
-			m.setText("Cancelar sem gravar a informação na base de dados?");
+			m.setText("Cancelar sem gravar a informaï¿½ï¿½o na base de dados?");
 			m
-			.setMessage("O stock que registou não foi gravado na base de dados. \n\nTem a certeza que quer fechar esta tela sem gravar as esntradas de stock?");
+			.setMessage("O stock que registou nï¿½o foi gravado na base de dados. \n\nTem a certeza que quer fechar esta tela sem gravar as esntradas de stock?");
 
 			if (m.open() == SWT.YES) {
 				cmdCloseSelected();

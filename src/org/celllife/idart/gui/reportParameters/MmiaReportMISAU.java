@@ -110,7 +110,7 @@ public class MmiaReportMISAU extends GenericReportGui {
 	private void createGrpClinicSelection() {
 
 		grpPharmacySelection = new Group(getShell(), SWT.NONE);
-		grpPharmacySelection.setText("Farmácia");
+		grpPharmacySelection.setText("FarmÃ¡cia");
 		grpPharmacySelection.setFont(ResourceUtils
 				.getFont(iDartFont.VERASANS_8));
 		grpPharmacySelection.setBounds(new org.eclipse.swt.graphics.Rectangle(
@@ -118,7 +118,7 @@ public class MmiaReportMISAU extends GenericReportGui {
 
 		Label lblPharmacy = new Label(grpPharmacySelection, SWT.NONE);
 		lblPharmacy.setBounds(new Rectangle(10, 25, 140, 20));
-		lblPharmacy.setText("Seleccione a farmácia");
+		lblPharmacy.setText("Seleccione a FarmÃ¡cia");
 		lblPharmacy.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		cmbStockCenter = new CCombo(grpPharmacySelection, SWT.BORDER);
@@ -316,7 +316,7 @@ public class MmiaReportMISAU extends GenericReportGui {
 	
 	private void createGrpDateRange() {
 		grpDateRange = new Group(getShell(), SWT.NONE);
-		grpDateRange.setText("Período:");
+		grpDateRange.setText("Perï¿½odo:");
 		grpDateRange.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		grpDateRange.setBounds(new Rectangle(55, 160, 520, 201));
 		grpDateRange.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
@@ -324,7 +324,7 @@ public class MmiaReportMISAU extends GenericReportGui {
 		Label lblStartDate = new Label(grpDateRange, SWT.CENTER | SWT.BORDER);
 		lblStartDate.setBounds(new org.eclipse.swt.graphics.Rectangle(40, 30,
 				180, 20));
-		lblStartDate.setText("Data Início:");
+		lblStartDate.setText("Data Inï¿½cio:");
 		lblStartDate.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		Label lblEndDate = new Label(grpDateRange, SWT.CENTER | SWT.BORDER);

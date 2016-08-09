@@ -358,7 +358,7 @@ if(localUser.getPermission()!='A'){
 		
 		Label noteLabel = new Label(grpUserInfo, SWT.WRAP | SWT.CENTER | SWT.NONE);
 		noteLabel.setBounds(new Rectangle(50, 110, 250, 30));
-		noteLabel.setText("Note que este � apenas para fins de estudo. Deixe em branco para o pessoal da farm�cia");
+		noteLabel.setText("Note que este � apenas para fins de estudo. Deixe em branco para o pessoal da farmácia");
 		noteLabel.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8_ITALIC));
 		
 		Group grpUserRoles = new Group(grpUserInfo, SWT.NONE);

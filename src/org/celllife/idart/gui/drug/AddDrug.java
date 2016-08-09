@@ -241,7 +241,7 @@ public class AddDrug extends GenericFormGui {
 			}
 		});
 		btnSearch
-		.setToolTipText("Pressione este botão para procurar um ARV existente.");
+		.setToolTipText("Pressione este botï¿½o para procurar um ARV existente.");
 
 		// lblName & txtName
 		Label lblName = new Label(grpDrugInfo, SWT.NONE);
@@ -257,7 +257,7 @@ public class AddDrug extends GenericFormGui {
 		Label lblatc = new Label(grpDrugInfo, SWT.NONE);
 		lblatc.setLayoutData(new GridData(GridData.BEGINNING, GridData.BEGINNING, false, false, 1,1));
 		lblatc.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblatc.setText(" Código FNM:");
+		lblatc.setText(" Cï¿½digo FNM:");
 	
 
 		txtAtc = new Text(grpDrugInfo, SWT.BORDER);
@@ -277,7 +277,7 @@ public class AddDrug extends GenericFormGui {
 				cmdAtcSearchWidgetSelected();
 			}
 		});
-		btnAtcSearch.setToolTipText("Pressione este botão para pesquisar por código FNM.");
+		btnAtcSearch.setToolTipText("Pressione este botï¿½o para pesquisar por cï¿½digo FNM.");
 
 //		// lblStockCode & txtStockCode
 //		Label lblMims = new Label(grpDrugInfo, SWT.NONE);
@@ -294,7 +294,7 @@ public class AddDrug extends GenericFormGui {
 		// lblFormLanguage1 & txtFormLanguage1
 		Label lblFormLanguage1 = new Label(grpDrugInfo, SWT.NONE);
 		lblFormLanguage1.setLayoutData(new GridData(GridData.BEGINNING, GridData.BEGINNING, false, false, 1,1));
-		lblFormLanguage1.setText("* Forma Farmacéutica:");
+		lblFormLanguage1.setText("* Forma Farmacï¿½utica:");
 		lblFormLanguage1.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		cmbForm = new Combo(grpDrugInfo, SWT.BORDER);
@@ -363,7 +363,7 @@ public class AddDrug extends GenericFormGui {
 		Label lblDispensingInstructions1 = new Label(grpDrugInfo, SWT.NONE);
 		lblDispensingInstructions1.setLayoutData(new GridData(GridData.BEGINNING, GridData.BEGINNING, false, false, 1,1));
 		lblDispensingInstructions1
-		.setText("  Instrução de toma(linha 1):");
+		.setText("  Instruï¿½ï¿½o de toma(linha 1):");
 		lblDispensingInstructions1.setFont(ResourceUtils
 				.getFont(iDartFont.VERASANS_8));
 		lblDispensingInstructions1
@@ -378,7 +378,7 @@ public class AddDrug extends GenericFormGui {
 		Label lblDispensingInstructions2 = new Label(grpDrugInfo, SWT.NONE);
 		lblDispensingInstructions2.setLayoutData(new GridData(GridData.BEGINNING, GridData.BEGINNING, false, false, 1,1));
 		lblDispensingInstructions2
-		.setText("  Instrução de toma(linha 2):");
+		.setText("  Instruï¿½ï¿½o de toma(linha 2):");
 		lblDispensingInstructions2.setFont(ResourceUtils
 				.getFont(iDartFont.VERASANS_8));
 		lblDispensingInstructions2
@@ -393,12 +393,12 @@ public class AddDrug extends GenericFormGui {
 				Label lblSideTreatment = new Label(grpDrugInfo, SWT.NONE);
 				lblSideTreatment.setLayoutData(new GridData(GridData.BEGINNING, GridData.BEGINNING, false, false, 1,1));
 				lblSideTreatment.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-				lblSideTreatment.setText("* O medicamento é ARV?:");
+				lblSideTreatment.setText("* O medicamento ï¿½ ARV?:");
 
 				rdBtnSideTreatment = new Button(grpDrugInfo, SWT.RADIO);
 				rdBtnSideTreatment.setLayoutData(new GridData(GridData.FILL, GridData.BEGINNING, false, false, 1,1));
 				rdBtnSideTreatment.setLayoutData(new GridData(110, 20));
-				rdBtnSideTreatment.setText("Não");
+				rdBtnSideTreatment.setText("Nï¿½o");
 				rdBtnSideTreatment.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 				rdBtnSideTreatment.setSelection(false);
 
@@ -412,12 +412,12 @@ public class AddDrug extends GenericFormGui {
 		Label lblPediatrc = new Label(grpDrugInfo, SWT.NONE);
 		lblPediatrc.setLayoutData(new GridData(GridData.BEGINNING, GridData.BEGINNING, false, false, 1,1));
 		lblPediatrc.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblPediatrc.setText("* O medicamento é:");
+		lblPediatrc.setText("* O medicamento ï¿½:");
 
 		chkBtnPediatric = new Button(grpDrugInfo, SWT.CHECK);
 		chkBtnPediatric.setLayoutData(new GridData(GridData.FILL, GridData.BEGINNING, false, false, 1,1));
 		chkBtnPediatric.setLayoutData(new GridData(130, 20));
-		chkBtnPediatric.setText("Pediátrico");
+		chkBtnPediatric.setText("Pediï¿½trico");
 		chkBtnPediatric.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		chkBtnPediatric.setSelection(false);
 
@@ -536,7 +536,7 @@ public class AddDrug extends GenericFormGui {
 			mSave.setText(isAddnotUpdate ? "Registar novo medicamento" : "Actualizar Detalhes");
 			mSave
 			.setMessage(isAddnotUpdate ? "Quer mesmo registar estem medicamento na base de dados?"
-					: "Quer salvar as mudanças efectuadas sobres este medicamento?");
+					: "Quer salvar as mudanï¿½as efectuadas sobres este medicamento?");
 
 			switch (mSave.open()) {
 
@@ -572,7 +572,7 @@ public class AddDrug extends GenericFormGui {
 							| SWT.ICON_INFORMATION);
 					m.setText("Problemas ao salvar na Base de Dados");
 					m
-					.setMessage("Houve problemas ao salvar informação do medicamento na base de dados. Tente de novo.");
+					.setMessage("Houve problemas ao salvar informaÃ§Ã£o do medicamento na base de dados. Tente de novo.");
 					m.open();
 					if (tx != null) {
 						tx.rollback();
@@ -789,8 +789,8 @@ public class AddDrug extends GenericFormGui {
 
 		if (txtName.getText().equals("")) {
 			MessageBox b = new MessageBox(getShell(), SWT.ICON_ERROR | SWT.OK);
-			b.setMessage("Nome do medicamento não pode ser vazio");
-			b.setText("Informação em Falta");
+			b.setMessage("Nome do medicamento nÃ£o pode ser vazio");
+			b.setText("informaÃ§Ã£o em Falta");
 			b.open();
 			txtName.setFocus();
 			return false;
@@ -800,8 +800,8 @@ public class AddDrug extends GenericFormGui {
 		
 		if (chkBtnAdult.getSelection() && chkBtnPediatric.getSelection()) {
 			MessageBox b = new MessageBox(getShell(), SWT.ICON_ERROR | SWT.OK);
-			b.setMessage("O ARV deve ser Pediatrico ou de Adulto, Não ambos ");
-			b.setText("Selecçao Errada");
+			b.setMessage("O ARV deve ser Pediatrico ou de Adulto, NÃ£o ambos ");
+			b.setText("SelecÃ§Ã£o Errada");
 			b.open();
 			
 			return false;
@@ -810,8 +810,8 @@ public class AddDrug extends GenericFormGui {
 		
 		if (!chkBtnAdult.getSelection() && !chkBtnPediatric.getSelection()) {
 			MessageBox b = new MessageBox(getShell(), SWT.ICON_ERROR | SWT.OK);
-			b.setMessage(" Seleccione se o ARV é pediátrico ou de Adulto ");
-			b.setText("Selecçao Errada");
+			b.setMessage(" Seleccione se o ARV Ã© pediÃ¡trico ou de Adulto ");
+			b.setText("SelecÃ§Ã£o Errada");
 			b.open();
 			
 			return false;
@@ -822,7 +822,7 @@ public class AddDrug extends GenericFormGui {
 				&& isAddnotUpdate) {
 			MessageBox b = new MessageBox(getShell(), SWT.ICON_ERROR | SWT.OK);
 			b
-			.setMessage("Nome do Medicameento já existe. Inserir um nome diferente");
+			.setMessage("Nome do Medicameento jÃ¡ existe. Inserir um nome diferente");
 			b.setText("Nome do medicamento suplicado");
 			b.open();
 			txtName.setFocus();
@@ -833,7 +833,7 @@ public class AddDrug extends GenericFormGui {
 			MessageBox b = new MessageBox(getShell(), SWT.ICON_ERROR | SWT.OK);
 			b
 			.setMessage("A forma do medicamento deve ser da lista.");
-			b.setText("Informação incorrecta");
+			b.setText("InformaÃ§Ã£o incorrecta");
 			b.open();
 			cmbForm.setFocus();
 			return false;
@@ -842,7 +842,7 @@ public class AddDrug extends GenericFormGui {
 		if (txtPacksize.getText().equals("")) {
 			MessageBox b = new MessageBox(getShell(), SWT.ICON_ERROR | SWT.OK);
 			b.setMessage("Inserir quantidade no frasco");
-			b.setText("Informação em Falta");
+			b.setText("InformaÃ§Ã£o em Falta");
 			b.open();
 
 			return false;
@@ -855,7 +855,7 @@ public class AddDrug extends GenericFormGui {
 					SWT.ICON_ERROR | SWT.OK);
 			incorrectData.setText("Quantidade no Frasco incorrecto");
 			incorrectData
-			.setMessage("A Quantidade no Frasco que inseriu é inválido. Inserir Número.");
+			.setMessage("A Quantidade no Frasco que inseriu Ã© invÃ¡lido. Inserir nÃºmero.");
 			incorrectData.open();
 			txtPacksize.setFocus();
 			return false;
@@ -869,9 +869,9 @@ public class AddDrug extends GenericFormGui {
 			} catch (NumberFormatException nfe) {
 				MessageBox incorrectData = new MessageBox(getShell(),
 						SWT.ICON_ERROR | SWT.OK);
-				incorrectData.setText("Valor do padrão da posologia incorrecto");
+				incorrectData.setText("Valor do padrÃ£o da posologia incorrecto");
 				incorrectData
-				.setMessage("A posologia padrão que inseriu é incorrecto. Inserir número.");
+				.setMessage("A posologia padrÃ£o que inseriu Ã© incorrecto. Inserir nÃºmero.");
 				incorrectData.open();
 				txtAmountPerTime.setFocus();
 				return false;
@@ -883,7 +883,7 @@ public class AddDrug extends GenericFormGui {
 			AtcCode atccode = AdministrationManager.getAtccodeFromCode(getHSession(),
 					txtAtc.getText().trim());
 			if (atccode == null){
-				showMessage(MessageDialog.ERROR, "Código FNM Disconhecido", "O código FNM que seleccionou não está na base de dados.");
+				showMessage(MessageDialog.ERROR, "CÃ³digo FNM Desconhecido", "O cÃ³digo FNM que seleccionou nÃ£o estÃ¡ na base de dados.");
 				return false;
 			}
 		}
@@ -894,9 +894,9 @@ public class AddDrug extends GenericFormGui {
 			} catch (NumberFormatException nfe) {
 				MessageBox incorrectData = new MessageBox(getShell(),
 						SWT.ICON_ERROR | SWT.OK);
-				incorrectData.setText("o valor do padrão da posologia incorrecto");
+				incorrectData.setText("o valor do padrÃ£o da posologia incorrecto");
 				incorrectData
-				.setMessage("A posologia padrão que inseriu é incorrecto. Inserir número.");
+				.setMessage("A posologia padrÃ£o que inseriu Ã© incorrecto. Inserir nÃºmero.");
 				incorrectData.open();
 				txtTimesPerDay.setFocus();
 				return false;
@@ -935,10 +935,10 @@ public class AddDrug extends GenericFormGui {
 					if (strength <= 0) {
 						MessageBox incorrectData = new MessageBox(getShell(),
 								SWT.ICON_ERROR | SWT.OK);
-						incorrectData.setText("O valor da posologia não é Válido");
+						incorrectData.setText("O valor da posologia nÃ£o Ã© vÃ¡lido");
 						incorrectData.setMessage("A posologia inserida para "
 								+ ti.getText(0)
-								+ " é inválido. Inserir valor positivo");
+								+ " Ã© invÃ¡lido. Inserir valor positivo");
 						incorrectData.open();
 						txtPacksize.setFocus();
 						return false;
@@ -948,22 +948,22 @@ public class AddDrug extends GenericFormGui {
 					if (ti.getText(1).trim().equals("")) {
 						MessageBox incorrectData = new MessageBox(getShell(),
 								SWT.ICON_ERROR | SWT.OK);
-						incorrectData.setText("Posologia do componente não foi inserido");
+						incorrectData.setText("Posologia do componente nÃ£o foi inserido");
 						incorrectData
-						.setMessage("Você indicou que este medicamento contém o componente "
+						.setMessage("VocÃª indicou que este medicamento contÃ©m o componente "
 								+ ti.getText(0)
-								+ ", mas não entraram a posologia do componente.");
+								+ ", mas nÃ£o entraram a posologia do componente.");
 						incorrectData.open();
 						txtPacksize.setFocus();
 						return false;
 					} else {
 						MessageBox incorrectData = new MessageBox(getShell(),
 								SWT.ICON_ERROR | SWT.OK);
-						incorrectData.setText("posologia do componente não insserido");
+						incorrectData.setText("posologia do componente nÃ£o insserido");
 						incorrectData
 						.setMessage("O posologia do componente inserido para  "
 								+ ti.getText(0)
-								+ " não é número. \n\nInserir um número.");
+								+ " nÃ£o Ã© nÃºmero. \n\nInserir um nÃºmero.");
 						incorrectData.open();
 						txtPacksize.setFocus();
 						return false;
@@ -1005,7 +1005,7 @@ public class AddDrug extends GenericFormGui {
 						| SWT.OK);
 				m.setText("Sem componentes");
 				m
-				.setMessage("Todos medicamentos ARV tem uma composição química. \nAdicionar uma composição para"
+				.setMessage("Todos medicamentos ARV tem uma composiÃ§Ã£o quÃ­mica. \nAdicionar uma composiÃ§Ã£o para"
 						+ localDrug.getName());
 				m.open();
 
@@ -1195,7 +1195,7 @@ public class AddDrug extends GenericFormGui {
 
 		Label lblInstructions = new Label(compInstructions, SWT.CENTER);
 		lblInstructions.setBounds(new Rectangle(0, 0, 360, 25));
-		lblInstructions.setText("Todos campos marcados com * são obrigatórios");
+		lblInstructions.setText("Todos campos marcados com * sÃ£o obrigatÃ³rios");
 		lblInstructions.setFont(ResourceUtils
 				.getFont(iDartFont.VERASANS_10_ITALIC));
 	}
@@ -1206,7 +1206,7 @@ public class AddDrug extends GenericFormGui {
 	 */
 	private void createGrpChemicalCompounds() {
 		grpChemicalCompounds = new Group(getShell(), SWT.NONE);
-		grpChemicalCompounds.setText("Composição química ");
+		grpChemicalCompounds.setText("ComposiÃ§Ã£o quÃ­mica ");
 		grpChemicalCompounds.setBounds(new Rectangle(524, 110, 235, 372));
 		grpChemicalCompounds.setFont(ResourceUtils
 				.getFont(iDartFont.VERASANS_8));

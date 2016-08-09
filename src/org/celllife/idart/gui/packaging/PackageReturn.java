@@ -97,8 +97,8 @@ public class PackageReturn extends GenericFormGui {
 	boolean episodeStopResonChanged = false;
 	boolean episodeStopDateChanged = false;
 
-	private static final String NOLONGER_TREATED_AT_CLINIC = "J· n„o recebe mais tratamento na US";
-	private static final String DRUG_CHANGE = "MudanÁa de medicamentos";
+	private static final String NOLONGER_TREATED_AT_CLINIC = "j√° n√£o recebe mais tratamento na US";
+	private static final String DRUG_CHANGE = "Mudan√ßa de medicamentos";
 	private static final String DRUG_LOST = "Frasco perdido no transito";
 	private static final String APPOINTMENT_MISSED = "Falta no Levantamento";
 
@@ -117,7 +117,7 @@ public class PackageReturn extends GenericFormGui {
 	protected void createShell() {
 
 		sdf = new SimpleDateFormat("dd MMM yy  hh:mm");
-		String shellTxt = "DevoluÁ„o na farm·cia de Frascos n„o entregues";
+		String shellTxt = "devolu√ß√£o na farm√°cia de Frascos n√£o entregues";
 		Rectangle bounds = new Rectangle(0, 0, 800, 690);
 		buildShell(shellTxt, bounds);
 		createGrpScreenInfo();
@@ -131,7 +131,7 @@ public class PackageReturn extends GenericFormGui {
 
 	@Override
 	protected void createCompHeader() {
-		String headerTxt = "DevoluÁ„o na farm·cia de Frascos n„o entregues";
+		String headerTxt = "devolu√ß√£o na farm√°cia de Frascos n√£o entregues";
 		iDartImage icoImage = iDartImage.PACKAGERETURN;
 		buildCompHeader(headerTxt, icoImage);
 	}
@@ -148,9 +148,9 @@ public class PackageReturn extends GenericFormGui {
 		lblInfo.setBounds(5, 10, 630, 45);
 		lblInfo.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8_ITALIC));
 		// lblInfo.setAlignment(SWT.CENTER);
-		String infoTxt = "   Use esta tela para devolver um frasco n„o entregue que foi criado para um paciente. Note que vocÍ n„o est· a APAGAr o registo,"
-			+ "\nEst· a marcar o frasco como  \"N„o entregue.\" Se quer apagar este frasco permanentemente  "
-			+ "\n  (Ex. Cometeu um erro na tela de dispensa de ARV), Por favor vai na tela \"A apagar Stock, PrescriÁ„o & Frascos\".";
+		String infoTxt = "   Use esta tela para devolver um frasco n√£o entregue que foi criado para um paciente. Note que voc√™ n√£o Est√° a APAGAr o registo,"
+			+ "\nEst√° a marcar o frasco como  \"n√£o entregue.\" Se quer apagar este frasco permanentemente  "
+			+ "\n  (Ex. Cometeu um erro na tela de dispensa de ARV), Por favor vai na tela \"A apagar Stock, Prescri√ß√£o & Frascos\".";
 		lblInfo.setText(infoTxt);
 	}
 
@@ -209,7 +209,7 @@ public class PackageReturn extends GenericFormGui {
 		lblInfo.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8_ITALIC));
 		lblInfo.setBounds(10, 25, 720, 35);
 		String infoTxt = "O Frasco que se segue foi criado "
-			+ "para este paciente mas n„o foi ainda entregue ao mesmo. \n "
+			+ "para este paciente mas n√£o foi ainda entregue ao mesmo. \n "
 			+ "Para devolver um frasco, clique na linha na tabela abaixo.";
 		lblInfo.setText(infoTxt);
 		lblInfo.setAlignment(SWT.CENTER);
@@ -222,8 +222,8 @@ public class PackageReturn extends GenericFormGui {
 		tblPackages.setItemCount(3);
 		tblPackages.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
-		String[] titles = { "Frasco ID", "medicamentos no Frasco", "Data de CriaÁ„o",
-				"Deixou a Farm·cia", "Recebido na US" };
+		String[] titles = { "Frasco ID", "medicamentos no Frasco", "Data de Cria√ß√£o",
+				"Deixou a farm√°cia", "Recebido na US" };
 		tblPackageCols = new TableColumn[titles.length];
 		for (int i = 0; i < titles.length; i++) {
 			tblPackageCols[i] = new TableColumn(tblPackages, SWT.NONE, i);
@@ -251,7 +251,7 @@ public class PackageReturn extends GenericFormGui {
 
 		Label lblReturnReason = new Label(grpPatientPackage, SWT.NONE);
 		lblReturnReason.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblReturnReason.setText("Motivo da devoluÁ„o : ");
+		lblReturnReason.setText("Motivo da devolu√ß√£o : ");
 		lblReturnReason.setBounds(10, 28, 110, 25);
 
 		cmbReturnReason = new CCombo(grpPatientPackage, SWT.BORDER);
@@ -381,7 +381,7 @@ public class PackageReturn extends GenericFormGui {
 
 		Label lblCaptureDate = new Label(grpPatientPackage, SWT.NONE);
 		lblCaptureDate.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblCaptureDate.setText("Data DevoluÁ„o :");
+		lblCaptureDate.setText("Data devolu√ß√£o :");
 		lblCaptureDate.setBounds(10, 65, 100, 25);
 
 		btnCaptureDate = new DateButton(
@@ -389,12 +389,12 @@ public class PackageReturn extends GenericFormGui {
 				DateButton.ZERO_TIMESTAMP,
 				new DateInputValidator(DateRuleFactory.beforeNowInclusive(true)));
 		btnCaptureDate.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		btnCaptureDate.setText("Bot„o Data");
+		btnCaptureDate.setText("BotN√£o Data");
 		btnCaptureDate.setBounds(120, 55, 250, 25);
 
 		Label lblDrugAction = new Label(grpPatientPackage, SWT.NONE);
 		lblDrugAction.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblDrugAction.setText("O que vocÍ quer fazer com esses medicamentos? ");
+		lblDrugAction.setText("O que voc√™ quer fazer com esses medicamentos? ");
 		lblDrugAction.setBounds(10, 100, 250, 25);
 
 		Composite cmpRbtnSelect = new Composite(grpPatientPackage, SWT.NULL);
@@ -418,11 +418,11 @@ public class PackageReturn extends GenericFormGui {
 		Group cmpEpisode = new Group(grpPatientPackage, SWT.NONE);
 		cmpEpisode.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		cmpEpisode.setBounds(400, 10, 340, 115);
-		cmpEpisode.setText(" EpisÛdio");
+		cmpEpisode.setText(" epis√≥dio");
 
 		Label lblStopEpisode = new Label(cmpEpisode, SWT.NORMAL);
 		lblStopEpisode.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblStopEpisode.setText("TÈrmino : ");
+		lblStopEpisode.setText("T√©rmino : ");
 		lblStopEpisode.setBounds(5, 20, 40, 15);
 
 		cmbStopEpisode = new CCombo(cmpEpisode, SWT.BORDER);
@@ -455,7 +455,7 @@ public class PackageReturn extends GenericFormGui {
 				DateButton.ZERO_TIMESTAMP,
 				new DateInputValidator(DateRuleFactory.beforeNowInclusive(true)));
 		btnStopDate.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		btnStopDate.setText("Data TÈrmino");
+		btnStopDate.setText("Data T√©rmino");
 		btnStopDate.setBounds(234, 12, 100, 25);
 		btnStopDate.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -467,7 +467,7 @@ public class PackageReturn extends GenericFormGui {
 
 		Label lblStopNotes = new Label(cmpEpisode, SWT.NONE);
 		lblStopNotes.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblStopNotes.setText("Notas de TÈrmino : ");
+		lblStopNotes.setText("Notas de T√©rmino : ");
 		lblStopNotes.setBounds(5, 50, 70, 15);
 
 		txtStopNotes = new Text(cmpEpisode, SWT.BORDER);
@@ -478,7 +478,7 @@ public class PackageReturn extends GenericFormGui {
 		btnPreviousEpisodes
 		.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		btnPreviousEpisodes.setBounds(5, 75, 329, 32);
-		btnPreviousEpisodes.setText("Ver todos os episÛdios anteriores");
+		btnPreviousEpisodes.setText("Ver todos os epis√≥dios anteriores");
 		btnPreviousEpisodes.addSelectionListener(new SelectionAdapter() {
 
 			@Override
@@ -492,13 +492,13 @@ public class PackageReturn extends GenericFormGui {
 				} else {
 					MessageBox noEpisodesWarning = new MessageBox(getShell(),
 							SWT.ICON_ERROR | SWT.OK);
-					noEpisodesWarning.setText("EpisÛdios anteriores do paciente");
+					noEpisodesWarning.setText("epis√≥dios anteriores do paciente");
 					noEpisodesWarning
 					.setMessage("O Pacientet "
 							+ (txtPatientId.getText()).toUpperCase()
-							+ " n„o tem episÛdios anteriores para editar.\n"
-							+ "Se vocÍ deseja terminar o episÛdio atual, vocÍ pode usar\n "
-							+ "esta tela para atribuir a data do TÈrmino doepisÛdio para este paciente.");
+							+ " n√£o tem epis√≥dios anteriores para editar.\n"
+							+ "Se voc√™ deseja terminar o epis√≥dio atual, voc√™ pode usar\n "
+							+ "esta tela para atribuir a data do T√©rmino doepis√≥dio para este paciente.");
 					noEpisodesWarning.open();
 				}
 			}
@@ -511,7 +511,7 @@ public class PackageReturn extends GenericFormGui {
 		cmbStopEpisode.setText("");
 		txtStopNotes.setText("");
 		btnCaptureDate.setText("Data de Retorno");
-		btnStopDate.setText("Data TÈrmino");
+		btnStopDate.setText("Data T√©rmino");
 		tblPackages.clearAll();
 		tblPackages.removeAll();
 		tblPackages.redraw();
@@ -708,35 +708,35 @@ public class PackageReturn extends GenericFormGui {
 
 	@Override
 	protected void cmdSaveWidgetSelected() {
-		String saveMsg = "Para salvar este formul·rio, completa o que vem a seguir:\n";
+		String saveMsg = "Para salvar este formul√°rio, completa o que vem a seguir:\n";
 		int msgInx = 0;
 
 		if (tblPackages.getSelection().length <= 0) {
 			msgInx++;
 			saveMsg += "\n"
 				+ msgInx
-				+ ") Por favor, selecione um frasco na tabela \n depois vocÍ pode devolvÍ-lo.";
+				+ ") Por favor, selecione um frasco na tabela \n depois voc√™ pode devolve-lo.";
 		}
 
 		// Checking if options were properly selected.
 		if (cmbReturnReason.getText().equals("")) {
 			msgInx++;
 			saveMsg += "\n" + msgInx
-			+ ") Por favor, selecione um motivo para a devoluÁ„o de um frasco.";
+			+ ") Por favor, selecione um motivo para a devolu√ß√£o de um frasco.";
 		} else if (localPatient.getAccountStatusWithCheck()) {
 			if (cmbReturnReason.getText().equals(NOLONGER_TREATED_AT_CLINIC)) {
 				if (cmbStopEpisode.getText().trim().equals("")) {
 					msgInx++;
 					saveMsg += "\n"
 						+ msgInx
-						+ ") Por favor, escolha o motivo terminar este episÛdio do episÛdio da lista do menu.";
+						+ ") Por favor, escolha o motivo terminar este epis√≥dio do epis√≥dio da lista do menu.";
 				}
 
 				if (!episodeStopDateChanged) {
 					msgInx++;
 					saveMsg += "\n"
 						+ msgInx
-						+ ") Por favor, seleccione a datade TÈrmino deste episÛdio.";
+						+ ") Por favor, seleccione a datade T√©rmino deste epis√≥dio.";
 				}
 
 				if (btnCaptureDate.getText().equals("Data de Retorno")) {
@@ -752,7 +752,7 @@ public class PackageReturn extends GenericFormGui {
 			msgInx++;
 			saveMsg += "\n"
 				+ msgInx
-				+ ") Por favor, escolha o que vocÍ quer fazer com os medicamentos: Devolva-los ou destruÌ-los.";
+				+ ") Por favor, escolha o que voc√™ quer fazer com os medicamentos: Devolva-los ou destru√≠-los.";
 		}
 
 		if (!rbtnDestroyStock.getSelection()
@@ -760,7 +760,7 @@ public class PackageReturn extends GenericFormGui {
 			msgInx++;
 			saveMsg += "\n"
 				+ msgInx
-				+ ") Por favor, escolha o que vocÍ quer fazer com os medicamentos: Devolva-los ou destruÌ-los?";
+				+ ") Por favor, escolha o que voc√™ quer fazer com os medicamentos: Devolva-los ou destru√≠-los?";
 		}
 
 		if (tblPackages.getSelection().length > 0 && msgInx <= 0) {
@@ -776,11 +776,11 @@ public class PackageReturn extends GenericFormGui {
 			while (st.hasMoreElements()) {
 				drugList += "\t*  " + st.nextToken().trim() + "\n";
 			}
-			String action = (rbtnDestroyStock.getSelection() ? "destruÌdos"
+			String action = (rbtnDestroyStock.getSelection() ? "destru√≠dos"
 					: "devolvidos ao stock");
 			confirmBlurb = "Tem certeza de que deseja devolver o frasco '" + packId
-			+ "' na farm·cia? " + " Este frasco contÈm:\n "
-			+ drugList + "\nNOTE que os medicamentos ser„o " + action
+			+ "' na farm√°cia? " + " Este frasco cont√©m:\n "
+			+ drugList + "\nNOTE que os medicamentos serN√£o " + action
 			+ ".";
 			/*
 			 * if (cmbReturnReason.getText().equals( hashTblReasonsForReturn
@@ -792,12 +792,12 @@ public class PackageReturn extends GenericFormGui {
 			if (cmbReturnReason.getText().equals(NOLONGER_TREATED_AT_CLINIC)) {
 				if (cmbStopEpisode.getText().equals("Desconhecido")) {
 					confirmBlurb += "\n"
-						+ " Certifique-se se o EpisÛdio \"Motivo de TÈrmino\"\n\t realmente deve ser \"Desconhecido\". ";
+						+ " Certifique-se se o epis√≥dio \"Motivo de T√©rmino\"\n\t realmente deve ser \"Desconhecido\". ";
 				}
 			}
 			MessageBox mb = new MessageBox(getShell(), SWT.ICON_QUESTION
 					| SWT.YES | SWT.NO);
-			mb.setText("Confirmar a devoluÁ„o do Frasco: " + cmbReturnReason.getText());
+			mb.setText("Confirmar a devolu√ß√£o do Frasco: " + cmbReturnReason.getText());
 			mb.setMessage(confirmBlurb);
 			if (mb.open() == SWT.YES) {
 				cmdSavePackageReturn(action, packToReturn);
@@ -825,9 +825,9 @@ public class PackageReturn extends GenericFormGui {
 	 */
 	private void cmdSavePackageReturn(String action, Packages packageToReturn) {
 		if (packageToReturn == null) {
-			getLog().error("„o foi possÌvel obter frasco na base de dados para devolver");
+			getLog().error("N√£o foi poss√≠vel obter frasco na base de dados para devolver");
 			MessageBox msg = new MessageBox(getShell(), SWT.DIALOG_TRIM);
-			msg.setText("Erro na devoluÁ„o de frasco");
+			msg.setText("Erro na devolu√ß√£o de frasco");
 			msg
 			.setMessage("Um erro ocorreu enquanto se tentava devolver frasco");
 			msg.open();
@@ -867,13 +867,13 @@ public class PackageReturn extends GenericFormGui {
 				MessageBox msg = new MessageBox(getShell(), SWT.DIALOG_TRIM);
 				msg.setText("Frasco devolvido com sucesso.");
 				msg
-				.setMessage("O Frasco foi devolvido com sucesso na farm·cia.");
+				.setMessage("O Frasco foi devolvido com sucesso na farm√°cia.");
 				msg.open();
 
 				closeShell(true);
 			} catch (HibernateException e) {
 				getLog().error(
-						"Falha: Frasco n„o foi " + action + " para o frasco: "
+						"Falha: Frasco n√£o foi " + action + " para o frasco: "
 						+ packageToReturn.getPackageId(), e);
 
 				if (tx != null) {
@@ -882,12 +882,12 @@ public class PackageReturn extends GenericFormGui {
 
 				MessageBox msg = new MessageBox(getShell(), SWT.DIALOG_TRIM
 						| SWT.ICON_ERROR);
-				String errorAction = (action.equals("devolvido") ? "devolvido ‡ farm·cia."
+				String errorAction = (action.equals("devolvido") ? "devolvido √† farm√°cia."
 						: "destruido.");
-				msg.setText("Seu Frasco n„o foi " + action + ".");
+				msg.setText("Seu Frasco n√£o foi " + action + ".");
 				msg
-				.setMessage("Houve um problema ao tentar salvar informaÁ„o sobre a devoluÁ„o deste frasco na base de dados. "
-						+ "\n\nO frascon„o foi "
+				.setMessage("Houve um problema ao tentar salvar informa√ß√£o sobre a devolu√ß√£o deste frasco na base de dados. "
+						+ "\n\nO frascon√£o foi "
 						+ errorAction);
 				msg.open();
 			}
@@ -898,7 +898,7 @@ public class PackageReturn extends GenericFormGui {
 	@Override
 	protected void createCompButtons() {
 		buildCompButtons();
-		btnSave.setText("Devolver Frasco n„o Dispensado");
+		btnSave.setText("Devolver Frasco n√£o Dispensado");
 		Rectangle bounds = btnSave.getBounds();
 		bounds.x -= 11;
 		bounds.width = 180;
