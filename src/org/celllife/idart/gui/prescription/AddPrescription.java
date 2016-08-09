@@ -269,7 +269,7 @@ iDARTChangeListener {
 				noPatient
 				.setMessage("O Paciente "
 						+ (txtPatientId.getText()).toUpperCase()
-						+ " não tem episódio actual. \n\nVocê precisa começar um novo episódio para este paciente (Usando a tela 'Actualizar Paciente Existente') antes de registar a sua prescrição.");
+						+ " nï¿½o tem episï¿½dio actual. \n\nVocï¿½ precisa comeï¿½ar um novo episï¿½dio para este paciente (Usando a tela 'Actualizar Paciente Existente') antes de registar a sua PrescriÃ§Ã£o.");
 				noPatient.open();
 				txtPatientId.setFocus();
 				txtPatientId.setText("");
@@ -338,7 +338,7 @@ iDARTChangeListener {
 	 */
 	@Override
 	protected void createCompHeader() {
-		String headerTxt = "Prescrição do Paciente";
+		String headerTxt = "PrescriÃ§Ã£o do Paciente";
 		iDartImage icoImage = iDartImage.PRESCRIPTIONNEW;
 		buildCompHeader(headerTxt, icoImage);
 	}
@@ -347,7 +347,7 @@ iDARTChangeListener {
 	protected void createCompButtons() {
 		// Parent Class generic call
 		buildCompButtons();
-		btnSave.setText("Salar esta Prescrição");
+		btnSave.setText("Salar esta PrescriÃ§Ã£o");
 		// btnSavePrescription
 
 	}
@@ -403,7 +403,7 @@ iDARTChangeListener {
 		btnSearch.setBounds(new Rectangle(320, 4, 105, 30));
 		btnSearch.setText("Procurar Paciente");
 		btnSearch
-		.setToolTipText("Pressione este botão para procurar um paciente existente");
+		.setToolTipText("Pressione este botï¿½o para procurar um paciente existente");
 		btnSearch
 		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
 			@Override
@@ -425,7 +425,7 @@ iDARTChangeListener {
 		}
 
 		btnEkapaSearch
-		.setToolTipText("Pressione este botão para importar um paciente de eKapa.");
+		.setToolTipText("Pressione este botï¿½o para importar um paciente de eKapa.");
 		btnEkapaSearch
 		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
 
@@ -617,8 +617,8 @@ iDARTChangeListener {
 					dteEpisodeStart, false);
 			afterEpisodeStart.setDescription("Este paciente paciente foi marcado com "
 					+ latestEpi.getStartReason()
-					+ " em <date>. A data da prescrição deve estar em,"
-					+ " ou depois da data deste episódio.");
+					+ " em <date>. A data da PrescriÃ§Ã£o deve estar em,"
+					+ " ou depois da data deste episï¿½dio.");
 			rule = new AndRule<Date>(rule, afterEpisodeStart);
 		}
 
@@ -664,7 +664,7 @@ iDARTChangeListener {
 		btnPatientHistoryReport = new Button(grpParticulars, SWT.NONE);
 		btnPatientHistoryReport.setBounds(new Rectangle(270, 48, 40, 40));
 		btnPatientHistoryReport
-		.setToolTipText("Pressione este botão para visualizar e / ou imprimir relatórios \n do histórico das prescrições do paciente.");
+		.setToolTipText("Pressione este botï¿½o para visualizar e / ou imprimir relatï¿½rios \n do histï¿½rico das prescriï¿½ï¿½es do paciente.");
 		btnPatientHistoryReport.setImage(ResourceUtils
 				.getImage(iDartImage.REPORT_PATIENTHISTORY_30X26));
 
@@ -763,7 +763,7 @@ iDARTChangeListener {
 				cmdAddDoctorWidgetSelected();
 			}
 		});
-		btnAddDoctor.setToolTipText("Pressionar este botão para adicionar um novo clínico");
+		btnAddDoctor.setToolTipText("Pressionar este botï¿½o para adicionar um novo clï¿½nico");
 
 		// Duration
 		Label lblDuration = new Label(grpParticulars, SWT.NONE);
@@ -1195,7 +1195,7 @@ iDARTChangeListener {
 					| SWT.OK);
 			missing.setText("Campos em falta");
 			missing
-			.setMessage("Alguns Campos estão vazios. Inserir informação nos campos *.");
+			.setMessage("Alguns Campos estï¿½o vazios. Inserir informaï¿½ï¿½o nos campos *.");
 			missing.open();
 			txtPatientId.setFocus();
 			return false;
@@ -1206,9 +1206,9 @@ iDARTChangeListener {
 			
 			MessageBox dataNoutroServico = new MessageBox(getShell(), SWT.ICON_ERROR
 					| SWT.OK);
-			dataNoutroServico.setText("Data Início Noutro Serviço Inválido");
+			dataNoutroServico.setText("Data Inï¿½cio Noutro Serviï¿½o Invï¿½lido");
 			dataNoutroServico
-			.setMessage("A data do início noutro serviço não pode ser depois da data de hoje.");
+			.setMessage("A data do inï¿½cio noutro serviï¿½o nï¿½o pode ser depois da data de hoje.");
 			dataNoutroServico.open();
 			btnDataInicioNoutroServico.setFocus();
 			return false;
@@ -1219,9 +1219,9 @@ iDARTChangeListener {
 			
 			MessageBox dataNoutroServico = new MessageBox(getShell(), SWT.ICON_ERROR
 					| SWT.OK);
-			dataNoutroServico.setText("Motivo da Mudança");
+			dataNoutroServico.setText("Motivo da Mudanï¿½a");
 			dataNoutroServico
-			.setMessage("Insira o motivo da mudança.");
+			.setMessage("Insira o motivo da mudanï¿½a.");
 			dataNoutroServico.open();
 			cmbMotivoMudanca.setFocus();
 			
@@ -1232,9 +1232,9 @@ iDARTChangeListener {
 				&& cmbUpdateReason.getText().trim().equals("")) {
 			MessageBox missingUpdateReason = new MessageBox(getShell(),
 					SWT.ICON_ERROR | SWT.OK);
-			missingUpdateReason.setText("Inserir motivo de mudança");
+			missingUpdateReason.setText("Inserir motivo de mudanï¿½a");
 			missingUpdateReason
-			.setMessage("O campo 'Motivo de mudança' não foi inserido.");
+			.setMessage("O campo 'Motivo de mudanï¿½a' nï¿½o foi inserido.");
 			cmbUpdateReason.setFocus();
 			missingUpdateReason.open();
 			return false;
@@ -1246,7 +1246,7 @@ iDARTChangeListener {
 						SWT.ICON_ERROR | SWT.OK);
 				incorrectData.setText("Valor do peso incorrecto");
 				incorrectData
-				.setMessage("O peso inserido está incorrecto.Inserir um número");
+				.setMessage("O peso inserido estï¿½ incorrecto.Inserir um nï¿½mero");
 				incorrectData.open();
 				txtWeight.setFocus();
 				return false;
@@ -1266,17 +1266,17 @@ iDARTChangeListener {
 
 		cmbUpdateReason.setText("Manter");
 	    cmbUpdateReason.setEnabled(true);
-		lblHeader.setText("Registar Prescrição Inicial");
+		lblHeader.setText("Registar PrescriÃ§Ã£o Inicial");
 
 		// btnDispenseDrugs.setEnabled(true);
 		// lblPicDispenseDrugs.setEnabled(true);
 		btnCaptureDate.setDate(new Date());
-		btnSave.setText("Salvar Prescrição Inicial");
+		btnSave.setText("Salvar PrescriÃ§Ã£o Inicial");
 		btnSave.redraw();
 
 		// Generate a new prescription id
 		cmdUpdatePrescriptionId();
-		cmbDuration.setText("1 mês");
+		cmbDuration.setText("1 mÃªs");
 
 	}
 
@@ -1288,12 +1288,12 @@ iDARTChangeListener {
 	 */
 	private void setFormToReactivationPrescription() {
 
-		btnSave.setText("Salvar Prescrição");
+		btnSave.setText("Salvar PrescriÃ§Ã£o");
 		btnSave.redraw();
 
 		// Generate a new prescription id
 		cmdUpdatePrescriptionId();
-		cmbDuration.setText("1 mês");
+		cmbDuration.setText("1 mÃªs");
 
 		btnSearch.setEnabled(false);
 		btnEkapaSearch.setEnabled(false);
@@ -1487,7 +1487,7 @@ try {
 						| SWT.YES | SWT.NO);
 				mb.setText("Remover o medicamento'" + drug + "'");
 				mb.setMessage("Quer remover '" + drug
-						+ "' desta prescrição?");
+						+ "' desta PrescriÃ§Ã£o?");
 				switch (mb.open()) {
 				case SWT.YES:
 					// Delete from Prescription
@@ -1659,7 +1659,7 @@ try {
 
 				loadPrescriptionDetails();
 
-				lblHeader.setText("Actualizar a Prescrição");
+				lblHeader.setText("Actualizar a PrescriÃ§Ã£o");
 
 				btnDispenseDrugs.setEnabled(true);
 				lblPicDispenseDrugs.setEnabled(true);
@@ -1707,7 +1707,7 @@ try {
 
 				loadPrescriptionDetails();
 
-				lblHeader.setText("Actualizar a Prescrição");
+				lblHeader.setText("Actualizar a PrescriÃ§Ã£o");
 
 				btnDispenseDrugs.setEnabled(true);
 				lblPicDispenseDrugs.setEnabled(true);
@@ -1751,11 +1751,11 @@ try {
 				MessageBox noPatient = new MessageBox(getShell(),
 						SWT.ICON_ERROR | SWT.OK);
 
-				noPatient.setText("Paciente não possui um Episódio actual");
+				noPatient.setText("Paciente nï¿½o possui um Episï¿½dio actual");
 				noPatient
 				.setMessage("O Paciente "
 						+ (txtPatientId.getText()).toUpperCase()
-						+ " não possui um Episódio actual. \n\nPrecisa Iniciar um novo episódio para este Paciente (usando a tela 'Actualizar Paciente Existente') antes de registra a sua prescrição.");
+						+ " nï¿½o possui um Episï¿½dio actual. \n\nPrecisa Iniciar um novo episï¿½dio para este Paciente (usando a tela 'Actualizar Paciente Existente') antes de registra a sua PrescriÃ§Ã£o.");
 				noPatient.open();
 				txtPatientId.setFocus();
 				txtPatientId.setText("");
@@ -1840,9 +1840,9 @@ try {
 		if (tblDrugs.getItemCount() < 1) {
 			MessageBox noDrugsAdded = new MessageBox(getShell(), SWT.ICON_ERROR
 					| SWT.OK);
-			noDrugsAdded.setText("Sem medicamentos na prescrição");
+			noDrugsAdded.setText("Sem medicamentos na PrescriÃ§Ã£o");
 			noDrugsAdded
-			.setMessage("Nenhum medicamento foi adicionado nesta prescrição.");
+			.setMessage("Nenhum medicamento foi adicionado nesta PrescriÃ§Ã£o.");
 			noDrugsAdded.open();
 			drugsAdded = false;
 		}
@@ -1871,14 +1871,14 @@ try {
 					| SWT.YES | SWT.NO);
 			
 			mSave
-			.setText(isInitialPrescription ? "Registar a prescrição inicial do paciente "
+			.setText(isInitialPrescription ? "Registar a PrescriÃ§Ã£o inicial do paciente "
 					.concat(txtPatientId.getText())
-					: "Registar Nova prescrição do paciente "
+					: "Registar Nova PrescriÃ§Ã£o do paciente "
 						.concat(txtPatientId.getText()));
 			mSave
-			.setMessage(isInitialPrescription ? "Quer registar esta prescrição para o paciente "
+			.setMessage(isInitialPrescription ? "Quer registar esta PrescriÃ§Ã£o para o paciente "
 					.concat(txtPatientId.getText()).concat("?")
-					: "Quer actualizar as mudanças para o paciente "
+					: "Quer actualizar as mudanï¿½as para o paciente "
 						.concat(txtPatientId.getText()).concat("?"));
 			
 			
@@ -1886,14 +1886,14 @@ try {
 			
 			
 			mSaveInicia
-			.setText(isInitialPrescription ? "Registar a prescrição inicial do paciente "
+			.setText(isInitialPrescription ? "Registar a PrescriÃ§Ã£o inicial do paciente "
 					.concat(txtPatientId.getText())
-					: "Registar Nova prescrição do paciente "
+					: "Registar Nova PrescriÃ§Ã£o do paciente "
 						.concat(txtPatientId.getText()));
 			mSaveInicia
-			.setMessage(isInitialPrescription ? "ATENÇÃO: SELECCIONOU O TIPO TARV INICIAL\nTEM A CERTEZA DE QUE ESTE PACIENTE ESTÁ A INICIAR O TARV? \n NID:  "
+			.setMessage(isInitialPrescription ? "ATENï¿½ï¿½O: SELECCIONOU O TIPO TARV INICIAL\nTEM A CERTEZA DE QUE ESTE PACIENTE ESTï¿½ A INICIAR O TARV? \n NID:  "
 					.concat(txtPatientId.getText()).concat("?")
-					: "ATENÇÃO: SELECCIONOU O TIPO TARV INICIAL\nTEM A CERTEZA DE QUE ESTE PACIENTE ESTÁ A INICIAR O TARV? \n NID: "
+					: "ATENï¿½ï¿½O: SELECCIONOU O TIPO TARV INICIAL\nTEM A CERTEZA DE QUE ESTE PACIENTE ESTï¿½ A INICIAR O TARV? \n NID: "
 						.concat(txtPatientId.getText()).concat(""));
 			
 			if(cmbUpdateReason.getText().trim().equals("Inicia"))
@@ -1922,7 +1922,7 @@ try {
 							.getPrescribedDrugs();
 							String drugs = "";
 							if (prescribedDrugs.size() == 0) {
-								drugs = "\nNão há medicamentos nesta prescrição!";
+								drugs = "\nNï¿½o hï¿½ medicamentos nesta PrescriÃ§Ã£o!";
 							}
 							for (int i = 0; i < prescribedDrugs.size(); i++) {
 								drugs = drugs
@@ -1933,31 +1933,31 @@ try {
 							MessageBox box = new MessageBox(getShell(),
 									SWT.ICON_QUESTION | SWT.YES | SWT.NO);
 
-							box.setText("Remover Prescrições anteriores, não usadas");
+							box.setText("Remover Prescriï¿½ï¿½es anteriores, nï¿½o usadas");
 							box
-							.setMessage("Este paciente não recebeu nenhum medicamento desde "
-									+ "a sua prescrição anterior com o id "
+							.setMessage("Este paciente nï¿½o recebeu nenhum medicamento desde "
+									+ "a sua PrescriÃ§Ã£o anterior com o id "
 									+ oldPrescription.getPrescriptionId()
 									+ " (detalhes abaixo). \n\n"
-									+ "Clínico: "
+									+ "Clï¿½nico: "
 									+ oldPrescription.getDoctor()
 									.getFullname()
 									+ "\nRegime: "
 									+ oldPrescription.getRegimeTerapeutico()
 									.getRegimeesquema()
-									+ "\nDuração: "
+									+ "\nDuraï¿½ï¿½o: "
 									+ oldPrescription.getDuration()
 									+ " semanas "
-									+ "\nEstagio Clínico: "
+									+ "\nEstagio Clï¿½nico: "
 									+ oldPrescription.getClinicalStage()
 									+ "\nPeso: "
 									+ oldPrescription.getWeight()
 									+ "\nRegistado em: "
 									+ sdf.format(oldPrescription.getDate())
-									+ "\nMedicamentos na prescrição:\t"
+									+ "\nMedicamentos na PrescriÃ§Ã£o:\t"
 									+ drugs
-									+ "\n\nGostaria de apagar esta prescrição anterior não utilizada, "
-									+ "e substituí lo com o que você acabou de criar?");
+									+ "\n\nGostaria de apagar esta PrescriÃ§Ã£o anterior nï¿½o utilizada, "
+									+ "e substituï¿½ lo com o que vocï¿½ acabou de criar?");
 							switch (box.open()) {
 							case SWT.YES:
 								// before we try anything, lets ask the user for
@@ -1991,7 +1991,7 @@ try {
 						MessageBox done = new MessageBox(getShell(), SWT.OK
 								| SWT.ICON_INFORMATION);
 						done.setText("Base de dados actualizada");
-						done.setMessage("Prescrição '".concat(
+						done.setMessage("PrescriÃ§Ã£o '".concat(
 								localPrescription.getPrescriptionId()).concat(
 								"' foi adicionado ao paciente '").concat(
 										localPrescription.getPatient().getPatientId())
@@ -2002,14 +2002,14 @@ try {
 						MessageBox errorBox = new MessageBox(getShell(), SWT.OK
 								| SWT.ICON_ERROR);
 						errorBox
-						.setText("Não foi possível salvar: A data do registo da Prescrição é inválida");
+						.setText("Nï¿½o foi possï¿½vel salvar: A data do registo da PrescriÃ§Ã£o ï¿½ invï¿½lida");
 						errorBox
-						.setMessage("A prescrição '"
+						.setMessage("A PrescriÃ§Ã£o '"
 								.concat(
 										localPrescription
 										.getPrescriptionId())
 										.concat(
-										"' tem a data de registo antes da data de de registo da prescrição anterior. A Prescrição não pode ser salva "));
+										"' tem a data de registo antes da data de de registo da PrescriÃ§Ã£o anterior. A PrescriÃ§Ã£o nï¿½o pode ser salva "));
 						errorBox.open();
 						if (tx != null) {
 							tx.rollback();
@@ -2022,7 +2022,7 @@ try {
 
 						MessageBox errorBox = new MessageBox(getShell(), SWT.OK
 								| SWT.ICON_ERROR);
-						errorBox.setText("Não pode salvar: Actualização da base de dados falhou");
+						errorBox.setText("Nï¿½o pode salvar: Actualizaï¿½ï¿½o da base de dados falhou");
 						errorBox
 						.setMessage("Houve um problema ao salvar esta receita. Por favor, tente novamente.");
 						if (tx != null) {
@@ -2068,7 +2068,7 @@ try {
 							.getPrescribedDrugs();
 							String drugs = "";
 							if (prescribedDrugs.size() == 0) {
-								drugs = "\nNão há medicamentos nesta prescrição!";
+								drugs = "\nNï¿½o hï¿½ medicamentos nesta PrescriÃ§Ã£o!";
 							}
 							for (int i = 0; i < prescribedDrugs.size(); i++) {
 								drugs = drugs
@@ -2079,31 +2079,31 @@ try {
 							MessageBox box = new MessageBox(getShell(),
 									SWT.ICON_QUESTION | SWT.YES | SWT.NO);
 
-							box.setText("Remover Prescrições anteriores, não usadas");
+							box.setText("Remover Prescriï¿½ï¿½es anteriores, nï¿½o usadas");
 							box
-							.setMessage("Este paciente não recebeu nenhum medicamento desde "
-									+ "a sua prescrição anterior com o id "
+							.setMessage("Este paciente nï¿½o recebeu nenhum medicamento desde "
+									+ "a sua PrescriÃ§Ã£o anterior com o id "
 									+ oldPrescription.getPrescriptionId()
 									+ " (detalhes abaixo). \n\n '"
-									+ "Clínico: "
+									+ "Clï¿½nico: "
 									+ oldPrescription.getDoctor()
 									.getFullname()
 									+ "\nRegime: "
 									+ oldPrescription.getRegimeTerapeutico()
 									.getRegimeesquema()
-									+ "\nDuração: "
+									+ "\nDuraï¿½ï¿½o: "
 									+ oldPrescription.getDuration()
 									+ " semanas "
-									+ "\nEstágio Clínico: "
+									+ "\nEstï¿½gio Clï¿½nico: "
 									+ oldPrescription.getClinicalStage()
 									+ "\nPeso: "
 									+ oldPrescription.getWeight()
 									+ "\nRegistado em: "
 									+ sdf.format(oldPrescription.getDate())
-									+ "\nMedicamentos na prescrição:\t"
+									+ "\nMedicamentos na PrescriÃ§Ã£o:\t"
 									+ drugs
-									+ "\n\nGostaria de apagar esta prescrição anterior não utilizada, "
-									+ "e substituí lo com o que você acabou de criar?");
+									+ "\n\nGostaria de apagar esta PrescriÃ§Ã£o anterior nï¿½o utilizada, "
+									+ "e substituï¿½ lo com o que vocï¿½ acabou de criar?");
 							switch (box.open()) {
 							case SWT.YES:
 								// before we try anything, lets ask the user for
@@ -2137,7 +2137,7 @@ try {
 						MessageBox done = new MessageBox(getShell(), SWT.OK
 								| SWT.ICON_INFORMATION);
 						done.setText("Base de dados actualizada");
-						done.setMessage("Prescrição '".concat(
+						done.setMessage("PrescriÃ§Ã£o '".concat(
 								localPrescription.getPrescriptionId()).concat(
 								"' foi adicionado ao paciente '").concat(
 										localPrescription.getPatient().getPatientId())
@@ -2148,14 +2148,14 @@ try {
 						MessageBox errorBox = new MessageBox(getShell(), SWT.OK
 								| SWT.ICON_ERROR);
 						errorBox
-						.setText("Não foi possível salvar: A data do registo da Prescrição é inválida");
+						.setText("Nï¿½o foi possï¿½vel salvar: A data do registo da PrescriÃ§Ã£o ï¿½ invï¿½lida");
 						errorBox
-						.setMessage("A prescrição '"
+						.setMessage("A PrescriÃ§Ã£o '"
 								.concat(
 										localPrescription
 										.getPrescriptionId())
 										.concat(
-										"' tem a data de registo antes da data de de registo da prescrição anterior. A Prescrição não pode ser salva "));
+										"' tem a data de registo antes da data de de registo da PrescriÃ§Ã£o anterior. A PrescriÃ§Ã£o nï¿½o pode ser salva "));
 						errorBox.open();
 						if (tx != null) {
 							tx.rollback();
@@ -2168,7 +2168,7 @@ try {
 
 						MessageBox errorBox = new MessageBox(getShell(), SWT.OK
 								| SWT.ICON_ERROR);
-						errorBox.setText("Não pode salvar: Actualização da base de dados falhou");
+						errorBox.setText("Nï¿½o pode salvar: Actualizaï¿½ï¿½o da base de dados falhou");
 						errorBox
 						.setMessage("Houve um problema ao salvar esta receita. Por favor, tente novamente.");
 						if (tx != null) {
@@ -2664,9 +2664,9 @@ try {
 		getHSession().flush();
 
 		MessageBox mb = new MessageBox(getShell());
-		mb.setText("Prescrição apagada com sucesso");
+		mb.setText("PrescriÃ§Ã£o apagada com sucesso");
 		mb
-		.setMessage("Essa prescrição foi removida com sucesso da base de dados.");
+		.setMessage("Essa PrescriÃ§Ã£o foi removida com sucesso da base de dados.");
 		mb.open();
 
 	}

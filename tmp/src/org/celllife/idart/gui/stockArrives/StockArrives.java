@@ -75,7 +75,7 @@ public class StockArrives extends GenericFormGui implements iDARTChangeListener{
 	 */
 	@Override
 	protected void createShell() {
-		String shellTxt = "Entradas de Stock na Farm�cia";
+		String shellTxt = "Entradas de Stock na Farmácia";
 		Rectangle bounds = new Rectangle(0, 100, 900, 700);
 		buildShell(shellTxt, bounds);
 	}
@@ -85,7 +85,7 @@ public class StockArrives extends GenericFormGui implements iDARTChangeListener{
 	 */
 	@Override
 	protected void createCompHeader() {
-		String headerTxt = "Entradas de Stock na Farm�cia";
+		String headerTxt = "Entradas de Stock na Farmácia";
 		iDartImage icoImage = iDartImage.PACKAGESARRIVE;
 		buildCompHeader(headerTxt, icoImage);
 	}
@@ -165,7 +165,7 @@ public class StockArrives extends GenericFormGui implements iDARTChangeListener{
 
 		TableColumn tblClmPharmacy = new TableColumn(tblDrugs, SWT.NONE);
 		tblClmPharmacy.setWidth(105);
-		tblClmPharmacy.setText("Farm�cia");
+		tblClmPharmacy.setText("Farmácia");
 
 		TableColumn tblClmManufacturer = new TableColumn(tblDrugs, SWT.NONE);
 		tblClmManufacturer.setWidth(110);
@@ -177,7 +177,7 @@ public class StockArrives extends GenericFormGui implements iDARTChangeListener{
 
 		TableColumn tblClmExpiryMonth = new TableColumn(tblDrugs, SWT.NONE);
 		tblClmExpiryMonth.setWidth(66);
-		tblClmExpiryMonth.setText("Expira��o");
+		tblClmExpiryMonth.setText("Expiração");
 
 		TableColumn tblClmShelfNo = new TableColumn(tblDrugs, SWT.NONE);
 		tblClmShelfNo.setWidth(40);
@@ -185,7 +185,7 @@ public class StockArrives extends GenericFormGui implements iDARTChangeListener{
 
 		TableColumn tblClmUnitPrice = new TableColumn(tblDrugs, SWT.NONE);
 		tblClmUnitPrice.setWidth(60);
-		tblClmUnitPrice.setText("Pre�o/Unidade");
+		tblClmUnitPrice.setText("Preço/Unidade");
 
 		TableColumn tblClmCaptureDate = new TableColumn(tblDrugs, SWT.NONE);
 		tblClmCaptureDate.setWidth(0);

@@ -572,7 +572,7 @@ public class AddDrug extends GenericFormGui {
 							| SWT.ICON_INFORMATION);
 					m.setText("Problemas ao salvar na Base de Dados");
 					m
-					.setMessage("Houve problemas ao salvar informa��o do medicamento na base de dados. Tente de novo.");
+					.setMessage("Houve problemas ao salvar informação do medicamento na base de dados. Tente de novo.");
 					m.open();
 					if (tx != null) {
 						tx.rollback();
@@ -789,8 +789,8 @@ public class AddDrug extends GenericFormGui {
 
 		if (txtName.getText().equals("")) {
 			MessageBox b = new MessageBox(getShell(), SWT.ICON_ERROR | SWT.OK);
-			b.setMessage("Nome do medicamento n�o pode ser vazio");
-			b.setText("Informa��o em Falta");
+			b.setMessage("Nome do medicamento não pode ser vazio");
+			b.setText("informação em Falta");
 			b.open();
 			txtName.setFocus();
 			return false;
@@ -800,8 +800,8 @@ public class AddDrug extends GenericFormGui {
 		
 		if (chkBtnAdult.getSelection() && chkBtnPediatric.getSelection()) {
 			MessageBox b = new MessageBox(getShell(), SWT.ICON_ERROR | SWT.OK);
-			b.setMessage("O ARV deve ser Pediatrico ou de Adulto, N�o ambos ");
-			b.setText("Selec�ao Errada");
+			b.setMessage("O ARV deve ser Pediatrico ou de Adulto, Não ambos ");
+			b.setText("Selecção Errada");
 			b.open();
 			
 			return false;
@@ -810,8 +810,8 @@ public class AddDrug extends GenericFormGui {
 		
 		if (!chkBtnAdult.getSelection() && !chkBtnPediatric.getSelection()) {
 			MessageBox b = new MessageBox(getShell(), SWT.ICON_ERROR | SWT.OK);
-			b.setMessage(" Seleccione se o ARV � pedi�trico ou de Adulto ");
-			b.setText("Selec�ao Errada");
+			b.setMessage(" Seleccione se o ARV é pediátrico ou de Adulto ");
+			b.setText("Selecção Errada");
 			b.open();
 			
 			return false;
@@ -822,7 +822,7 @@ public class AddDrug extends GenericFormGui {
 				&& isAddnotUpdate) {
 			MessageBox b = new MessageBox(getShell(), SWT.ICON_ERROR | SWT.OK);
 			b
-			.setMessage("Nome do Medicameento j� existe. Inserir um nome diferente");
+			.setMessage("Nome do Medicameento já existe. Inserir um nome diferente");
 			b.setText("Nome do medicamento suplicado");
 			b.open();
 			txtName.setFocus();
@@ -833,7 +833,7 @@ public class AddDrug extends GenericFormGui {
 			MessageBox b = new MessageBox(getShell(), SWT.ICON_ERROR | SWT.OK);
 			b
 			.setMessage("A forma do medicamento deve ser da lista.");
-			b.setText("Informa��o incorrecta");
+			b.setText("Informação incorrecta");
 			b.open();
 			cmbForm.setFocus();
 			return false;
@@ -842,7 +842,7 @@ public class AddDrug extends GenericFormGui {
 		if (txtPacksize.getText().equals("")) {
 			MessageBox b = new MessageBox(getShell(), SWT.ICON_ERROR | SWT.OK);
 			b.setMessage("Inserir quantidade no frasco");
-			b.setText("Informa��o em Falta");
+			b.setText("Informação em Falta");
 			b.open();
 
 			return false;
@@ -855,7 +855,7 @@ public class AddDrug extends GenericFormGui {
 					SWT.ICON_ERROR | SWT.OK);
 			incorrectData.setText("Quantidade no Frasco incorrecto");
 			incorrectData
-			.setMessage("A Quantidade no Frasco que inseriu � inv�lido. Inserir N�mero.");
+			.setMessage("A Quantidade no Frasco que inseriu é inválido. Inserir número.");
 			incorrectData.open();
 			txtPacksize.setFocus();
 			return false;
@@ -869,9 +869,9 @@ public class AddDrug extends GenericFormGui {
 			} catch (NumberFormatException nfe) {
 				MessageBox incorrectData = new MessageBox(getShell(),
 						SWT.ICON_ERROR | SWT.OK);
-				incorrectData.setText("Valor do padr�o da posologia incorrecto");
+				incorrectData.setText("Valor do padrão da posologia incorrecto");
 				incorrectData
-				.setMessage("A posologia padr�o que inseriu � incorrecto. Inserir n�mero.");
+				.setMessage("A posologia padrão que inseriu é incorrecto. Inserir número.");
 				incorrectData.open();
 				txtAmountPerTime.setFocus();
 				return false;
@@ -883,7 +883,7 @@ public class AddDrug extends GenericFormGui {
 			AtcCode atccode = AdministrationManager.getAtccodeFromCode(getHSession(),
 					txtAtc.getText().trim());
 			if (atccode == null){
-				showMessage(MessageDialog.ERROR, "C�digo FNM Disconhecido", "O c�digo FNM que seleccionou n�o est� na base de dados.");
+				showMessage(MessageDialog.ERROR, "Código FNM Desconhecido", "O código FNM que seleccionou não está na base de dados.");
 				return false;
 			}
 		}
@@ -894,9 +894,9 @@ public class AddDrug extends GenericFormGui {
 			} catch (NumberFormatException nfe) {
 				MessageBox incorrectData = new MessageBox(getShell(),
 						SWT.ICON_ERROR | SWT.OK);
-				incorrectData.setText("o valor do padr�o da posologia incorrecto");
+				incorrectData.setText("o valor do padrão da posologia incorrecto");
 				incorrectData
-				.setMessage("A posologia padr�o que inseriu � incorrecto. Inserir n�mero.");
+				.setMessage("A posologia padrão que inseriu é incorrecto. Inserir número.");
 				incorrectData.open();
 				txtTimesPerDay.setFocus();
 				return false;
@@ -935,10 +935,10 @@ public class AddDrug extends GenericFormGui {
 					if (strength <= 0) {
 						MessageBox incorrectData = new MessageBox(getShell(),
 								SWT.ICON_ERROR | SWT.OK);
-						incorrectData.setText("O valor da posologia n�o � V�lido");
+						incorrectData.setText("O valor da posologia não é válido");
 						incorrectData.setMessage("A posologia inserida para "
 								+ ti.getText(0)
-								+ " � inv�lido. Inserir valor positivo");
+								+ " é inválido. Inserir valor positivo");
 						incorrectData.open();
 						txtPacksize.setFocus();
 						return false;
@@ -948,22 +948,22 @@ public class AddDrug extends GenericFormGui {
 					if (ti.getText(1).trim().equals("")) {
 						MessageBox incorrectData = new MessageBox(getShell(),
 								SWT.ICON_ERROR | SWT.OK);
-						incorrectData.setText("Posologia do componente n�o foi inserido");
+						incorrectData.setText("Posologia do componente não foi inserido");
 						incorrectData
-						.setMessage("Voc� indicou que este medicamento cont�m o componente "
+						.setMessage("Você indicou que este medicamento contém o componente "
 								+ ti.getText(0)
-								+ ", mas n�o entraram a posologia do componente.");
+								+ ", mas não entraram a posologia do componente.");
 						incorrectData.open();
 						txtPacksize.setFocus();
 						return false;
 					} else {
 						MessageBox incorrectData = new MessageBox(getShell(),
 								SWT.ICON_ERROR | SWT.OK);
-						incorrectData.setText("posologia do componente n�o insserido");
+						incorrectData.setText("posologia do componente não insserido");
 						incorrectData
 						.setMessage("O posologia do componente inserido para  "
 								+ ti.getText(0)
-								+ " n�o � n�mero. \n\nInserir um n�mero.");
+								+ " não é número. \n\nInserir um número.");
 						incorrectData.open();
 						txtPacksize.setFocus();
 						return false;
@@ -1005,7 +1005,7 @@ public class AddDrug extends GenericFormGui {
 						| SWT.OK);
 				m.setText("Sem componentes");
 				m
-				.setMessage("Todos medicamentos ARV tem uma composi��o qu�mica. \nAdicionar uma composi��o para"
+				.setMessage("Todos medicamentos ARV tem uma composição química. \nAdicionar uma composição para"
 						+ localDrug.getName());
 				m.open();
 
@@ -1195,7 +1195,7 @@ public class AddDrug extends GenericFormGui {
 
 		Label lblInstructions = new Label(compInstructions, SWT.CENTER);
 		lblInstructions.setBounds(new Rectangle(0, 0, 360, 25));
-		lblInstructions.setText("Todos campos marcados com * s�o obrigat�rios");
+		lblInstructions.setText("Todos campos marcados com * são obrigatórios");
 		lblInstructions.setFont(ResourceUtils
 				.getFont(iDartFont.VERASANS_10_ITALIC));
 	}
@@ -1206,7 +1206,7 @@ public class AddDrug extends GenericFormGui {
 	 */
 	private void createGrpChemicalCompounds() {
 		grpChemicalCompounds = new Group(getShell(), SWT.NONE);
-		grpChemicalCompounds.setText("Composi��o qu�mica ");
+		grpChemicalCompounds.setText("Composição química ");
 		grpChemicalCompounds.setBounds(new Rectangle(524, 110, 235, 372));
 		grpChemicalCompounds.setFont(ResourceUtils
 				.getFont(iDartFont.VERASANS_8));

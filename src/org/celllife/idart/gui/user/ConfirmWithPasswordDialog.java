@@ -74,7 +74,7 @@ public class ConfirmWithPasswordDialog extends Dialog {
 		this(
 				parent,
 				"Por favor insira a sua senha ",
-				"ATENÇÃO: Você só deve executar esta acção se tiver certeza de que deseja remover as informações da base de dados PERMANENTEMENTE. O usuário que realizou esta acção, bem como a hora atual, será gravado no log de transações.",
+				"ATENÃ‡ÃƒO: VocÃª sÃ³ deve executar esta acÃ§Ã£o se tiver certeza de que deseja remover as informaÃ§Ãµes da base de dados PERMANENTEMENTE. O usuÃ¡rio que realizou esta acÃ§Ã£o, bem como a hora atual, serÃ¡ gravado no log de transaÃ§Ãµes.",
 				sess);
 	}
 
@@ -92,8 +92,8 @@ public class ConfirmWithPasswordDialog extends Dialog {
 		this(
 				parent,
 				message,
-				"ATENÇAÕ: Você só deve executar esta acção se tiver certeza de que deseja remover as informações da base de dados PERMANENTEMENTE. O"
-				+ " usuário que realizou esta acção, bem como a hora atual, será gravado no log de transações ",
+				"ATENï¿½Aï¿½: Vocï¿½ sï¿½ deve executar esta acï¿½ï¿½o se tiver certeza de que deseja remover as informaï¿½ï¿½es da base de dados PERMANENTEMENTE. O"
+				+ " UsuÃ¡rio que realizou esta acï¿½ï¿½o, bem como a hora atual, serï¿½ gravado no log de transaï¿½ï¿½es ",
 				sess);
 	}
 
@@ -222,7 +222,7 @@ public class ConfirmWithPasswordDialog extends Dialog {
 
 		final Label lblUserName = new Label(compEverything, SWT.NONE);
 		lblUserName.setBounds(new Rectangle(5, 80, 80, 30));
-		lblUserName.setText("Usuário:");
+		lblUserName.setText("UsuÃ¡rio:");
 		lblUserName.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		final Text txtUserName = new Text(compEverything, SWT.BORDER);
@@ -291,7 +291,7 @@ public class ConfirmWithPasswordDialog extends Dialog {
 		});
 
 		Button btnChangeUser = new Button(compEverything, SWT.PUSH);
-		btnChangeUser.setText("Mudar Usuário");
+		btnChangeUser.setText("Mudar UsuÃ¡rio");
 		btnChangeUser.setBounds(new Rectangle(240, 140, 80, 30));
 		btnChangeUser.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
@@ -327,7 +327,7 @@ public class ConfirmWithPasswordDialog extends Dialog {
 			if ((noOfTimestoAllowUserToEnterPassword - passwordAttmpts) > 1) {
 				setMessage("Senha Incorreta! \nDigite a senha incorreta.");
 			} else if ((noOfTimestoAllowUserToEnterPassword - passwordAttmpts) == 1) {
-				setMessage("Senha Incorreta! \nDigite a senha incorreta.\n Esta é a sua última tentativa.");
+				setMessage("Senha Incorreta! \nDigite a senha incorreta.\n Esta ï¿½ a sua ï¿½ltima tentativa.");
 			}
 
 			return false;

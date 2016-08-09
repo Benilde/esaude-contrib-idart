@@ -48,14 +48,14 @@ import model.manager.TemporaryRecordsManager;
 import model.manager.reports.PatientHistoryReport;
 import model.nonPersistent.PatientIdAndName;
 
-import org.celllife.idart.database.dao.ConexaoJDBC;
-import org.celllife.idart.database.dao.ConexaoODBC;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.celllife.function.DateRuleFactory;
 import org.celllife.idart.commonobjects.CommonObjects;
 import org.celllife.idart.commonobjects.LocalObjects;
 import org.celllife.idart.commonobjects.iDartProperties;
+import org.celllife.idart.database.dao.ConexaoJDBC;
+import org.celllife.idart.database.dao.ConexaoODBC;
 import org.celllife.idart.database.hibernate.AccumulatedDrugs;
 import org.celllife.idart.database.hibernate.Appointment;
 import org.celllife.idart.database.hibernate.Clinic;
@@ -75,8 +75,6 @@ import org.celllife.idart.database.hibernate.StockCenter;
 import org.celllife.idart.database.hibernate.StockLevel;
 import org.celllife.idart.database.hibernate.tmp.PackageDrugInfo;
 import org.celllife.idart.database.hibernate.util.HibernateUtil;
-
-
 import org.celllife.idart.facade.PillCountFacade;
 import org.celllife.idart.gui.composite.PillCountTable;
 import org.celllife.idart.gui.deletions.DeleteStockPrescriptionsPackages;
@@ -98,8 +96,6 @@ import org.celllife.idart.messages.Messages;
 import org.celllife.idart.misc.DateFieldComparator;
 import org.celllife.idart.misc.PatientBarcodeParser;
 import org.celllife.idart.misc.iDARTUtil;
-import org.celllife.idart.print.label.PackageCoverLabel;
-import org.celllife.idart.print.label.ScriptSummaryLabel;
 import org.celllife.idart.rest.utils.RestClient;
 import org.celllife.idart.rest.utils.RestUtils;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -386,8 +382,8 @@ public class NewPatientPackaging extends GenericFormGui implements
 										MessageBox msg = new MessageBox(
 												getShell(), SWT.OK
 														| SWT.ICON_ERROR);
-										msg.setText("Quantidade de Etiqueta inv·lido.");
-										msg.setMessage("VocÍ n„o vai conseguir imprimir uma etiqueta para este medicamento "
+										msg.setText("Quantidade de Etiqueta inv√°lido.");
+										msg.setMessage("Voc√™ n√£o vai conseguir imprimir uma etiqueta para este medicamento "
 												+ "uma vez que nenhuma quantidade foi especificado. "
 												+ "\n\nPor favor, primeiro defina a quantidade de dispensar.");
 										msg.open();
@@ -488,8 +484,8 @@ public class NewPatientPackaging extends GenericFormGui implements
 
 		if (chosenDate.after(today)) {
 			MessageBox mb = new MessageBox(getShell(), SWT.OK | SWT.ICON_ERROR);
-			mb.setText("Data de dispensa N„o pode ser no futuro");
-			mb.setMessage("A Data de dispensa N„o pode ser no futuro");
+			mb.setText("Data de dispensa n√£o pode ser no futuro");
+			mb.setMessage("A Data de dispensa n√£o pode ser no futuro");
 			mb.open();
 			btnCaptureDate.setDate(today);
 			chosenDate = today;
@@ -501,8 +497,8 @@ public class NewPatientPackaging extends GenericFormGui implements
 		if (previousPack != null) {
 			Date pickupDate = previousPack.getPickupDate();
 			if (iDARTUtil.before(chosenDate, pickupDate)) {
-				String msg = "O Paciente \"{0}\" teve sua ˙ltima dispensa em {1,date,medium}. "
-						+ "\n\nA data para a nova dispensa que est· a criar deve estar depois desta data.";
+				String msg = "O Paciente \"{0}\" teve sua √∫ltima dispensa em {1,date,medium}. "
+						+ "\n\nA data para a nova dispensa que est√° a criar deve estar depois desta data.";
 				showMessage(MessageDialog.ERROR, "Erro da data de dispensa",
 						MessageFormat.format(msg, localPatient.getPatientId(),
 								pickupDate));
@@ -530,8 +526,8 @@ public class NewPatientPackaging extends GenericFormGui implements
 						+ localPatient.getPatientId()
 						+ "' foi dispensado seus medicamentos " + clinicName
 						+ ".\n\n Todas dispensas feitas deste paciente"
-						+ "neste dia ser· destinado para esta US, "
-						+ "n„o na US actual do paciente.");
+						+ "neste dia ser√° destinado para esta US, "
+						+ "n√£o na US actual do paciente.");
 				m.open();
 			}
 
@@ -875,13 +871,13 @@ public class NewPatientPackaging extends GenericFormGui implements
 
 		rdBtnYesAppointmentDate = new Button(compShowAppointmentOnLabels,SWT.RADIO);
 		rdBtnYesAppointmentDate.setBounds(new Rectangle(5, 1, 45, 20));
-		rdBtnYesAppointmentDate.setText("N„o");
+		rdBtnYesAppointmentDate.setText("N√£o");
 		rdBtnYesAppointmentDate.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		rdBtnYesAppointmentDate.setVisible(Boolean.FALSE); 
 
 		rdBtnNoAppointmentDate = new Button(compShowAppointmentOnLabels,SWT.RADIO);
 		rdBtnNoAppointmentDate.setBounds(new Rectangle(55, 1, 38, 19));
-		rdBtnNoAppointmentDate.setText("N„o");
+		rdBtnNoAppointmentDate.setText("N√£o");
 		rdBtnNoAppointmentDate.setVisible(Boolean.FALSE);
 
 		rdBtnNoAppointmentDate.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
@@ -944,7 +940,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 		btnDispense.setBounds(new Rectangle(554, 2, 146, 30));
 		btnDispense.setText("Dispensar Frascos");
 		btnDispense
-				.setToolTipText("Pressione este bot„o para dispensar esses medicamentos. \nA tela da impressora aparece para impress„o de etiquetas de medicamento e etiqueta do frasco.");
+				.setToolTipText("Pressione este bot√£o para dispensar esses medicamentos. \nA tela da impressora aparece para impress√£o de etiquetas de medicamento e etiqueta do frasco.");
 		btnDispense
 				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
 					@Override
@@ -969,7 +965,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 		Button btnClose = new Button(getCompButtons(), SWT.NONE);
 		btnClose.setBounds(new Rectangle(735, 2, 126, 30));
 		btnClose.setText("Fechar");
-		btnClose.setToolTipText("Pressione este bot„o para fechar essa tela.");
+		btnClose.setToolTipText("Pressione este bot√£o para fechar essa tela.");
 		btnClose.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
 			@Override
 			public void widgetSelected(org.eclipse.swt.events.SelectionEvent e) {
@@ -1022,8 +1018,8 @@ public class NewPatientPackaging extends GenericFormGui implements
 		rdBtnDispenseNow.setText("Dispensar directamente para pacientes");
 
 		rdBtnDispenseNow
-				.setToolTipText("Pressione este bot„o para imprimir etiquetas para todos medicamentos "
-						+ "nesta prescriÁ„o. \nEstas etiquetas devem ser colocadas no "
+				.setToolTipText("Pressione este bot√£o para imprimir etiquetas para todos medicamentos "
+						+ "nesta prescri√ß√£o. \nEstas etiquetas devem ser colocadas no "
 						+ "Frasco dos medicamentos.");
 		rdBtnDispenseNow
 				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
@@ -1035,7 +1031,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 						if (fieldsEnabled) {
 							resetGUIforDispensingType();
 						} else {
-							lblNextAppointment.setText("PrÛximo Levantamento:");
+							lblNextAppointment.setText("Pr√≥ximo Levantamento:");
 						}
 
 					}
@@ -1054,9 +1050,9 @@ public class NewPatientPackaging extends GenericFormGui implements
 		rdBtnDispenseLater.setBounds(new Rectangle(390, 8, 251, 30));
 		rdBtnDispenseLater.setText("Para dispensa Posterior");
 		rdBtnDispenseLater
-				.setToolTipText("Pressione este bot„o para imprimir as etiquetas dos frascos para o "
-						+ "paciente.\nHaver· uma etiqueta para cada um dos medicamento nesta "
-						+ "prescriÁ„o,\n e a etiqueta para o frasco.");
+				.setToolTipText("Pressione este bot√£o para imprimir as etiquetas dos frascos para o "
+						+ "paciente.\nHaver√° uma etiqueta para cada um dos medicamento nesta "
+						+ "prescri√ß√£o,\n e a etiqueta para o frasco.");
 		rdBtnDispenseLater
 				.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
 					@Override
@@ -1088,7 +1084,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 		lblSelectPharmacy.setFont(ResourceUtils
 				.getFont(iDartFont.VERASANS_8_ITALIC));
 		lblSelectPharmacy.setAlignment(SWT.RIGHT);
-		lblSelectPharmacy.setText("Farm·cia:");
+		lblSelectPharmacy.setText("Farm√°cia:");
 
 		cmbSelectStockCenter = new CCombo(compDispensingTypeSelection,
 				SWT.BORDER);
@@ -1128,12 +1124,12 @@ public class NewPatientPackaging extends GenericFormGui implements
 
 		/*Label lblSummaryLabel = new Label(compLastPackage, SWT.NONE);
 		lblSummaryLabel.setBounds(new Rectangle(550, 177, 180, 18));
-		lblSummaryLabel.setText("Imprimir uma etiqueta de instruÁıes?");
+		lblSummaryLabel.setText("Imprimir uma etiqueta de instruÔøΩÔøΩes?");
 		lblSummaryLabel.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		Label lblAppointmentDate = new Label(compLastPackage, SWT.NONE);
 		lblAppointmentDate.setBounds(new Rectangle(150, 177, 250, 15));
-		lblAppointmentDate.setText("Imprimir etiqueta da data do PrÛximo Levantamento?");
+		lblAppointmentDate.setText("Imprimir etiqueta da data do PrÔøΩximo Levantamento?");
 		lblAppointmentDate.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));*/
 
 		createCompShowAppointmentOnLabels(compLastPackage);
@@ -1222,7 +1218,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 
 		rdBtnPrintSummaryLabelNo = new Button(compSummaryLabel, SWT.RADIO);
 		rdBtnPrintSummaryLabelNo.setBounds(new Rectangle(57, 1, 45, 19));
-		rdBtnPrintSummaryLabelNo.setText("N„o");
+		rdBtnPrintSummaryLabelNo.setText("NÔøΩo");
 		rdBtnPrintSummaryLabelNo.setFont(ResourceUtils
 				.getFont(iDartFont.VERASANS_8));
 
@@ -1258,7 +1254,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 
 		Group grpNotes = new Group(parent, SWT.NONE);
 		grpNotes.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		grpNotes.setText("Notas da PrescriÁ„o");
+		grpNotes.setText("Notas da Prescri√ß√£o");
 		grpNotes.setBounds(new Rectangle(351, 15, 279, 107));
 
 		txtAreaNotes = new Text(grpNotes, SWT.BORDER | SWT.V_SCROLL | SWT.WRAP);
@@ -1284,7 +1280,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 		lblPicLeftArrow.setVisible(false);
 
 		lblPackageInfo1 = new Label(grpPackageInfo, SWT.CENTER);
-		lblPackageInfo1.setText("Este È o frasco N∫");
+		lblPackageInfo1.setText("Este √© o frasco N¬∫");
 		lblPackageInfo1.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		lblPackageInfo1.setBounds(new Rectangle(71, 10, 150, 20));
 
@@ -1311,12 +1307,12 @@ public class NewPatientPackaging extends GenericFormGui implements
 
 		lblPackageInfo3 = new Label(grpPackageInfo, SWT.CENTER);
 		lblPackageInfo3.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblPackageInfo3.setText("mÍs(es) de prescriÁ„o");
+		lblPackageInfo3.setText("m√™s(es) de prescri√ß√£o");
 		lblPackageInfo3.setBounds(new Rectangle(89, 50, 111, 20));
 
 		Label lblSupply1 = new Label(grpPackageInfo, SWT.LEFT);
 		lblSupply1.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblSupply1.setText("Frasco contÈm medicamentos para:");
+		lblSupply1.setText("Frasco cont√©m medicamentos para:");
 		lblSupply1.setBounds(new Rectangle(4, 75, 180, 20));
 
 		cmbSupply = new CCombo(grpPackageInfo, SWT.BORDER);
@@ -1380,7 +1376,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 
 		Group grpPatientInfo = new Group(getShell(), SWT.NONE);
 		grpPatientInfo.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		grpPatientInfo.setText("InformaÁ„o do Paciente");
+		grpPatientInfo.setText("Informa√ß√£o do Paciente");
 		grpPatientInfo.setBounds(new Rectangle(242, 129, 339, 137));
 
 		Label lblPatientId = new Label(grpPatientInfo, SWT.NONE);
@@ -1431,7 +1427,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 		lblNextAppointment = new Label(grpPatientInfo, SWT.NONE);
 		lblNextAppointment.setBounds(new Rectangle(10, 107, 120, 20));
 		lblNextAppointment
-				.setText(iDartProperties.dispenseDirectlyDefault == true ? "PrÛximo Levantamento:"
+				.setText(iDartProperties.dispenseDirectlyDefault == true ? "Pr√≥ximo Levantamento:"
 						: "Levantamento Actual:");
 		lblNextAppointment.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
@@ -1458,11 +1454,11 @@ public class NewPatientPackaging extends GenericFormGui implements
 		grpPrescriptionInfo.setBounds(new Rectangle(242, 277, 642, 128));
 		grpPrescriptionInfo
 				.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		grpPrescriptionInfo.setText("InformaÁ„o da PrescriÁ„o");
+		grpPrescriptionInfo.setText("Informa√ß√£o da Prescri√ß√£o");
 
 		Label lblPrescriptionId = new Label(grpPrescriptionInfo, SWT.NONE);
 		lblPrescriptionId.setBounds(new Rectangle(10, 22, 115, 20));
-		lblPrescriptionId.setText("ID da PrescriÁ„o:");
+		lblPrescriptionId.setText("ID da Prescri√ß√£o:");
 		lblPrescriptionId.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		txtPrescriptionId = new Text(grpPrescriptionInfo, SWT.BORDER);
@@ -1472,7 +1468,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 
 		Label lblDoctor = new Label(grpPrescriptionInfo, SWT.NONE);
 		lblDoctor.setBounds(new Rectangle(10, 47, 115, 20));
-		lblDoctor.setText("ClÌnico:");
+		lblDoctor.setText("Cl√≠nico:");
 		lblDoctor.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		txtDoctor = new Text(grpPrescriptionInfo, SWT.BORDER);
@@ -1484,7 +1480,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 		lblDateOfLastPickup.setBounds(new Rectangle(10, 72, 114, 20));
 		lblDateOfLastPickup
 				.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblDateOfLastPickup.setText("⁄ltimo Levantamento:");
+		lblDateOfLastPickup.setText("√öltimo Levantamento:");
 
 		lblDateOfLastPickupContents = new Label(grpPrescriptionInfo, SWT.BORDER);
 		lblDateOfLastPickupContents.setBounds(new Rectangle(126, 72, 150, 20));
@@ -1496,7 +1492,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 				SWT.NONE);
 		btnPatientHistoryReport.setBounds(new Rectangle(294, 73, 40, 40));
 		btnPatientHistoryReport
-				.setToolTipText("Pressione este bot„o para visualizar e / ou imprimir relatÛrios \ndo HistÛrico da PrescriÁ„o do Paciente.");
+				.setToolTipText("Pressione este bot√£o para visualizar e / ou imprimir relat√≥rios \ndo Hist√≥rico da Prescri√ß√£o do Paciente.");
 		btnPatientHistoryReport.setImage(ResourceUtils
 				.getImage(iDartImage.REPORT_PATIENTHISTORY_30X26));
 
@@ -1511,7 +1507,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 		Button btnUpdatePrescription = new Button(grpPrescriptionInfo, SWT.NONE);
 		btnUpdatePrescription.setBounds(new Rectangle(293, 23, 40, 40));
 		btnUpdatePrescription
-				.setToolTipText("Pressione este bot„o para actualizar a prescriÁ„o do paciente");
+				.setToolTipText("Pressione este bot√£o para actualizar a prescri√ß√£o do paciente");
 		btnUpdatePrescription.setImage(ResourceUtils
 				.getImage(iDartImage.PRESCRIPTIONNEW_30X26));
 		btnUpdatePrescription.addMouseListener(new MouseAdapter() {
@@ -1523,7 +1519,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 
 		Label lblPrescriptionDate = new Label(grpPrescriptionInfo, SWT.NONE);
 		lblPrescriptionDate.setBounds(new Rectangle(10, 97, 113, 20));
-		lblPrescriptionDate.setText("Data da PrescriÁ„o:");
+		lblPrescriptionDate.setText("Data da Prescri√ß√£o:");
 		lblPrescriptionDate
 				.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
@@ -1540,7 +1536,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 		pillCountTable = new PillCountTable(parent, SWT.NONE, getHSession(),
 				new Rectangle(8, 11, 245, 160));
 		pillCountTable.getTable().setBounds(new Rectangle(0, 19, 244, 140));
-		pillCountTable.setHeading("2. Contagem de Comprimidos - ⁄ltim Frasco");
+		pillCountTable.setHeading("2. Contagem de Comprimidos");
 		pillCountTable.setPillCountGroupHeading("");
 		pillCountTable.addChangeListener(this);
 	}
@@ -1558,7 +1554,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 		lnkStockOnHand
 				.setText("3. Medicamentos a dispensar:        "
 						+ "                                            "
-						+ "                                       <A>Stock DisponÌvel</A>");
+						+ "                                       <A>Stock Dispon√≠vel</A>");
 		lnkStockOnHand
 				.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8_BOLD));
 		lnkStockOnHand.addListener(SWT.Selection, new Listener() {
@@ -1573,7 +1569,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 		tblPrescriptionInfo.setHeaderVisible(true);
 		tblPrescriptionInfo.setLinesVisible(true);
 		tblPrescriptionInfo
-				.setToolTipText("lique em uma linha para visualizar as informaÁıes adicionais da dispensa");
+				.setToolTipText("clique em uma linha para visualizar as informa√ß√µes adicionais da dispensa");
 
 		tblPrescriptionInfo
 				.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
@@ -1604,7 +1600,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 		column.setResizable(true);
 
 		column = new TableColumn(tblPrescriptionInfo, SWT.NONE);
-		column.setText("Em m„o");
+		column.setText("Em m√£o");
 		column.setWidth(58);
 		column.setResizable(true);
 
@@ -1698,7 +1694,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 		
 		if (!drugQuantitiesOkay()) {
 			showMessage(MessageDialog.ERROR, "Nenhuma quantidade de medicamento foi Dispensado",
-					"VocÍ n„o inseriu quantidades para qualquer um dos medicamentos.");
+					"Voc√™ n√£o inseriu quantidades para qualquer um dos medicamentos.");
 			return false;
 		} 
 		
@@ -1706,8 +1702,8 @@ public class NewPatientPackaging extends GenericFormGui implements
 				newPack.getPrescription().getDate())
 				&& !(sdf.format(btnCaptureDate.getDate()).equals(sdf
 						.format(newPack.getPrescription().getDate())))) {
-			showMessage(MessageDialog.ERROR, "Data de Dispensa Inv·lida!",
-					"A Data de dispensa n„o pode estar antes da data da prescriÁ„o "
+			showMessage(MessageDialog.ERROR, "Data de Dispensa Inv√°lida!",
+					"A Data de dispensa n√£o pode estar antes da data da prescri√ß√£o "
 							+ sdf.format(newPack.getPrescription().getDate())
 							+ " ");
 			return false;
@@ -1719,7 +1715,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 						.format(btnNextAppDate.getDate())))) {
 			showMessage(MessageDialog.ERROR,
 					"A data do proximo levantamento esta antes da data deste levantamento",
-					"A data do prÛximo levantamento n„o pode ser antes da data deste levantamento.");
+					"A data do pr√≥ximo levantamento n√£o pode ser antes da data deste levantamento.");
 			return false;
 		} 
 
@@ -1733,17 +1729,17 @@ public class NewPatientPackaging extends GenericFormGui implements
 							txtPatientId.getText()));
 			showMessage(
 					MessageDialog.ERROR,
-					"Frasco de medicamento j· foi criado para Patient",
-					"O Frasco j· foi criados para este paciente'"
+					"Frasco de medicamento j√° foi criado para Patient",
+					"O Frasco j√° foi criado para este paciente'"
 							+ txtPatientId.getText()
 							+ "' em "
 							+ sdf.format(oldPackDate)
-							+ " e ainda n„o foi entregue ao paciente. "
-							+ "\n\nSÛ podes criar outro frasco para este paciente "
+							+ " e ainda n√£o foi entregue ao paciente. "
+							+ "\n\nS√≥ podes criar outro frasco para este paciente "
 							+ "Quando o frasco anterior for entregue ao paciente ou "
-							+ "devolvido a farm·cia (usando a tela 'Devolver Frascos n„o Entregues ao Paciente').");
+							+ "devolvido a farm√°cia (usando a tela 'Devolver Frascos n√£o Entregues ao Paciente').");
 			return false;
-		} 
+		}
 
 		if (dateAlreadyDispensed) {
 			Packages lastPackageMade = PackageManager.getLastPackageMade(
@@ -1756,13 +1752,13 @@ public class NewPatientPackaging extends GenericFormGui implements
 
 				showMessage(
 						MessageDialog.ERROR,
-						"Frasco j· foi criado neste dia",
-						"O Frasco j· foi criado para o paciente '"
+						"Frasco j√° foi criado neste dia",
+						"O Frasco j√° foi criado para o paciente '"
 								+ txtPatientId.getText()
 								+ "' em "
 								+ sdf.format(oldPackDate)
-								+ ".\n\niDART n„o aceita criar outro frasco para este paciente no mesmo dia, "
-								+ "assim como o tempo em que eles foram criados ser· a mesmo. "
+								+ ".\n\niDART n√£o aceita criar outro frasco para este paciente no mesmo dia, "
+								+ "assim como o tempo em que eles foram criados ser√° o mesmo. "
 								+ "Isso causa problemas na contagem de comprimidos. ");
 				return false;
 			}
@@ -1774,10 +1770,10 @@ public class NewPatientPackaging extends GenericFormGui implements
 			if (!checkStockStillAvailable(sess, pdi)) {
 				showMessage(
 						MessageDialog.ERROR,
-						"O Stock seleccionado est· vazio.",
+						"O Stock seleccionado est√° vazio.",
 						"O lote do stock seleccionado para "
 								+ pdi.getDrugName()
-								+ " n„o contÈm mais stock.\n\nSeleccione outro lote.");
+								+ " n√£o cont√©m mais stock.\n\nSeleccione outro lote.");
 				return false;
 			}
 		}
@@ -1824,9 +1820,9 @@ public class NewPatientPackaging extends GenericFormGui implements
 						pdi.getDrugName()).getPackSize()) != 0)) {
 			MessageBox m = new MessageBox(getShell(), SWT.YES | SWT.NO
 					| SWT.ICON_QUESTION);
-			m.setMessage("VocÍ est· preste a dispensar medicamentos " + pdi.getDispensedQty()
+			m.setMessage("Voc√™ est√° prestes a dispensar medicamentos " + pdi.getDispensedQty()
 					+ " ml de " + pdi.getDrugName()
-					+ ". Note que isto significa que um frasco est· incompleto. "
+					+ ". Note que isto significa que um frasco est√° incompleto. "
 					+ "\n\nTem certeza de que quer quebrar um pacote?");
 			m.setText("Dispensa de Frasco Incompleto");
 
@@ -2084,8 +2080,8 @@ public class NewPatientPackaging extends GenericFormGui implements
 		if (!localPatient.getAccountStatusWithCheck()
 				|| localPatient.getCurrentPrescription() == null) {
 			showMessage(MessageDialog.ERROR,
-					"O Paciente n„o pode ser dispensado.",
-					"Paciente est· inativo ou n„o tem uma prescriÁ„o v·lida.");
+					"O Paciente n√£o pode ser dispensado.",
+					"Paciente est√° inativo ou n√£o tem uma prescri√ß√£o v√°lida.");
 			initialiseSearchList();
 			clearForm();
 			return;
@@ -2120,10 +2116,10 @@ public class NewPatientPackaging extends GenericFormGui implements
 		if (pre == null) {
 			MessageBox noScript = new MessageBox(getShell(), SWT.OK
 					| SWT.ICON_INFORMATION);
-			noScript.setText("O Paciente n„o tem uma prescriÁ„o v·lida");
+			noScript.setText("O Paciente n√£o tem uma prescri√ß√£o v√°lida");
 			noScript.setMessage("Patient '".concat(
 					localPatient.getPatientId()).concat(
-					"' n„o tem uma prescriÁ„o v·lida."));
+					"' n√£o tem uma prescri√ß√£o v√°lida."));
 			noScript.open();
 			initialiseSearchList();
 			clearForm();
@@ -2155,16 +2151,16 @@ public class NewPatientPackaging extends GenericFormGui implements
 			if (patientHasPackageAwaitingPickup()) {
 				MessageBox m = new MessageBox(getShell(), SWT.OK
 						| SWT.ICON_INFORMATION);
-				m.setText("O Paciente n„o pode ser dispensado");
-				m.setMessage("N„o pode dispensar medicamento para "
+				m.setText("O Paciente n√£o pode ser dispensado");
+				m.setMessage("N√£o pode dispensar medicamento para "
 						+ txtPatientId.getText()
-						+ " uma vez que um frasco j· foi criado em "
+						+ " uma vez que um frasco j√° foi criado em "
 						+ sdf.format(previousPack.getPackDate())
 						+ " para este paciente. "
-						+ "\nEste frasco ainda n„o foi colectado pelo paciente. "
-						+ "\n\n Se o frasco est· correcto, porfavor de scanar "
+						+ "\nEste frasco ainda n√£o foi colectado pelo paciente. "
+						+ "\n\n Se o frasco est√° correcto, porfavor de scanar "
 						+ "para e entrega o paciente usando a tela 'Scanar frascos para os pacientes.' "
-						+ "\n\nSe o frasco n„o est· correcto, "
+						+ "\n\nSe o frasco n√£o est√° correcto, "
 						+ "por favor apague-o usando a tela 'Apagar Stock, Prescription & Frascos' "
 						+ "");
 
@@ -2212,10 +2208,10 @@ public class NewPatientPackaging extends GenericFormGui implements
 		if (clinic == null) {
 			showMessage(
 					MessageDialog.ERROR,
-					"Paciente n„o Activo na Data Seleccionada ",
-					"O paciente n„o tem um episÛdio em aberto na data que vocÍ especificou Ent„o vocÍ n„o È capaz de dispensar a eles nesta data.\n\n "
-							+ "Por favor, seleccione uma data de quando o paciente foi ativo.\n\n "
-							+ "Para ver quando o paciente estave ativo, olhar para os seus episÛdios na tela 'RelatÛrio do HistÛrico do Paciente' (pressione o bot„o no meio da tela para carregar este relatÛrio).");
+					"Paciente n√£o activo na data seleccionada ",
+					"O paciente n√£o tem um epis√≥dio em aberto na data que voc√™ especificou ent√£o voc√™ n√£o √© capaz de dispensar a eles nesta data.\n\n "
+							+ "Por favor, seleccione uma data em que o paciente foi ativo.\n\n "
+							+ "Para ver quando o paciente esteve ativo, olhar para os seus epis√≥dios na tela 'Relat√≥rio do Hist√≥rico do Paciente' (pressione o bot√£o no meio da tela para carregar este relat√≥rio).");
 			btnCaptureDate.setDate(new Date());
 		} else {
 			boolean isMainClinic = clinic.isMainClinic();
@@ -2278,7 +2274,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 		// if the prescription is valid less than one month
 		if (dur < 4) {
 			lblDuration.setText(String.valueOf(dur));
-			lblPackageInfo3.setText("prescriÁ„o/semana");
+			lblPackageInfo3.setText("prescri√ß√£o/semana");
 			cmbSupply.setText(dur + " semana");
 			lblIndex.setText(String.valueOf(index));
 
@@ -2289,7 +2285,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 		// else, the prescription is valid for at least 1 month
 		else {
 			lblDuration.setText(String.valueOf(dur / 4));
-			lblPackageInfo3.setText("prescriÁ„o/mes");
+			lblPackageInfo3.setText("prescri√ß√£o/mes");
 			cmbSupply.setText("1 mes");
 			lblIndex.setText(String.valueOf(index));
 
@@ -2845,16 +2841,9 @@ public class NewPatientPackaging extends GenericFormGui implements
 		
 		//Regimen answer Uuid
 		String strRegimenAnswerUuid = strRegimenAnswer.substring(21, 57);
+		
+		List<PrescribedDrugs> prescribedDrugs = newPack.getPrescription().getPrescribedDrugs();
 				
-		//Dispensed amount
-		String packSize = String.valueOf(newPack.getPrescription().getPrescribedDrugs().get(0).getDrug().getPackSize());
-		
-		//Dosage
-		String dosage = String.valueOf(newPack.getPrescription().getPrescribedDrugs().get(0).getTimesPerDay());
-		
-		String customizedDosage = iDartProperties.TOMAR + String.valueOf((int)(newPack.getPrescription().getPrescribedDrugs().
-				get(0).getAmtPerTime())) + iDartProperties.COMP + dosage + iDartProperties.VEZES_DIA;
-		
 		//Next pick up date
 		Date dtNextPickUp = btnNextAppDate.getDate();
 		
@@ -2868,14 +2857,14 @@ public class NewPatientPackaging extends GenericFormGui implements
 		} else {
 				
 				showMessage(MessageDialog.ERROR,
-						"O Paciente n„o pode ser dispensado.",
+						"O Paciente nÔøΩo pode ser dispensado.",
 						"Entre em contacto com o Administrador do sistema.");
 		}*/
 		
 		try {
 			restClient.postOpenMRSEncounter(strPickUp, nidUuid, iDartProperties.ENCOUNTER_TYPE_PHARMACY, 
 					strFacilityUuid, iDartProperties.FORM_FILA, providerUuid, iDartProperties.REGIME, strRegimenAnswerUuid, 
-					iDartProperties.DISPENSED_AMOUNT, packSize, iDartProperties.DOSAGE, customizedDosage, iDartProperties.VISIT_UUID, strNextPickUp);
+					iDartProperties.DISPENSED_AMOUNT, prescribedDrugs, iDartProperties.DOSAGE, iDartProperties.VISIT_UUID, strNextPickUp);
 		} catch (Exception e) {
 			getLog().info(e.getMessage());
 		}
@@ -2909,7 +2898,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 
 		if (rdBtnDispenseNow.getSelection()) {
 
-			lblNextAppointment.setText("PrÛximo Levantamento:");
+			lblNextAppointment.setText("Pr√≥ximo Levantamento:");
 			btnNextAppDate.setEnabled(true);
 			btnNextAppDate.setVisible(true);
 			txtNextAppDate.setVisible(false);
@@ -3094,7 +3083,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 						| SWT.ICON_WARNING);
 				mbox.setText("Levantamento de ARVs");
 				
-				mbox.setMessage("ATEN«√O:\nO PACIENTE "+txtPatientId.getText()+" J¡ FOI DISPENSADO MEDICAMENTOS NESTE PERÕODO!\n \nA ⁄LTIMA DISPENSA FOI ¿ "+dias+" DIA(s)\n \nQUER DISPENSAR DE NOVO?");
+				mbox.setMessage("ATEN√á√ÉO:\nO PACIENTE "+txtPatientId.getText()+" J√Å FORAM DISPENSADOS MEDICAMENTOS NESTE PER√çODO!\n \nA √öLTIMA DISPENSA FOI H√Å "+dias+" DIA(s)\n \nQUER DISPENSAR DE NOVO?");
 	
 				switch (mbox.open()) {
 				
@@ -3334,7 +3323,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 					
 				else  if(dataInicioNoutroServico!=null)
 					
-					//Quando È transferido de 
+					//Quando ÔøΩ transferido de 
 					conn2.insereT_tarvTransferidoDE(vMedicamentos,patientId, resultdatatarv,dispensedQty,regime,weeksSupply,reasonforupdate,resultdataproximaconsulta,idade,dataNoutroServico,linha);
 					
 				else
@@ -3574,7 +3563,7 @@ public class NewPatientPackaging extends GenericFormGui implements
 			
 		else  if(dataInicioNoutroServico!=null)
 			
-			//Quando È transferido de 
+			//Quando ÔøΩ transferido de 
 			conn2.insereT_tarvTransferidoDE(vMedicamentos,patientId, resultdatatarv,dispensedQty,regime,weeksSupply,reasonforupdate,resultdataproximaconsulta,idade,dataNoutroServico,linha);
 			
 		else
@@ -3633,10 +3622,10 @@ public class NewPatientPackaging extends GenericFormGui implements
 
 			MessageBox mbox = new MessageBox(getShell(), SWT.YES | SWT.NO
 					| SWT.ICON_QUESTION);
-			mbox.setText("A data de Inicio TARV n„o foi especificado");
-			mbox.setMessage("A data de Inicio TARV n„o foi especificado e esta È primeira vez que o paciente '"
+			mbox.setText("A data de in√≠cio TARV n√£o foi especificada");
+			mbox.setMessage("A data de in√≠cio TARV n√£o foi especificada e esta √© a primeira vez que o paciente '"
 					+ txtPatientId.getText()
-					+ "'est· a receber ARV. \n\nGostaria de definir a data de inÌcio de TARV para "
+					+ "'est√° a receber ARV. \n\nGostaria de definir a data de in√≠cio de TARV para "
 					+ btnCaptureDate.getText() + " agora?");
 
 			switch (mbox.open()) {

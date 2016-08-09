@@ -34,6 +34,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
 import org.hibernate.Session;
+import org.celllife.idart.messages.Messages;
 
 /**
  */
@@ -141,7 +142,7 @@ public class ClinicInfoTab extends GenericTab implements IPatientTab {
 	@Override
 	public void create() {
 		this.tabItem = new TabItem(parent, style);
-		tabItem.setText("  Informa��o Cl�nica ");
+		tabItem.setText(" "+Messages.getString("patient.clinic.info")+" ");
 		createGrpClinicalInfo();
 	}
 

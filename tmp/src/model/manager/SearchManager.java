@@ -150,7 +150,7 @@ public class SearchManager {
 				cmdColOneSelected();
 			}
 		});
-		search.getTableColumn2().setText("Prov�ncia");
+		search.getTableColumn2().setText("Província");
 		search.getTableColumn2().addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
@@ -196,14 +196,14 @@ public class SearchManager {
 		List<StockCenter> stockCenters = null;
 
 		String itemText[];
-		search.getTableColumn1().setText("Farm�cia");
+		search.getTableColumn1().setText("Farmácia");
 		search.getTableColumn1().addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
 				cmdColOneSelected();
 			}
 		});
-		search.getTableColumn2().setText("Farm�cia Padr�o");
+		search.getTableColumn2().setText("Farmácia Padrão");
 		search.getTableColumn2().addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
@@ -211,7 +211,7 @@ public class SearchManager {
 			}
 		});
 
-		search.getShell().setText("Seleccione a Farm�cia...");
+		search.getShell().setText("Seleccione a Farmácia...");
 
 		stockCenters = AdministrationManager.getStockCenters(sess);
 
@@ -264,7 +264,7 @@ public class SearchManager {
 			}
 		});
 
-		search.getShell().setText("Seleccione o Cl�nico...");
+		search.getShell().setText("Seleccione o Clínico...");
 
 		doctors = AdministrationManager.getAllDoctors(sess);
 
@@ -366,7 +366,7 @@ public class SearchManager {
 
 		List<StockTake> stockTake = null;
 		String itemText[];
-		search.getTableColumn1().setText("Nome do Invent�rio");
+		search.getTableColumn1().setText("Nome do Inventário");
 		search.getTableColumn1().addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
@@ -374,7 +374,7 @@ public class SearchManager {
 			}
 		});
 
-		search.getTableColumn2().setText("Data de T�rmino");
+		search.getTableColumn2().setText("Data de Término");
 		search.getTableColumn2().addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
@@ -382,7 +382,7 @@ public class SearchManager {
 			}
 		});
 
-		search.getShell().setText("Seleccione um Invent�rio...");
+		search.getShell().setText("Seleccione um Inventário...");
 		stockTake = getStockTakes(sess);
 
 		TableItem[] t = new TableItem[stockTake.size()];
@@ -559,7 +559,7 @@ public class SearchManager {
 				cmdColOneSelected();
 			}
 		});
-		search.getTableColumn2().setText("C�digo FNM");
+		search.getTableColumn2().setText("Código FNM");
 		search.getTableColumn2().addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
@@ -567,7 +567,7 @@ public class SearchManager {
 			}
 		});
 
-		search.getShell().setText("Seleccione um C�digo FNM...");
+		search.getShell().setText("Seleccione um Código FNM...");
 
 		atccodes = AdministrationManager.getAtccodes(sess);
 
@@ -614,14 +614,14 @@ public class SearchManager {
 
 		List<Stock> stock = null;
 		String itemText[];
-		search.getTableColumn1().setText("N� de Lote");
+		search.getTableColumn1().setText("Nº de Lote");
 		search.getTableColumn1().addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
 				cmdColOneSelected();
 			}
 		});
-		search.getTableColumn2().setText("Data de Recep��o");
+		search.getTableColumn2().setText("Data de Recepção");
 		search.getTableColumn2().addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {

@@ -128,7 +128,7 @@ public class Alert extends GenericFormGui  {
 	 */
 	@Override
 	protected void createCompHeader() {
-		String headerTxt = "Alerta de Níveis de Stock";
+		String headerTxt = "Alerta de NÃ­veis de Stock";
 		iDartImage icoImage = iDartImage.PRESCRIPTIONNEW;
 		buildCompHeaderAlerta(headerTxt, icoImage);
 	}
@@ -254,7 +254,7 @@ public class Alert extends GenericFormGui  {
 					if(riscos.get(i).getAmc()*3 < riscos.get(i).getSaldo()){
 						
 						final TableItem item = new TableItem(tblDrugs, SWT.NONE);
-					    item.setText(new String[] {""+(++k), riscos.get(i).getNome(), ""+riscos.get(i).getAmc(),""+riscos.get(i).getSaldo(), " -- ", "Acima do Consumo Máximo"});
+					    item.setText(new String[] {""+(++k), riscos.get(i).getNome(), ""+riscos.get(i).getAmc(),""+riscos.get(i).getSaldo(), " -- ", "Acima do Consumo Mï¿½ximo"});
 					    	
 						item.setBackground(5, green);
 					}

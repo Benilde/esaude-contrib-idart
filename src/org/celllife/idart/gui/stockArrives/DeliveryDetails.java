@@ -261,7 +261,7 @@ public class DeliveryDetails extends GenericFormGui {
 		Label lblBatchNumber = new Label(grpBatchDetails, SWT.NONE);
 		lblBatchNumber.setBounds(new Rectangle(20, 60, 100, 20));
 		lblBatchNumber.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblBatchNumber.setText("Número do Lote");
+		lblBatchNumber.setText("Nï¿½mero do Lote");
 
 		txtBatchNumber = new Text(grpBatchDetails, SWT.BORDER);
 		txtBatchNumber.setBounds(new Rectangle(150, 59, 90, 20));
@@ -279,7 +279,7 @@ public class DeliveryDetails extends GenericFormGui {
 		Label lblExpiryDate = new Label(grpBatchDetails, SWT.NONE);
 		lblExpiryDate.setBounds(new Rectangle(20, 90, 90, 20));
 		lblExpiryDate.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblExpiryDate.setText("*Data de Expiração");
+		lblExpiryDate.setText("*Data de ExpiraÃ§Ã£o");
 
 		cmbExpiryMonth = new Combo(grpBatchDetails, SWT.BORDER);
 		cmbExpiryMonth.setBounds(new Rectangle(150, 85, 106, 13));
@@ -407,7 +407,7 @@ public class DeliveryDetails extends GenericFormGui {
 
 		// Stock Center
 		Label lblStockCenter = new Label(grpBatchDetails, SWT.NONE);
-		lblStockCenter.setText("Farmácia");
+		lblStockCenter.setText("FarmÃ¡cia");
 		lblStockCenter.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		lblStockCenter.setBounds(new Rectangle(20, 180, 110, 20));
 		cmbStockCenter = new CCombo(grpBatchDetails, SWT.BORDER | SWT.READ_ONLY);
@@ -445,7 +445,7 @@ public class DeliveryDetails extends GenericFormGui {
 		Label lblUnitPrice = new Label(grpBatchDetails, SWT.NONE);
 		lblUnitPrice.setBounds(new Rectangle(20, 242, 84, 20));
 		lblUnitPrice.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblUnitPrice.setText("Preço Por Unidade");
+		lblUnitPrice.setText("PreÃ§o Por Unidade");
 
 		Label lblCurrency = new Label(grpBatchDetails, SWT.RIGHT);
 		lblCurrency.setBounds(new Rectangle(110, 242, 23, 20));
@@ -496,8 +496,8 @@ public class DeliveryDetails extends GenericFormGui {
 			.setMessage("O Medicamento '"
 					.concat(drugName)
 					.concat(
-					"' não foi encontrado na base de dados. Por favor adiciona este medicamento na base de dados, usando a tela de  'Administração Geral'."));
-			feedback.setText("Medicamento não Encontrado");
+					"' nï¿½o foi encontrado na base de dados. Por favor adiciona este medicamento na base de dados, usando a tela de  'Administraï¿½ï¿½o Geral'."));
+			feedback.setText("Medicamento nï¿½o Encontrado");
 			feedback.open();
 
 		} else {
