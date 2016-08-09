@@ -185,7 +185,7 @@ public class PrescriptionObject extends GenericOthersGui {
 
 		grpDrugInformation = new Group(getShell(), SWT.NONE);
 		grpDrugInformation
-		.setText("Inforações do Medicamento e Instruções de Toma");
+		.setText("InformaÃ§Ãµes do Medicamento e InstruÃ§Ãµes de Toma");
 		grpDrugInformation.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		grpDrugInformation.setBounds(new Rectangle(85, 180, 350, 127));
 
@@ -332,8 +332,8 @@ public class PrescriptionObject extends GenericOthersGui {
 		} else {
 			MessageBox m = new MessageBox(getShell(), SWT.ICON_ERROR);
 			m.setMessage("O medicamento '" + txtDrugName.getText()
-					+ "' não foi encontrado na base de dados.");
-			m.setText("Medicamento não encontrado");
+					+ "' nï¿½o foi encontrado na base de dados.");
+			m.setText("Medicamento nï¿½o encontrado");
 			m.open();
 			txtDrugName.setText("");
 		}
@@ -350,7 +350,7 @@ public class PrescriptionObject extends GenericOthersGui {
 		if (newDrug == null) {
 			MessageBox noDrugLoaded = new MessageBox(getShell(), SWT.ICON_ERROR);
 			noDrugLoaded.setMessage("Escolher um Medicamento.");
-			noDrugLoaded.setText("Campos não Preenchidos");
+			noDrugLoaded.setText("Campos nï¿½o Preenchidos");
 			noDrugLoaded.open();
 			result = false;
 			txtDrugName.setFocus();
@@ -359,7 +359,7 @@ public class PrescriptionObject extends GenericOthersGui {
 			if (txtTake.getText().equals("")) {
 				MessageBox take = new MessageBox(getShell(), SWT.ICON_ERROR);
 				take.setMessage("Por favor preencher o Campo 'Tomar'.");
-				take.setText("Campos não Preenchidos");
+				take.setText("Campos nï¿½o Preenchidos");
 				take.open();
 				result = false;
 				txtTake.setFocus();
@@ -372,7 +372,7 @@ public class PrescriptionObject extends GenericOthersGui {
 								SWT.ICON_ERROR);
 						notANumber
 						.setMessage("A quantidade a ser inserida no campo 'Tomar' deve ser maior que Zero.");
-						notANumber.setText("Informação Incorrecta");
+						notANumber.setText("Informaï¿½ï¿½o Incorrecta");
 						notANumber.open();
 						result = false;
 						txtTake.setFocus();
@@ -381,8 +381,8 @@ public class PrescriptionObject extends GenericOthersGui {
 					MessageBox notANumber = new MessageBox(getShell(),
 							SWT.ICON_ERROR);
 					notANumber
-					.setMessage("A informação inserida no campo 'Tomar' não é número.");
-					notANumber.setText("Informação Incorrecta");
+					.setMessage("A informaï¿½ï¿½o inserida no campo 'Tomar' nï¿½o ï¿½ nï¿½mero.");
+					notANumber.setText("Informaï¿½ï¿½o Incorrecta");
 					notANumber.open();
 					result = false;
 					txtTake.setFocus();
@@ -392,7 +392,7 @@ public class PrescriptionObject extends GenericOthersGui {
 		if (txtTimes.getText().trim().equals("")) {
 			MessageBox times = new MessageBox(getShell(), SWT.ICON_ERROR);
 			times.setMessage("Por favor preencher o Campo 'Vezes por dia'.");
-			times.setText("Campos não Preenchidos");
+			times.setText("Campos nï¿½o Preenchidos");
 			times.open();
 			result = false;
 			txtTimes.setFocus();
@@ -404,7 +404,7 @@ public class PrescriptionObject extends GenericOthersGui {
 							SWT.ICON_ERROR);
 					notANumber
 					.setMessage("A quantidade a ser inserida no campo 'Vezes por dia' deve ser maior que Zero.");
-					notANumber.setText("Informação Incorrecta");
+					notANumber.setText("Informaï¿½ï¿½o Incorrecta");
 					notANumber.open();
 					result = false;
 					txtTake.setFocus();
@@ -413,8 +413,8 @@ public class PrescriptionObject extends GenericOthersGui {
 				MessageBox notANumber = new MessageBox(getShell(),
 						SWT.ICON_ERROR);
 				notANumber
-				.setMessage("A informação inserida no campo 'Vezes por dia' não é número.");
-				notANumber.setText("Informação Incorrecta");
+				.setMessage("A informaï¿½ï¿½o inserida no campo 'Vezes por dia' nï¿½o ï¿½ nï¿½mero.");
+				notANumber.setText("Informaï¿½ï¿½o Incorrecta");
 				notANumber.open();
 				result = false;
 				txtTimes.setFocus();
@@ -496,9 +496,9 @@ public class PrescriptionObject extends GenericOthersGui {
 			btnAddDrug
 			.setToolTipText("Press this button to add this drug to the regimen.");
 		} else {
-			btnAddDrug.setText("Adicionar a Prescrição");
+			btnAddDrug.setText("Adicionar a PrescriÃ§Ã£o");
 			btnAddDrug
-			.setToolTipText("Clique este botão para adicionar este medicamento a prescrição.");
+			.setToolTipText("Clique este botï¿½o para adicionar este medicamento a prescriï¿½ï¿½o.");
 		}
 		btnAddDrug.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		btnAddDrug
@@ -512,7 +512,7 @@ public class PrescriptionObject extends GenericOthersGui {
 
 		btnClear = new Button(getCompButtons(), SWT.NONE);
 		btnClear
-		.setToolTipText("Clique este botão para limpar os campos do formulário.");
+		.setToolTipText("Clique este botï¿½o para limpar os campos do formulï¿½rio.");
 		btnClear.setText("Limpar campos");
 		btnClear.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		btnClear
@@ -526,7 +526,7 @@ public class PrescriptionObject extends GenericOthersGui {
 
 		btnCancel = new Button(getCompButtons(), SWT.NONE);
 		btnCancel
-		.setToolTipText("Clique este botão cancelar a inserção de dados .");
+		.setToolTipText("Clique este botï¿½o cancelar a inserï¿½ï¿½o de dados .");
 		btnCancel.setText("Cancelar");
 		btnCancel.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		btnCancel

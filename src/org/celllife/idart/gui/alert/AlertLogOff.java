@@ -121,7 +121,7 @@ public class AlertLogOff extends GenericFormGui  {
 	 */
 	@Override
 	protected void createCompHeader() {
-		String headerTxt = "Alerta de Níveis de Stock";
+		String headerTxt = "Alerta de NÃ­veis de Stock";
 		iDartImage icoImage = iDartImage.PRESCRIPTIONNEW;
 		buildCompHeaderAlerta(headerTxt, icoImage);
 	}

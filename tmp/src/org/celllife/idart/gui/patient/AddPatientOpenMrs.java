@@ -1042,7 +1042,7 @@ public class AddPatientOpenMrs extends GenericFormGui implements iDARTChangeList
 			message = Messages.getString("patient.error.surname.blank"); //$NON-NLS-1$
 			txtSurname.setFocus();
 			result = false;
-		} else if (cmbDOBDay.getText().isEmpty()
+		} /*else if (cmbDOBDay.getText().isEmpty()
 				|| cmbDOBMonth.getText().isEmpty()
 				|| cmbDOBYear.getText().isEmpty()) {
 			title = Messages.getString("patient.error.missingfield.title"); //$NON-NLS-1$
@@ -1061,7 +1061,7 @@ public class AddPatientOpenMrs extends GenericFormGui implements iDARTChangeList
 			message = Messages.getString("patient.error.dobInFuture"); //$NON-NLS-1$
 			cmbDOBDay.setFocus();
 			result = false;
-		} else if (isPatientActive && (currentPrescription != null)	&& (episodeStopDate != null)) {
+		}*/ else if (isPatientActive && (currentPrescription != null)	&& (episodeStopDate != null)) {
 			// if the current prescription's capture date is after the episode
 			// stop date
 			if (iDARTUtil.before(episodeStopDate, currentPrescription.getDate())) {
@@ -1118,13 +1118,13 @@ public class AddPatientOpenMrs extends GenericFormGui implements iDARTChangeList
 		 * patientID is the package cover label, so the length of a possible
 		 * package cover label for this patient must be checked.
 		 */
-		else if (!patIdLengthOk()) {
+		/*else if (!patIdLengthOk()) {
 			title = Messages.getString("patient.error.patientIdTooLong.title"); //$NON-NLS-1$
 			message = MessageFormat.format(Messages.getString("patient.error.patientIdTooLong"), //$NON-NLS-1$
 					Barcode.getLengthForCurrentOS() - 10);
 			txtPatientId.setFocus();
 			result = false;
-		}
+		}*/
 		
 		if (localPatient.getPatientIdentifiers().isEmpty()){
 			title = Messages.getString("patient.error.patientIdsEmpty.title"); //$NON-NLS-1$
@@ -1370,11 +1370,11 @@ public class AddPatientOpenMrs extends GenericFormGui implements iDARTChangeList
 			List<String> lstFullName = RestUtils.splitName(fullName);
 			
 			//insere pacientes no idart e OpenMRS
-			Calendar cal = Calendar.getInstance();
-			cal.setTime(new SimpleDateFormat("MMM", Locale.ENGLISH).parse(cmbDOBMonth.getText().trim()));
+			//Calendar cal = Calendar.getInstance();
+			//cal.setTime(new SimpleDateFormat("MMM", Locale.ENGLISH).parse(cmbDOBMonth.getText().trim()));
 			
 			restClient.postOpenMRSPatient(cmbSex.getText().trim().equals(iDartProperties.MASCULINO) ? "M" : "F", lstFullName.get(0), lstFullName.get(1), lstFullName.get(2),  
-					cmbDOBYear.getText().trim()+"-"+String.valueOf(cal.get(Calendar.MONTH) + 1)+"-"+cmbDOBDay.getText().trim(), txtPatientId.getText().toUpperCase().trim());
+					/*cmbDOBYear.getText().trim()+"-"+String.valueOf(cal.get(Calendar.MONTH) + 1)+"-"+cmbDOBDay.getText().trim(),*/ txtPatientId.getText().toUpperCase().trim());
 			
 			conn2.inserPacienteIdart(localPatient.getPatientId(), localPatient.getFirstNames(), localPatient.getLastname(), new Date());
 			

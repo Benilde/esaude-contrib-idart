@@ -224,7 +224,7 @@ public class PatientSearch extends GenericOthersGui {
 	 */
 	@Override
 	protected void createShell() {
-		buildShell("Identifica��o de Pacientes", new Rectangle(0, 0, 600, 570));
+		buildShell("Identificação de Pacientes", new Rectangle(0, 0, 600, 570));
 	}
 
 	/**
@@ -233,7 +233,7 @@ public class PatientSearch extends GenericOthersGui {
 	 */
 	@Override
 	protected void createCompHeader() {
-		buildCompHeader("Identifica��o do Paciente", iDartImage.PATIENTINFOLABEL);
+		buildCompHeader("Identificação do Paciente", iDartImage.PATIENTINFOLABEL);
 	}
 
 	/**
@@ -358,7 +358,7 @@ public class PatientSearch extends GenericOthersGui {
 
 		TableViewerColumn value = new TableViewerColumn(viewer, SWT.NONE);
 		value.getColumn().setWidth(100);
-		value.getColumn().setText("N�mero");
+		value.getColumn().setText("Número");
 		value.getColumn().setMoveable(true);
 		value.setLabelProvider(new ColumnLabelProvider() {
 

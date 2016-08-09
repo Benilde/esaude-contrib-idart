@@ -34,6 +34,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
 import org.hibernate.Session;
+import org.celllife.idart.messages.Messages;
 
 /**
  */
@@ -135,13 +136,13 @@ public class ClinicInfoTab extends GenericTab implements IPatientTab {
 		rdBtnPregnant.setSelection(false);
 		rdBtnNotPregnant.setSelection(true);
 		btnMenstrualOccurance.clearDate();
-		btnMenstrualOccurance.setText("Não aplicável");
+		btnMenstrualOccurance.setText("Nï¿½o aplicï¿½vel");
 	}
 
 	@Override
 	public void create() {
 		this.tabItem = new TabItem(parent, style);
-		tabItem.setText("  Informação Clínica ");
+		tabItem.setText(" "+Messages.getString("patient.clinic.info")+" ");
 		createGrpClinicalInfo();
 	}
 
@@ -159,7 +160,7 @@ public class ClinicInfoTab extends GenericTab implements IPatientTab {
 		Label lblPregnant = new Label(grpPregnancy, SWT.NONE);
 		lblPregnant.setBounds(new Rectangle(11, 25, 180, 20));
 		lblPregnant.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblPregnant.setText(" Paciente está grávida actualmente?");
+		lblPregnant.setText(" Paciente estï¿½ grï¿½vida actualmente?");
 
 		// compAccStatus
 		Composite compPregnancy = new Composite(grpPregnancy, SWT.NONE);
@@ -183,13 +184,13 @@ public class ClinicInfoTab extends GenericTab implements IPatientTab {
 
 		rdBtnNotPregnant = new Button(compPregnancy, SWT.RADIO);
 		rdBtnNotPregnant.setBounds(new Rectangle(61, 0, 70, 20));
-		rdBtnNotPregnant.setText("Não");
+		rdBtnNotPregnant.setText("Nï¿½o");
 		rdBtnNotPregnant.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		rdBtnNotPregnant.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				btnMenstrualOccurance.setEnabled(false);
-				btnMenstrualOccurance.setText("Não aplicável");
+				btnMenstrualOccurance.setText("Nï¿½o aplicï¿½vel");
 			}
 		});
 		rdBtnNotPregnant.setSelection(true);
@@ -198,7 +199,7 @@ public class ClinicInfoTab extends GenericTab implements IPatientTab {
 		Label lblConfirmDate = new Label(grpPregnancy, SWT.NONE);
 		lblConfirmDate.setBounds(new Rectangle(11, 58, 144, 20));
 		lblConfirmDate.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		lblConfirmDate.setText("  Data da última mestruação:");
+		lblConfirmDate.setText("  Data da ï¿½ltima mestruaï¿½ï¿½o:");
 
 		btnMenstrualOccurance = new DateButton(grpPregnancy,
 				DateButton.ZERO_TIMESTAMP,
@@ -206,7 +207,7 @@ public class ClinicInfoTab extends GenericTab implements IPatientTab {
 		btnMenstrualOccurance.setBounds(new Rectangle(160, 51, 200, 25));
 		btnMenstrualOccurance.setFont(ResourceUtils
 				.getFont(iDartFont.VERASANS_8));
-		btnMenstrualOccurance.setText(" Não aplicável ");
+		btnMenstrualOccurance.setText(" Nï¿½o aplicï¿½vel ");
 		btnMenstrualOccurance.setEnabled(false);
 
 		lblPicPatientVisitsandStats = new Label(grpPregnancy, SWT.NONE);
@@ -214,7 +215,7 @@ public class ClinicInfoTab extends GenericTab implements IPatientTab {
 		lblPicPatientVisitsandStats.setImage(ResourceUtils
 				.getImage(iDartImage.PAVAS));
 		lblPicPatientVisitsandStats
-		.setToolTipText("Pressione este botão para inserir visitas do paciente e módulo de estatístca.");
+		.setToolTipText("Pressione este botï¿½o para inserir visitas do paciente e mï¿½dulo de estatï¿½stca.");
 		lblPicPatientVisitsandStats.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseUp(MouseEvent mu) {
@@ -287,7 +288,7 @@ public class ClinicInfoTab extends GenericTab implements IPatientTab {
 		} else {
 			rdBtnNotPregnant.setSelection(true);
 			rdBtnPregnant.setSelection(false);
-			btnMenstrualOccurance.setText("Não aplicável");
+			btnMenstrualOccurance.setText("Nï¿½o aplicï¿½vel");
 		}
 
 		Character sex = new Character(patient.getSex());
@@ -404,8 +405,8 @@ public class ClinicInfoTab extends GenericTab implements IPatientTab {
 		// if patient is pregnant, confirm date must be set
 		if ((rdBtnPregnant.getSelection())
 				&& (btnMenstrualOccurance.getDate() == null)) {
-			title = "O período da última mestruação não foi colocado";
-			message = "Se esta paciente está grávida, inserir o período da última mestruação (ou uma estimativa).";
+			title = "O perï¿½odo da ï¿½ltima mestruaï¿½ï¿½o nï¿½o foi colocado";
+			message = "Se esta paciente estï¿½ grï¿½vida, inserir o perï¿½odo da ï¿½ltima mestruaï¿½ï¿½o (ou uma estimativa).";
 			result = false;
 		}
 		Map<String, String> map = new HashMap<String, String>();

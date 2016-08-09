@@ -211,7 +211,7 @@ public class StockTakeGui extends GenericOthersGui {
 	 */
 	@Override
 	protected void createShell() {
-		String shellTxt = "Invent�rio de Stock";
+		String shellTxt = "inventário de Stock";
 		Rectangle bounds = new Rectangle(50, 50, 900, 700);
 
 		buildShell(shellTxt, bounds);
@@ -275,7 +275,7 @@ public class StockTakeGui extends GenericOthersGui {
 
 		lblHeader.setFont(ResourceUtils.getFont(iDartFont.VERASANS_14));
 		lblHeader.setBounds(new Rectangle(110, 20, 410, 30));
-		lblHeader.setText("Invent�rio de Stock");
+		lblHeader.setText("inventário de Stock");
 
 	}
 
@@ -291,12 +291,12 @@ public class StockTakeGui extends GenericOthersGui {
 		lblStockTake.setBounds(new Rectangle(0, 5, 570, 41));
 		if (currentStockTake == null) {
 			lblStockTake
-			.setText("O invent�rio de Stock ainda n�o est� iniciado. Por favor inicie o invent�rio antes de "
+			.setText("O inventário de Stock ainda não está iniciado. Por favor inicie o inventário antes de "
 					+ "lan�ar os dados.");
 			lblStockTake.setForeground(ResourceUtils.getColor(iDartColor.RED));
 		} else {
 			lblStockTake
-			.setText("Invent�rio em progresso.\nO invent�rio actual foi aberto em "
+			.setText("inventário em progresso.\nO inventário actual foi aberto em "
 					+ new SimpleDateFormat("dd-MM-yyyy")
 					.format(currentStockTake.getStartDate())
 					+ " as "
@@ -314,13 +314,13 @@ public class StockTakeGui extends GenericOthersGui {
 		btnOpenStockTake.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		btnOpenStockTake.setFocus();
 		if (currentStockTake == null) {
-			btnOpenStockTake.setText("Iniciar o Invent�rio");
+			btnOpenStockTake.setText("Iniciar o inventário");
 		} else {
-			btnOpenStockTake.setText("Encerar o Invent�rio");
+			btnOpenStockTake.setText("Encerar o inventário");
 		}
 		btnOpenStockTake.setAlignment(SWT.CENTER);
 		btnOpenStockTake
-		.setToolTipText("Pressione este bot�o para ver a fichar de invent�rio.");
+		.setToolTipText("Pressione este bot�o para ver a fichar de inventário.");
 		btnOpenStockTake.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(org.eclipse.swt.events.SelectionEvent e) {
@@ -334,7 +334,7 @@ public class StockTakeGui extends GenericOthersGui {
 
 		lblPharmacy = new Label(compSelectPharmacyAndStockTake, SWT.NONE);
 		lblPharmacy.setBounds(new Rectangle(120, 51, 149, 20));
-		lblPharmacy.setText("Farm�cia:");
+		lblPharmacy.setText("Farmácia:");
 		lblPharmacy.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		cmbPharmacy = new CCombo(compSelectPharmacyAndStockTake, SWT.BORDER);
@@ -362,16 +362,16 @@ public class StockTakeGui extends GenericOthersGui {
 		}
 
 		grpManageStockTake = new Group(getShell(), SWT.NONE);
-		grpManageStockTake.setText("Folhas da Contagem de Stock e Relat�rio de Invent�rio");
+		grpManageStockTake.setText("Folhas da Contagem de Stock e Relatório de inventário");
 		grpManageStockTake.setBounds(171, 180, 558, 55);
 		grpManageStockTake.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		btnPrintForm = new Button(grpManageStockTake, SWT.NONE);
 		btnPrintForm.setBounds(new Rectangle(10, 15, 265, 30));
 		btnPrintForm.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		btnPrintForm.setText("Gerar Folha da Contagem de para invent�rio");
+		btnPrintForm.setText("Gerar Folha da Contagem de para inventário");
 		btnPrintForm
-		.setToolTipText("Pressione este bot�o para exibir a folha de lan�amento do invent�rio.");
+		.setToolTipText("Pressione este bot�o para exibir a folha de lan�amento do inventário.");
 		btnPrintForm.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(org.eclipse.swt.events.SelectionEvent e) {
@@ -384,9 +384,9 @@ public class StockTakeGui extends GenericOthersGui {
 		btnStockReport = new Button(grpManageStockTake, SWT.NONE);
 		btnStockReport.setBounds(new Rectangle(285, 15, 265, 30));
 		btnStockReport.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
-		btnStockReport.setText("Visualizar o Relat�rio do Invent�rio");
+		btnStockReport.setText("Visualizar o Relatório do inventário");
 		btnStockReport
-		.setToolTipText("Pressione este bot�o para visualizar o Relat�rio do Invent�rio.");
+		.setToolTipText("Pressione este bot�o para visualizar o Relatório do inventário.");
 		btnStockReport.setEnabled(false);
 		btnStockReport.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -450,7 +450,7 @@ public class StockTakeGui extends GenericOthersGui {
 		}
 		lblPackSize = new Label(grpDrugInfo, SWT.NONE);
 		lblPackSize.setBounds(new Rectangle(15, 45, 130, 20));
-		lblPackSize.setText("Conte�do/Frasco:");
+		lblPackSize.setText("Conteúdo/Frasco:");
 		lblPackSize.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		txtPackSize = new Text(grpDrugInfo, SWT.BORDER);
@@ -534,7 +534,7 @@ public class StockTakeGui extends GenericOthersGui {
 			grpStockDetailsInfo.dispose();
 		}
 		grpStockDetailsInfo = new Group(getShell(), SWT.NONE);
-		grpStockDetailsInfo.setText("Informa��o de Lote" + "");
+		grpStockDetailsInfo.setText("Informação de Lote" + "");
 		grpStockDetailsInfo.setBounds(new Rectangle(54, 363, 783, 250));
 		grpStockDetailsInfo
 		.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
@@ -549,7 +549,7 @@ public class StockTakeGui extends GenericOthersGui {
 		btnZeroBatchSearch.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		btnZeroBatchSearch.setText("Procurar por lotes vazios");
 		btnZeroBatchSearch
-		.setToolTipText("Pressione este bot�o para procurar um lote que n�o tem unidade em stock.");
+		.setToolTipText("Pressione este bot�o para procurar um lote que não tem unidade em stock.");
 		btnZeroBatchSearch
 		.addSelectionListener(new org.eclipse.swt.events.SelectionAdapter() {
 			@Override
@@ -582,7 +582,7 @@ public class StockTakeGui extends GenericOthersGui {
 		clmBatchNumber.setResizable(true);
 
 		clmExpiryDate = new TableColumn(tblStockTake, SWT.NONE);
-		clmExpiryDate.setText("Data Expira��o");
+		clmExpiryDate.setText("Data Expiração");
 		clmExpiryDate.setWidth(100);
 		clmExpiryDate.setResizable(true);
 
@@ -1222,9 +1222,9 @@ public class StockTakeGui extends GenericOthersGui {
 		if (localStockCenter == null) {
 			MessageBox mPharmNull = new MessageBox(getShell(), SWT.OK
 					| SWT.ICON_WARNING);
-			mPharmNull.setText("Nenhuma farm�cia seleccionada");
+			mPharmNull.setText("Nenhuma Farmácia seleccionada");
 			mPharmNull
-			.setMessage("Seleccione a farm�cia a realizar o invent�rio");
+			.setMessage("Seleccione a Farmácia a realizar o inventário");
 			mPharmNull.open();
 			return;
 
@@ -1233,7 +1233,7 @@ public class StockTakeGui extends GenericOthersGui {
 		MessageBox mb = new MessageBox(getShell(), SWT.YES | SWT.NO
 				| SWT.ICON_INFORMATION);
 		mb.setText("Open Stock Take?");
-		mb.setMessage("Quer iniciar novo invent�rio para a farm�cia '"
+		mb.setMessage("Quer iniciar novo inventário para a farmácia '"
 				+ localStockCenter.getStockCenterName() + "'?");
 
 		switch (mb.open()) {
@@ -1255,7 +1255,7 @@ public class StockTakeGui extends GenericOthersGui {
 						| SWT.ICON_WARNING);
 				m.setText("Problemas ao gravar na base de dados");
 				m
-				.setMessage("Hou problemas ao criar o invent�rio. Tente de novo.");
+				.setMessage("Hou problemas ao criar o inventário. Tente de novo.");
 				m.open();
 				getLog().error("Hibernate Exception while opening stock take",
 						he);
@@ -1275,9 +1275,9 @@ public class StockTakeGui extends GenericOthersGui {
 			populateStockGUI();
 			enableFields(true);
 			cmbPharmacy.setEnabled(false);
-			btnOpenStockTake.setText("Encerar o Invent�rio");
+			btnOpenStockTake.setText("Encerar o inventário");
 			lblStockTake
-			.setText("Invent�rio em progresso. O invent�rio actual foi iniciado em "
+			.setText("inventário em progresso. O inventário actual foi iniciado em "
 					+ new SimpleDateFormat("dd-MM-yyyy")
 					.format(currentStockTake.getStartDate())
 					+ " as "
@@ -1303,9 +1303,9 @@ public class StockTakeGui extends GenericOthersGui {
 		// check if any adjustments were made
 		if (stockAdjustmentInStockTake.size() == 0) {
 			MessageBox mb = new MessageBox(getShell(), SWT.YES | SWT.NO);
-			mb.setText("Fecho do Invent�rio");
+			mb.setText("Fecho do inventário");
 			mb
-			.setMessage("O invent�rio actual n�o tem dados.\n\n Tem certeza que quer fechar?");
+			.setMessage("O inventário actual não tem dados.\n\n Tem certeza que quer fechar?");
 			if (mb.open() == SWT.YES) {
 				Transaction tx = null;
 
@@ -1326,7 +1326,7 @@ public class StockTakeGui extends GenericOthersGui {
 							| SWT.ICON_INFORMATION);
 					m.setText("Problemas ao remover dados da base de dados");
 					m
-					.setMessage("Houve problemas ao apagar o invent�rio da base de dados. Tente de novo.");
+					.setMessage("Houve problemas ao apagar o inventário da base de dados. Tente de novo.");
 					m.open();
 
 				}
@@ -1335,13 +1335,13 @@ public class StockTakeGui extends GenericOthersGui {
 		} else {
 
 			MessageBox mbox = new MessageBox(getShell(), SWT.YES | SWT.NO);
-			mbox.setText("Fim do Invent�rio: Aceita o c�lculo da vari�ncia?");
+			mbox.setText("Fim do inventário: Aceita o c�lculo da vari�ncia?");
 			mbox
 			.setMessage("Com base no stock contado, a varia��o actual dentro do stock � "
 					 
 					+ StockManager.getVariance(getHSession())
 					+ "\n\nSe voc� optar por aceitar essa vari�ncia, clique Yes. Os n�veis de stock, ent�o, ser�o ajustados em conformidade\n"
-					+ "Se voc� optar por n�o aceitar esta varia��o, clique No. Ent�o ser� capaz de recuperar todas contagens de stock novamente. "
+					+ "Se voc� optar por não aceitar esta varia��o, clique No. Ent�o ser� capaz de recuperar todas contagens de stock novamente. "
 					+ "");
 			if (mbox.open() == SWT.YES) {
 				Transaction tx = null;
@@ -1355,9 +1355,9 @@ public class StockTakeGui extends GenericOthersGui {
 					getHSession().flush();
 					// tx.commit();
 					MessageBox mb = new MessageBox(getShell(), SWT.YES | SWT.NO);
-					mb.setText("Relat�rio de Invent�rio de Stock");
+					mb.setText("Relatório de inventário de Stock");
 					mb
-					.setMessage("Gostaria de visualizaer o relat�rio final de invent�rio de stock?");
+					.setMessage("Gostaria de visualizaer o Relatório final de inventário de stock?");
 					if (mb.open() == SWT.YES) {
 						StockTakeReport report = new StockTakeReport(
 								getShell(), localStockCenter,
@@ -1383,7 +1383,7 @@ public class StockTakeGui extends GenericOthersGui {
 							| SWT.ICON_INFORMATION);
 					m.setText("Problemas ao graavar na base de dados");
 					m
-					.setMessage("Houve um problema ao gravar o invent�rio na base de dados. Por favor, tente novamente.");
+					.setMessage("Houve um problema ao gravar o inventário na base de dados. Por favor, tente novamente.");
 					m.open();
 
 				}

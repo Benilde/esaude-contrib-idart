@@ -74,7 +74,7 @@ public class ConfirmWithPasswordDialog extends Dialog {
 		this(
 				parent,
 				"Por favor insira a sua senha ",
-				"ATEN��O: Voc� s� deve executar esta ac��o se tiver certeza de que deseja remover as informa��es da base de dados PERMANENTEMENTE. O usu�rio que realizou esta ac��o, bem como a hora atual, ser� gravado no log de transa��es.",
+				"ATENÇÃO: Você só deve executar esta acção se tiver certeza de que deseja remover as informações da base de dados PERMANENTEMENTE. O usuário que realizou esta acção, bem como a hora atual, será gravado no log de transações.",
 				sess);
 	}
 
@@ -93,7 +93,7 @@ public class ConfirmWithPasswordDialog extends Dialog {
 				parent,
 				message,
 				"ATEN�A�: Voc� s� deve executar esta ac��o se tiver certeza de que deseja remover as informa��es da base de dados PERMANENTEMENTE. O"
-				+ " usu�rio que realizou esta ac��o, bem como a hora atual, ser� gravado no log de transa��es ",
+				+ " Usuário que realizou esta ac��o, bem como a hora atual, ser� gravado no log de transa��es ",
 				sess);
 	}
 
@@ -222,7 +222,7 @@ public class ConfirmWithPasswordDialog extends Dialog {
 
 		final Label lblUserName = new Label(compEverything, SWT.NONE);
 		lblUserName.setBounds(new Rectangle(5, 80, 80, 30));
-		lblUserName.setText("Usu�rio:");
+		lblUserName.setText("Usuário:");
 		lblUserName.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		final Text txtUserName = new Text(compEverything, SWT.BORDER);
@@ -291,7 +291,7 @@ public class ConfirmWithPasswordDialog extends Dialog {
 		});
 
 		Button btnChangeUser = new Button(compEverything, SWT.PUSH);
-		btnChangeUser.setText("Mudar Usu�rio");
+		btnChangeUser.setText("Mudar Usuário");
 		btnChangeUser.setBounds(new Rectangle(240, 140, 80, 30));
 		btnChangeUser.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 

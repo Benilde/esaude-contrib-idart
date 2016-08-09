@@ -565,7 +565,7 @@ public class GeneralAdmin extends GenericAdminGui {
 		String sheet = "Sheet1";
 		InputDialog sheetInput = new InputDialog(getShell(),
 		            "Nome do sheeet Excel", 
-		            "Por favor inserir o nome do sheet Excel para importÁ„o", 
+		            "Por favor inserir o nome do sheet Excel para importÔøΩÔøΩo", 
 		            sheet, null);
         if (sheetInput.open() == Window.OK) {
         	sheet = sheetInput.getValue();
@@ -591,14 +591,14 @@ public class GeneralAdmin extends GenericAdminGui {
 			int errorCount = task.getErrorCount();
 			if (errorCount > 0){
 				boolean open = MessageDialog.openQuestion(null, "Completado com erros", 
-						"A importaÁ„o foi completado com sucesso mas houve " +
+						"A importa√ß√£o foi completado com sucesso mas houve " +
 						+ errorCount + " erros. Quer abrir o ficheiro log de erros?");
 				if (open){
 					Program.launch(task.getErrorFile().getAbsolutePath());
 				}
 			} else {
 				MessageDialog
-				.openInformation(null, "Completado", "ImportaÁ„o completeda com successo sem" +
+				.openInformation(null, "Completado", "Importa√ß√£o completeda com successo sem" +
 						" erros");
 			}
 		} catch (InvocationTargetException e) {
@@ -660,12 +660,12 @@ public char getUserPermission(){
 		}
 		ConexaoJDBC conn=new ConexaoJDBC();
 		if(c==null){
-			//se n„o houver conexao
+			//se nÔøΩo houver conexao
 			MessageBox conexaoACCESS = new MessageBox(new Shell(), SWT.ICON_ERROR
 					| SWT.OK);
-        	conexaoACCESS.setText("Conex„o com Base de Dados SESP");
+        	conexaoACCESS.setText("Conex√£o com Base de Dados SESP");
         	conexaoACCESS
-			.setMessage("O iDART n„o est· a se conectar com o SESP.\n Por favor verifique se os cabos da rede est„o ligados no seu \ncomputador ou se o computador com SESP est· ligado!\n Saia do iDART e verifique estes apectos depois volte a entrar,\n se o problema persistir, n„o ser· possivel importar os pacientes do SESP");
+			.setMessage("O iDART n√£o est√° a se conectar com o SESP.\n Por favor verifique se os cabos da rede est√£o ligados no seu \ncomputador ou se o computador com SESP estÔøΩ ligado!\n Saia do iDART e verifique estes apectos depois volte a entrar,\n se o problema persistir, n√£o ser√° possivel importar os pacientes do SESP");
         	conexaoACCESS.open();
 			
 		}
@@ -673,9 +673,9 @@ public char getUserPermission(){
 		//se os dados estiverem sincronizados
 		MessageBox conexaoACCESS = new MessageBox(new Shell(), SWT.ICON_INFORMATION
 				| SWT.OK);
-        	conexaoACCESS.setText("ImportaÁ„o de Pacientes");
+        	conexaoACCESS.setText("Importa√ß√£o de Pacientes");
         	conexaoACCESS
-			.setMessage("TODOS PACIENTES DO SESP EST√O NO iDART");
+			.setMessage("TODOS PACIENTES DO SESP EST√ÉO NO iDART");
         	conexaoACCESS.open();
         	conn.delete_sync_temp_patients();
         	

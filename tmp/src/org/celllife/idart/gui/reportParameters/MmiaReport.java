@@ -112,7 +112,7 @@ public class MmiaReport extends GenericReportGui {
 	private void createGrpClinicSelection() {
 
 		grpPharmacySelection = new Group(getShell(), SWT.NONE);
-		grpPharmacySelection.setText("Farm�cia");
+		grpPharmacySelection.setText("Farmácia");
 		grpPharmacySelection.setFont(ResourceUtils
 				.getFont(iDartFont.VERASANS_8));
 		grpPharmacySelection.setBounds(new org.eclipse.swt.graphics.Rectangle(
@@ -120,7 +120,7 @@ public class MmiaReport extends GenericReportGui {
 
 		Label lblPharmacy = new Label(grpPharmacySelection, SWT.NONE);
 		lblPharmacy.setBounds(new Rectangle(10, 25, 140, 20));
-		lblPharmacy.setText("Selecione a farm�cia");
+		lblPharmacy.setText("Selecione a Farmácia");
 		lblPharmacy.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		cmbStockCenter = new CCombo(grpPharmacySelection, SWT.BORDER);

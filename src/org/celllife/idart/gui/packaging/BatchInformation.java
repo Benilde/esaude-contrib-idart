@@ -176,7 +176,7 @@ public class BatchInformation extends GenericFormGui {
 	 */
 	@Override
 	protected void createShell() {
-		String shellTxt = "Informação de Lote";
+		String shellTxt = "InformaÃ§Ã£o de Lote";
 		Rectangle bounds = new Rectangle(250, 100, 750, 656);
 		buildShell(shellTxt, bounds);
 		createGrpDrugInfo();
@@ -188,7 +188,7 @@ public class BatchInformation extends GenericFormGui {
 	 */
 	@Override
 	protected void createCompHeader() {
-		String headerTxt = "Informação de Lote";
+		String headerTxt = "InformaÃ§Ã£o de Lote";
 		iDartImage icoImage = iDartImage.PRESCRIPTIONADDDRUG;
 		buildCompHeader(headerTxt, icoImage);
 	}
@@ -200,13 +200,13 @@ public class BatchInformation extends GenericFormGui {
 
 		grpDrugInfo = new Group(getShell(), SWT.NONE);
 		grpDrugInfo.setBounds(new Rectangle(76, 91, 565, 158));
-		grpDrugInfo.setText("Informação do medicamento");
+		grpDrugInfo.setText("InformaÃ§Ã£o do medicamento");
 		grpDrugInfo.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		// lblDispensingInstructions1 & txtDispensingInstructions1
 		lblDispensingInstructions1 = new Label(grpDrugInfo, SWT.NONE);
 		lblDispensingInstructions1.setBounds(new Rectangle(17, 24, 181, 20));
-		lblDispensingInstructions1.setText("Instruções de toma (linha 1):");
+		lblDispensingInstructions1.setText("InstruÃ§Ãµes de toma (linha 1):");
 		lblDispensingInstructions1.setFont(ResourceUtils
 				.getFont(iDartFont.VERASANS_8));
 
@@ -218,7 +218,7 @@ public class BatchInformation extends GenericFormGui {
 		// lblDispensingInstructions2 & txtDispensingInstructions2
 		lblDispensingInstructions2 = new Label(grpDrugInfo, SWT.NONE);
 		lblDispensingInstructions2.setBounds(new Rectangle(17, 49, 181, 20));
-		lblDispensingInstructions2.setText("Instruções de toma (linha 2):");
+		lblDispensingInstructions2.setText("InstruÃ§Ãµes de toma (linha 2):");
 		lblDispensingInstructions2.setFont(ResourceUtils
 				.getFont(iDartFont.VERASANS_8));
 
@@ -251,7 +251,7 @@ public class BatchInformation extends GenericFormGui {
 
 		lblPackSize = new Label(grpDrugInfo, SWT.NONE);
 		lblPackSize.setBounds(new Rectangle(18, 124, 160, 20));
-		lblPackSize.setText("1 Frasco contém:");
+		lblPackSize.setText("1 Frasco contï¿½m:");
 		lblPackSize.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		txtPackSize = new Text(grpDrugInfo, SWT.BORDER);
@@ -272,7 +272,7 @@ public class BatchInformation extends GenericFormGui {
 	private void createGrpBatchInfo() {
 
 		grpBatchInfo = new Group(getShell(), SWT.NONE);
-		grpBatchInfo.setText("Informação de Lote");
+		grpBatchInfo.setText("InformaÃ§Ã£o de Lote");
 		grpBatchInfo.setBounds(new Rectangle(50, 263, 642, 295));
 		grpBatchInfo.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
@@ -282,9 +282,9 @@ public class BatchInformation extends GenericFormGui {
 		lblBatchTableInfo.setBounds(new Rectangle(63, 16, 503, 58));
 		lblBatchTableInfo.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 		lblBatchTableInfo
-		.setText("Note que a coluna 'Qty a Aviar' é "
+		.setText("Note que a coluna 'Qty a Aviar' Ã© "
 				+ "medido em unidades INDIVIDUAIS. \nPor exemplo, se um frasco "
-				+ "contém 60 comprimidos, e \n quer aviar 1 frasco, você deve "
+				+ "contÃ©m 60 comprimidos, e \n quer aviar 1 frasco, vocÃª deve "
 				+ "escrever 60 na coluna 'Qty a Aviar'");
 		lblBatchTableInfo.setForeground(ResourceUtils.getColor(iDartColor.RED));
 	}
@@ -302,7 +302,7 @@ public class BatchInformation extends GenericFormGui {
 		tblBatch.setFont(ResourceUtils.getFont(iDartFont.VERASANS_8));
 
 		clmBatch = new TableColumn(tblBatch, SWT.NONE);
-		clmBatch.setText("Lote Nº");
+		clmBatch.setText("Lote Nï¿½");
 
 		clmBatch.setWidth(60);
 		clmBatch.setResizable(true);
@@ -318,7 +318,7 @@ public class BatchInformation extends GenericFormGui {
 		clmUnitsOnHand.setResizable(true);
 
 		clmShelfNo = new TableColumn(tblBatch, SWT.NONE);
-		clmShelfNo.setText("Nº da Prateleira");
+		clmShelfNo.setText("Nï¿½ da Prateleira");
 		clmShelfNo.setWidth(55);
 		clmShelfNo.setResizable(true);
 
@@ -657,11 +657,11 @@ public class BatchInformation extends GenericFormGui {
 					if (Integer.parseInt(ti.getText(4)) > pillsAvailable) {
 						MessageBox noStock = new MessageBox(getShell(), SWT.OK
 								| SWT.ICON_ERROR);
-						noStock.setText("Não há stock neste lote");
+						noStock.setText("Nï¿½o hï¿½ stock neste lote");
 						noStock
-						.setMessage("Não há stock suficiente disponível no lote Nº '"
+						.setMessage("Nï¿½o hï¿½ stock suficiente disponï¿½vel no lote Nï¿½ '"
 								+ ti.getText(0)
-								+ "'. Há "
+								+ "'. Hï¿½ "
 								+ ti.getText(2)
 								+ " unidades em saldo. Escolhe o stock em um lote diferente.");
 						noStock.open();
@@ -743,9 +743,9 @@ public class BatchInformation extends GenericFormGui {
 		catch (NumberFormatException ne) {
 			MessageBox invalidQuantity = new MessageBox(getShell(), SWT.OK
 					| SWT.ICON_ERROR);
-			invalidQuantity.setText("Quantidade Inválida");
+			invalidQuantity.setText("Quantidade Invï¿½lida");
 			invalidQuantity
-			.setMessage("Especificar a quantidade à  aviar");
+			.setMessage("Especificar a quantidade ï¿½  aviar");
 			invalidQuantity.open();
 			TableItem ti = tblBatch.getItem(index - 1);
 			ti.setText(4, "0");
