@@ -1,0 +1,9 @@
+target
+tmp
+docs
+Reports/*.jasper
+Pharmacy.jar
+idart.log
+.idea/
+.java-version
+idart.properties
