@@ -1,4 +1,6 @@
 sudo: required
+language: java
+jdk: openjdk6
 services:
 - docker
 env:
@@ -13,7 +15,7 @@ before_install:
 - sudo mv docker-compose /usr/local/bin
 script:
 - cd docker
-- docker-compose -f docker-compose-idart.yml build
+- sh ./build-docker-images.sh
 after_script:
 - docker images
 deploy:
