@@ -1,0 +1,16 @@
+version: '2'
+services:
+  idart-java:
+    build:
+      context: ../
+      dockerfile: docker/idart-java/dockerfile-idart-java
+    container_name: idart-java
+    environment:
+      - DISPLAY
+    depends_on:
+      - idart-postgres
+  idart-postgres:
+    build:
+      context: ../
+      dockerfile: docker/idart-postgres/dockerfile-idart-postgres
+    container_name: idart-postgres
