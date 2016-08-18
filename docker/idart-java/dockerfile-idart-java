@@ -1,0 +1,23 @@
+# Run:
+#   docker run -e DISPLAY=192.168.99.1:0 --link idart-postgres:idart-postgres idart-java
+#
+# Use IP address of vboxnet0 on host machine. You can get it using something like:
+#  ifconfig vboxnet0 | grep 'inet' | cut -d' ' -f2
+
+FROM java:6-jdk
+MAINTAINER eSaude Infrastructure <ops@esaude.org>
+
+ADD target/lib/ /opt/idart/lib/
+ADD img/ /opt/idart/img/
+ADD Reports/ /opt/idart/Reports
+ADD Pharmacy.jar /opt/idart/Pharmacy.jar
+ADD log4j.xml /opt/idart/log4j.xml
+ADD idart.properties /opt/idart/idart.properties
+ADD sms.properties /opt/idart/sms.properties
+ADD docker/idart-java/launch_docker.sh /opt/idart/launch_docker.sh
+ADD docker/idart-java/wait-for-it.sh /opt/idart/wait-for-it.sh
+ADD https://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops4/R-4.5-201506032000/swt-4.5-gtk-linux-x86_64.zip /opt/idart/swt.zip
+
+WORKDIR /opt/idart
+
+CMD /opt/idart/launch_docker.sh

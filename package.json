@@ -1,0 +1,20 @@
+{
+  "name": "esaude-contrib-idart",
+  "version": "1.0.0",
+  "description": "eSaude iDart Fork",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esaude/esaude-contib-idart.git"
+  },
+  "scripts": {
+    "create-version": "node scripts/create-version.js",
+    "publish-version": "git tag $(node -e \"console.log(require('./package.json').version);\") && git push && git push --tags"
+  },
+  "keywords": [
+    "esaude",
+    "idart"
+  ],
+  "author": "eSaude Infrastructure <ops@esaude.org> (http://esaude.org)",
+  "license": "MPL-2.0",
+  "homepage": "https://github.com/esaude/esaude-contib-idart#readme"
+}

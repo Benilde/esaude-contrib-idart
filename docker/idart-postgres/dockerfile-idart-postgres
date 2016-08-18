@@ -1,0 +1,10 @@
+# Run:
+#  docker run -p 5432:5432 idart-postgres
+
+FROM kiasaki/alpine-postgres:latest
+MAINTAINER eSaude Infrastructure <ops@esaude.org>
+
+ENV POSTGRES_PASSWORD=postgres \
+    POSTGRES_DB=idart
+
+ADD docker/idart-postgres/idart.sql /docker-entrypoint-initdb.d/idart.sql

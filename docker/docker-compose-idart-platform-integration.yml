@@ -1,0 +1,26 @@
+version: '2'
+services:
+  idart-java:
+    build:
+      context: ../
+      dockerfile: docker/idart-java/dockerfile-idart-java
+    container_name: idart-java
+    environment:
+      - DISPLAY
+    depends_on:
+      - idart-postgres
+  idart-postgres:
+    build:
+      context: ../
+      dockerfile: docker/idart-postgres/dockerfile-idart-postgres
+    container_name: idart-postgres
+  esaude-platform-tomcat:
+    image: esaude-docker-platform-docker.bintray.io/tomcat:1.2.5
+    ports:
+      - "8080:8080"
+    container_name: esaude-platform-tomcat
+    depends_on:
+      - esaude-platform-mysql
+  esaude-platform-mysql:
+    image: esaude-docker-platform-docker.bintray.io/mysql:1.2.5
+    container_name: esaude-platform-mysql
