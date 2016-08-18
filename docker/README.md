@@ -23,11 +23,24 @@ Make sure you have [Docker](https://docs.docker.com/) and
 
 ## Running iDart
 
+> **:bulb: Ubuntu users must first run `xhost local:root` to enable X11 forwarding**
+
 On Linux you should just be able to run:
 
+```sh
+docker-compose -f docker-compose-idart-prebuilt.yml up
 ```
+
+or if you want to build your own images:
+
+```sh
 docker-compose -f docker-compose-idart.yml up
 ```
+
+#### Login details
+
+ * User: **admin**
+ * Pass: **123**
 
 Read below for more information and instructions for macOS. See the next section
 for instructions for running the complete iDart eSaude Platform integration.
@@ -43,22 +56,24 @@ and the GUI will be rendered using native SWT bindings in the container, but wil
 displayed on your host machine by forwarding to the X11 server running on your
 host.
 
-This forwarding mechanism is configured using the `DISPLAY` environment variable.
-This variable should contain the IP address of your host machine.
+This forwarding mechanism is configured using the `DISPLAY` environment variable as well as the `/tmp/.X11-unix` data volume.
 
-In Linux this variable should already be set up for you, so you shouldn't have
-to do anything to make it work. On macOS, you'll need [XQuartz](http://xquartz.macosforge.org/landing/) and [socat](http://linux.die.net/man/1/socat) installed (`brew install socat`).
+In Linux the `DISPLAY` variable should already be set up for you, so you shouldn't have
+to do anything to make it work. If you are on Ubuntu you will probably need to
+run `xhost local:root` to give the `root` user access to the X11 socket.
+
+On macOS, you'll need [XQuartz](http://xquartz.macosforge.org/landing/) and [socat](http://linux.die.net/man/1/socat) installed (`brew install socat`).
 
 Run XQuarts, then create a socket redirect as follows:
 
-```
+```sh
 socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
 ```
 
 You'll then need to set the `DISPLAY` variable to your IP address on the `vboxnet0`
 interface:
 
-```
+```sh
 export DISPLAY=192.168.99.1:0
 ```
 
@@ -73,13 +88,26 @@ ifconfig vboxnet0 | grep 'inet' | cut -d' ' -f2
 
 ## Running iDart Platform Integration
 
+> **:bulb: Ubuntu users must first run `xhost local:root` to enable X11 forwarding**
+
 Set up the complete iDart eSaude Platform integration by running:
 
+```sh
+docker-compose -f docker-compose-idart-platform-integration-prebuilt.yml up
 ```
+
+or if you want to build your own images:
+
+```sh
 docker-compose -f docker-compose-idart-platform-integration.yml up
 ```
 
 :pushpin: Make sure you have no existing platform containers running.
+
+#### Login details
+
+ * User: **admin**
+ * Pass: **123**
 
 ## Building
 
@@ -114,7 +142,7 @@ EMR Platform.
 When building the iDart Docker images, please make sure that [`jdbc.properties`](../src/jdbc.properties)
 contains contains the following:
 
-```
+```properties
 urlBase=http://esaude-emr-tomcat:8080/openmrs/ws/rest/v1/
 userName=admin
 password=eSaude123
@@ -123,16 +151,16 @@ password=eSaude123
 The following database properties should exist in `build.properties`
 when building iDart in preparation for building the Docker images:
 
-```
+```properties
 database.username=postgres
 database.password=postgres
-database.url = jdbc:postgresql://${database.host}:5432/${database.name}
+database.url=jdbc:postgresql://${database.host}:5432/${database.name}
 ```
 
 The following properties are specified on the commandline by the [`build-docker-images.sh`](build-docker-images.sh)
 script:
 
-```
+```properties
 database.name=idart
 database.host=idart-postgres
 ```
