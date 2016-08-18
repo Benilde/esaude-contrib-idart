@@ -20,7 +20,7 @@ after_script:
 - docker images
 deploy:
   provider: script
-  script: scripts/publish-images.sh
+  script: ../scripts/publish-images.sh
   on:
     tags: true
   skip_cleanup: true
